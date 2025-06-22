@@ -1,6 +1,6 @@
 # Daily Information Retrieval Papers
 
-A curated list of daily papers related to Information Retrieval.
+A daily-updated archive of new papers in Information Retrieval, curated from arXiv.
 
 ## 2025
 

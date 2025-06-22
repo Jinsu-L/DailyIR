@@ -1,6 +1,7 @@
 # Daily Information Retrieval Papers
 
-A daily-updated archive of new papers in Information Retrieval, curated from arXiv.
+An automated, curated feed of daily arXiv papers related to Information Retrieval (IR).  
+Updated on weekdays based on arXiv release schedule.
 
 ## 2025
 

@@ -5,6 +5,7 @@ A curated list of daily papers related to Information Retrieval.
 ## 2025
 
 ### August
+- [2025-08-19](./reports/2025-08/2025-08-19.md)
 - [2025-08-18](./reports/2025-08/2025-08-18.md)
 - [2025-08-17](./reports/2025-08/2025-08-17.md)
 - [2025-08-14](./reports/2025-08/2025-08-14.md)

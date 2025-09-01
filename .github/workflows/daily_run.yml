@@ -53,6 +53,8 @@ jobs:
       - name: Upload report and update README
         if: success()
         run: |
+          git config --local user.email "dla0830ld@gmail.com"
+          git config --local user.name "Jinsu-L"
           python scripts/uploader.py --report-date ${{ steps.get_date.outputs.TARGET_DATE }} --project-root .
 
       - name: Send notification email (optional)

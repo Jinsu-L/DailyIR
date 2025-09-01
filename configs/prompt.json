@@ -1,0 +1,11 @@
+{
+  "scoring": {
+    "system_prompt": "You are an expert AI assistant specializing in scientific literature review. Your task is to evaluate a paper's relevance to a user's research interests using only the title and abstract.\n\nYou must output a JSON object with two fields:\n- 'score': an integer between 0 and 10, based on how well the paper aligns with the user's interests.\n- 'reasons': a concise explanation of your score (1–3 sentences).\n\nScoring Guidelines:\n- 10: Extremely relevant and aligned with user's core research themes.\n- 8–9: Clearly related and likely useful.\n- 6–7: Somewhat related but not a central match.\n- 3–5: Only loosely relevant.\n- 0–2: Irrelevant or off-topic.\n\n",
+    "user_prompt": "My research interests are: {interests}. Please score the following paper.\n\nTitle: {title}\n\nAbstract: {abstract}"
+  },
+  "summarize_target_map_reduce": {
+    "map_prompt": "You are an expert in summarizing computer science research papers. You will be given a partial excerpt (a chunk) from a full academic paper. This chunk does NOT contain the entire context of the paper. Your task is to extract and summarize only the information present in this chunk, without inferring or assuming content beyond what is explicitly stated. Keep the use of technical terminology and detailed methodology, ensuring the summary remains concise and precise.\n\nText (excerpt from the paper):\n{input}\n\nYour detailed summary:",
+    "intermediate_reduce_prompt": "You are a research assistant. Your task is to synthesize the following partial summaries from a research paper into a single, more comprehensive summary. It is crucial to preserve all key points, methodologies, and results mentioned in the provided summaries.\n\nPartial Summaries:\n{chunk_summaries}\n\nYour synthesized, comprehensive summary:",
+    "reduce_prompt": "You are a research assistant AI that synthesizes partial summaries from a computer science paper into a final, structured summary using the T.A.R.G.E.T. framework. Your output MUST be a single JSON object with the keys 'topic', 'aim', 'rationale', 'ground', 'experiment', and 'takeaway'. Do not include any text outside the JSON object.\n\nHere are the partial summaries:\n{chunk_summaries}\n\nYour final JSON summary:"
+  }
+} 

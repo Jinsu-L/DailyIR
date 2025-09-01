@@ -1,0 +1,13 @@
+version: "3"
+services:
+  dailyir:
+    build: .
+    volumes:
+      - ./configs:/app/configs
+      - ./data:/app/data
+      - ./reports:/app/reports
+      - ./logs:/app/logs
+    env_file:
+      - .env.local
+    environment:
+      - CONFIG_PATH=/app/configs/config.yaml

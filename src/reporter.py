@@ -19,12 +19,13 @@ class MarkdownReporter:
             logging.warning("No relevant papers to report.")
             return
 
-        # 리포트 디렉토리 생성
-        report_dir = os.path.join(project_root, self.report_path)
+        # 리포트 디렉토리 생성 (연-월 폴더 구조)
+        target_date_str = target_date.strftime("%Y-%m-%d")
+        year_month = target_date.strftime("%Y-%m")
+        report_dir = os.path.join(project_root, self.report_path, year_month)
         os.makedirs(report_dir, exist_ok=True)
         
         # 리포트 파일 경로 설정
-        target_date_str = target_date.strftime("%Y-%m-%d")
         report_filepath = os.path.join(report_dir, f"{target_date_str}.md")
         
         # Top-N 논문 선택

@@ -155,7 +155,10 @@ def upload_to_same_repo(target_date: datetime.date, project_root: str):
             commit_message = f"Add report and data for {date_str}"
             run_command(['git', 'commit', '-m', commit_message], cwd=project_root)
             
-            logging.info(f"Successfully committed changes for {date_str}")
+            # Git push
+            run_command(['git', 'push', 'origin', 'main'], cwd=project_root)
+            
+            logging.info(f"Successfully committed and pushed changes for {date_str}")
             
         except subprocess.CalledProcessError as e:
             if "nothing to commit" in str(e.stderr):
@@ -185,4 +188,9 @@ def main():
     logging.info("Upload process completed successfully")
 
 if __name__ == "__main__":
+    # 로깅 설정 추가
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(levelname)s - %(message)s'
+    )
     main()

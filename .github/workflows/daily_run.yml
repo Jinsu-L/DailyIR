@@ -50,6 +50,40 @@ jobs:
         run: |
           python main.py --date ${{ steps.get_date.outputs.TARGET_DATE }} --window-based-fetch
 
+      - name: Debug - Check generated files
+        if: success()
+        run: |
+          TARGET_DATE="${{ steps.get_date.outputs.TARGET_DATE }}"
+          YEAR_MONTH=$(date -d "$TARGET_DATE" +%Y-%m)
+          REPORT_FILE_PATH="reports/$YEAR_MONTH/$TARGET_DATE.md"
+          
+          echo "=== File System Check ==="
+          echo "Target date: $TARGET_DATE"
+          echo "Expected report path: $REPORT_FILE_PATH"
+          echo "Current directory: $(pwd)"
+          
+          echo -e "\n=== Reports Directory Structure ==="
+          ls -la reports/ || echo "reports/ directory does not exist"
+          
+          echo -e "\n=== Year-Month Directory ==="
+          ls -la "reports/$YEAR_MONTH/" || echo "reports/$YEAR_MONTH/ directory does not exist"
+          
+          echo -e "\n=== Report File Check ==="
+          if [ -f "$REPORT_FILE_PATH" ]; then
+            echo "Report file exists: $REPORT_FILE_PATH"
+            echo "File size: $(wc -c < "$REPORT_FILE_PATH") bytes"
+            echo "Line count: $(wc -l < "$REPORT_FILE_PATH") lines"
+            echo -e "\n=== First 20 lines of report ==="
+            head -20 "$REPORT_FILE_PATH"
+            echo -e "\n=== Paper count check ==="
+            grep -c "^### [0-9]" "$REPORT_FILE_PATH" || echo "No papers found in report"
+          else
+            echo "Report file does not exist: $REPORT_FILE_PATH"
+          fi
+          
+          echo -e "\n=== Git Status Before Upload ==="
+          git status
+
       - name: Upload report and update README
         if: success()
         run: |

@@ -93,8 +93,8 @@ jobs:
           git config --local user.name "Jinsu-L"
           python scripts/uploader.py --report-date ${{ steps.get_date.outputs.TARGET_DATE }} --project-root .
 
-      - name: Send notification email (optional)
-        if: success() && vars.ENABLE_EMAIL_NOTIFICATIONS == 'true'
+      - name: Send notification email
+        if: success()
         env:
           MAIL_RECIPIENTS: ${{ secrets.MAIL_RECIPIENTS }}
           GMAIL_USER: ${{ secrets.GMAIL_USER }}

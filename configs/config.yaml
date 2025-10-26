@@ -123,13 +123,13 @@ summarizer:
   # Map 단계: 사용자가 선택한 모델을 기본으로 하되, TPM이 높은 모델을 최우선 폴백으로 지정
   map_model: "llama3-8b-8192"
   map_fallback_list:
-    - "gemma2-9b-it"          # 1차 폴백: TPM 한도가 높아 안정적
+    - "openai/gpt-oss-20b"          # 1차 폴백: TPM 한도가 높아 안정적
     - "llama-3.1-8b-instant"  # 2차 폴백: 빠른 모델
   # Reduce 단계: 최종 결과물의 품질을 위해 최고 성능 모델을 기본으로 사용
   reduce_model: "llama3-70b-8192"
   reduce_fallback_list:
     - "llama3-8b-8192"        # 1차 폴백: 균형잡힌 모델
-    - "gemma2-9b-it"          # 2차 폴백: 안정적인 모델
+    - "openai/gpt-oss-20b"          # 2차 폴백: 안정적인 모델
   temperature: 0.2
   chunk_size: 4000
   chunk_overlap: 400

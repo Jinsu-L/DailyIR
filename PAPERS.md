@@ -5,6 +5,7 @@ A curated list of daily papers related to Information Retrieval.
 ## 2025
 
 ### October
+- [2025-10-30](./reports/2025-10/2025-10-30.md)
 - [2025-10-29](./reports/2025-10/2025-10-29.md)
 - [2025-10-28](./reports/2025-10/2025-10-28.md)
 - [2025-10-27](./reports/2025-10/2025-10-27.md)

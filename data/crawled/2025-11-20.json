@@ -1,0 +1,863 @@
+[
+    {
+        "title": "Tokenisation over Bounded Alphabets is Hard",
+        "abstract": "Recent works have shown that tokenisation is NP-complete. However, these works assume tokenisation is applied to inputs with unboundedly large alphabets -- an unrealistic assumption, given that in practice tokenisers operate over fixed-size alphabets, such as bytes or Unicode characters. We close this gap by analysing tokenisation over bounded $n$-ary alphabets, considering two natural variants: bottom-up tokenisation and direct tokenisation, where we must, respectively, select a sequence of merge operations or a vocabulary whose application optimally compresses a dataset. First, we note that proving hardness results for an $n$-ary alphabet proves the same results for alphabets of any larger size. We then prove that even with binary alphabets, both variants are not only NP-complete, but admit no polynomial-time approximation scheme (unless P=NP). We further show that direct tokenisation remains NP-complete even when applied to unary alphabets. While unary alphabets may not be practically useful, this result establishes that the computational intractability of tokenisation is not an artifact of large alphabets or complex constructions, but a fundamental barrier. Overall, our results explain why practical algorithms such as BPE and UnigramLM are heuristic, and points toward approximation algorithms being an important path going forward for tokenisation research.",
+        "url": "http://arxiv.org/abs/2511.15709v1",
+        "pdf_url": "https://arxiv.org/pdf/2511.15709v1",
+        "arxiv_id": "2511.15709v1",
+        "authors": [
+            "Violeta Kastreva",
+            "Philip Whittington",
+            "Dennis Komm",
+            "Tiago Pimentel"
+        ],
+        "submitted": "2025-11-19 18:59:56",
+        "source": "arxiv",
+        "comment": null
+    },
+    {
+        "title": "Think Visually, Reason Textually: Vision-Language Synergy in ARC",
+        "abstract": "Abstract reasoning from minimal examples remains a core unsolved problem for frontier foundation models such as GPT-5 and Grok 4. These models still fail to infer structured transformation rules from a handful of examples, which is a key hallmark of human intelligence. The Abstraction and Reasoning Corpus for Artificial General Intelligence (ARC-AGI) provides a rigorous testbed for this capability, demanding conceptual rule induction and transfer to novel tasks. Most existing methods treat ARC-AGI as a purely textual reasoning task, overlooking the fact that humans rely heavily on visual abstraction when solving such puzzles. However, our pilot experiments reveal a paradox: naively rendering ARC-AGI grids as images degrades performance due to imprecise rule execution. This leads to our central hypothesis that vision and language possess complementary strengths across distinct reasoning stages: vision supports global pattern abstraction and verification, whereas language specializes in symbolic rule formulation and precise execution. Building on this insight, we introduce two synergistic strategies: (1) Vision-Language Synergy Reasoning (VLSR), which decomposes ARC-AGI into modality-aligned subtasks; and (2) Modality-Switch Self-Correction (MSSC), which leverages vision to verify text-based reasoning for intrinsic error correction. Extensive experiments demonstrate that our approach yields up to a 4.33% improvement over text-only baselines across diverse flagship models and multiple ARC-AGI tasks. Our findings suggest that unifying visual abstraction with linguistic reasoning is a crucial step toward achieving generalizable, human-like intelligence in future foundation models. Source code will be released soon.",
+        "url": "http://arxiv.org/abs/2511.15703v1",
+        "pdf_url": "https://arxiv.org/pdf/2511.15703v1",
+        "arxiv_id": "2511.15703v1",
+        "authors": [
+            "Beichen Zhang",
+            "Yuhang Zang",
+            "Xiaoyi Dong",
+            "Yuhang Cao",
+            "Haodong Duan",
+            "Dahua Lin",
+            "Jiaqi Wang"
+        ],
+        "submitted": "2025-11-19 18:59:04",
+        "source": "arxiv",
+        "comment": null
+    },
+    {
+        "title": "MoDES: Accelerating Mixture-of-Experts Multimodal Large Language Models via Dynamic Expert Skipping",
+        "abstract": "Mixture-of-Experts (MoE) Multimodal large language models (MLLMs) excel at vision-language tasks, but they suffer from high computational inefficiency. To reduce inference overhead, expert skipping methods have been proposed to deactivate redundant experts based on the current input tokens. However, we find that applying these methods-originally designed for unimodal large language models (LLMs)-to MLLMs results in considerable performance degradation. This is primarily because such methods fail to account for the heterogeneous contributions of experts across MoE layers and modality-specific behaviors of tokens within these layers. Motivated by these findings, we propose MoDES, the first training-free framework that adaptively skips experts to enable efficient and accurate MoE MLLM inference. It incorporates a globally-modulated local gating (GMLG) mechanism that integrates global layer-wise importance into local routing probabilities to accurately estimate per-token expert importance. A dual-modality thresholding (DMT) method is then applied, which processes tokens from each modality separately, to derive the skipping schedule. To set the optimal thresholds, we introduce a frontier search algorithm that exploits monotonicity properties, cutting convergence time from several days to a few hours. Extensive experiments for 3 model series across 13 benchmarks demonstrate that MoDES far outperforms previous approaches. For instance, when skipping 88% experts for Qwen3-VL-MoE-30B-A3B-Instruct, the performance boost is up to 10.67% (97.33% vs. 86.66%). Furthermore, MoDES significantly enhances inference speed, improving the prefilling time by 2.16$\\times$ and the decoding time by 1.26$\\times$.",
+        "url": "http://arxiv.org/abs/2511.15690v1",
+        "pdf_url": "https://arxiv.org/pdf/2511.15690v1",
+        "arxiv_id": "2511.15690v1",
+        "authors": [
+            "Yushi Huang",
+            "Zining Wang",
+            "Zhihang Yuan",
+            "Yifu Ding",
+            "Ruihao Gong",
+            "Jinyang Guo",
+            "Xianglong Liu",
+            "Jun Zhang"
+        ],
+        "submitted": "2025-11-19 18:48:27",
+        "source": "arxiv",
+        "comment": "Code will be released upon acceptance"
+    },
+    {
+        "title": "VisPlay: Self-Evolving Vision-Language Models from Images",
+        "abstract": "Reinforcement learning (RL) provides a principled framework for improving Vision-Language Models (VLMs) on complex reasoning tasks. However, existing RL approaches often rely on human-annotated labels or task-specific heuristics to define verifiable rewards, both of which are costly and difficult to scale. We introduce VisPlay, a self-evolving RL framework that enables VLMs to autonomously improve their reasoning abilities using large amounts of unlabeled image data. Starting from a single base VLM, VisPlay assigns the model into two interacting roles: an Image-Conditioned Questioner that formulates challenging yet answerable visual questions, and a Multimodal Reasoner that generates silver responses. These roles are jointly trained with Group Relative Policy Optimization (GRPO), which incorporates diversity and difficulty rewards to balance the complexity of generated questions with the quality of the silver answers. VisPlay scales efficiently across two model families. When trained on Qwen2.5-VL and MiMo-VL, VisPlay achieves consistent improvements in visual reasoning, compositional generalization, and hallucination reduction across eight benchmarks, including MM-Vet and MMMU, demonstrating a scalable path toward self-evolving multimodal intelligence. The project page is available at https://bruno686.github.io/VisPlay/",
+        "url": "http://arxiv.org/abs/2511.15661v2",
+        "pdf_url": "https://arxiv.org/pdf/2511.15661v2",
+        "arxiv_id": "2511.15661v2",
+        "authors": [
+            "Yicheng He",
+            "Chengsong Huang",
+            "Zongxia Li",
+            "Jiaxin Huang",
+            "Yonghui Yang"
+        ],
+        "submitted": "2025-11-19 17:55:15",
+        "source": "arxiv",
+        "comment": null
+    },
+    {
+        "title": "When to Think and When to Look: Uncertainty-Guided Lookback",
+        "abstract": "Test-time thinking (that is, generating explicit intermediate reasoning chains) is known to boost performance in large language models and has recently shown strong gains for large vision language models (LVLMs). However, despite these promising results, there is still no systematic analysis of how thinking actually affects visual reasoning. We provide the first such analysis with a large scale, controlled comparison of thinking for LVLMs, evaluating ten variants from the InternVL3.5 and Qwen3-VL families on MMMU-val under generous token budgets and multi pass decoding. We show that more thinking is not always better; long chains often yield long wrong trajectories that ignore the image and underperform the same models run in standard instruct mode. A deeper analysis reveals that certain short lookback phrases, which explicitly refer back to the image, are strongly enriched in successful trajectories and correlate with better visual grounding. Building on this insight, we propose uncertainty guided lookback, a training free decoding strategy that combines an uncertainty signal with adaptive lookback prompts and breadth search. Our method improves overall MMMU performance, delivers the largest gains in categories where standard thinking is weak, and outperforms several strong decoding baselines, setting a new state of the art under fixed model families and token budgets. We further show that this decoding strategy generalizes, yielding consistent improvements on five additional benchmarks, including two broad multimodal suites and math focused visual reasoning datasets.",
+        "url": "http://arxiv.org/abs/2511.15613v1",
+        "pdf_url": "https://arxiv.org/pdf/2511.15613v1",
+        "arxiv_id": "2511.15613v1",
+        "authors": [
+            "Jing Bi",
+            "Filippos Bellos",
+            "Junjia Guo",
+            "Yayuan Li",
+            "Chao Huang",
+            "Yunlong",
+            "Tang",
+            "Luchuan Song",
+            "Susan Liang",
+            "Zhongfei",
+            "Zhang",
+            "Jason J. Corso",
+            "Chenliang Xu"
+        ],
+        "submitted": "2025-11-19 17:01:02",
+        "source": "arxiv",
+        "comment": null
+    },
+    {
+        "title": "SRPO: Self-Referential Policy Optimization for Vision-Language-Action Models",
+        "abstract": "Vision-Language-Action (VLA) models excel in robotic manipulation but are constrained by their heavy reliance on expert demonstrations, leading to demonstration bias and limiting performance. Reinforcement learning (RL) is a vital post-training strategy to overcome these limits, yet current VLA-RL methods, including group-based optimization approaches, are crippled by severe reward sparsity. Relying on binary success indicators wastes valuable information in failed trajectories, resulting in low training efficiency. To solve this, we propose Self-Referential Policy Optimization (SRPO), a novel VLA-RL framework. SRPO eliminates the need for external demonstrations or manual reward engineering by leveraging the model's own successful trajectories, generated within the current training batch, as a self-reference. This allows us to assign a progress-wise reward to failed attempts. A core innovation is the use of latent world representations to measure behavioral progress robustly. Instead of relying on raw pixels or requiring domain-specific fine-tuning, we utilize the compressed, transferable encodings from a world model's latent space. These representations naturally capture progress patterns across environments, enabling accurate, generalized trajectory comparison. Empirical evaluations on the LIBERO benchmark demonstrate SRPO's efficiency and effectiveness. Starting from a supervised baseline with 48.9% success, SRPO achieves a new state-of-the-art success rate of 99.2% in just 200 RL steps, representing a 103% relative improvement without any extra supervision. Furthermore, SRPO shows substantial robustness, achieving a 167% performance improvement on the LIBERO-Plus benchmark.",
+        "url": "http://arxiv.org/abs/2511.15605v1",
+        "pdf_url": "https://arxiv.org/pdf/2511.15605v1",
+        "arxiv_id": "2511.15605v1",
+        "authors": [
+            "Senyu Fei",
+            "Siyin Wang",
+            "Li Ji",
+            "Ao Li",
+            "Shiduo Zhang",
+            "Liming Liu",
+            "Jinlong Hou",
+            "Jingjing Gong",
+            "Xianzhong Zhao",
+            "Xipeng Qiu"
+        ],
+        "submitted": "2025-11-19 16:52:23",
+        "source": "arxiv",
+        "comment": null
+    },
+    {
+        "title": "HSKBenchmark: Modeling and Benchmarking Chinese Second Language Acquisition in Large Language Models through Curriculum Tuning",
+        "abstract": "Language acquisition is vital to revealing the nature of human language intelligence and has recently emerged as a promising perspective for improving the interpretability of large language models (LLMs). However, it is ethically and practically infeasible to conduct experiments that require controlling human learners' language inputs. This poses challenges for the verifiability and scalability of language acquisition modeling, particularly in Chinese second language acquisition (SLA). While LLMs provide a controllable and reproducible alternative, a systematic benchmark to support phase-wise modeling and assessment is still lacking. In this paper, we present HSKBenchmark, the first benchmark for staged modeling and writing assessment of LLMs in Chinese SLA. It covers HSK levels 3 to 6 and includes authentic textbooks with 6.76 million tokens, 16K synthetic instruction samples, 30 test topics, and a linguistically grounded evaluation system. To simulate human learning trajectories, we introduce a curriculum-tuning framework that trains models from beginner to advanced levels. An evaluation system is created to examine level-based grammar coverage, writing errors, lexical and syntactic complexity, and holistic scoring. We also build HSKAgent, fine-tuned on 10K learner compositions. Extensive experimental results demonstrate that HSKBenchmark not only models Chinese SLA effectively, but also serves as a reliable benchmark for dynamic writing assessment in LLMs. Our fine-tuned LLMs have writing performance on par with advanced human learners and exhibit human-like acquisition characteristics. The HSKBenchmark, HSKAgent, and checkpoints serve as foundational tools and resources, with the potential to pave the way for future research on language acquisition modeling and LLMs interpretability. Code and data are publicly available at: https://github.com/CharlesYang030/HSKB.",
+        "url": "http://arxiv.org/abs/2511.15574v1",
+        "pdf_url": "https://arxiv.org/pdf/2511.15574v1",
+        "arxiv_id": "2511.15574v1",
+        "authors": [
+            "Qihao Yang",
+            "Xuelin Wang",
+            "Jiale Chen",
+            "Xuelian Dong",
+            "Yuxin Hao",
+            "Tianyong Hao"
+        ],
+        "submitted": "2025-11-19 16:06:06",
+        "source": "arxiv",
+        "comment": "Accepted by AAAI-2026"
+    },
+    {
+        "title": "Computer-Use Agents as Judges for Generative User Interface",
+        "abstract": "Computer-Use Agents (CUA) are becoming increasingly capable of autonomously operating digital environments through Graphical User Interfaces (GUI). Yet, most GUI remain designed primarily for humans--prioritizing aesthetics and usability--forcing agents to adopt human-oriented behaviors that are unnecessary for efficient task execution. At the same time, rapid advances in coding-oriented language models (Coder) have transformed automatic GUI design. This raises a fundamental question: Can CUA as judges to assist Coder for automatic GUI design? To investigate, we introduce AUI-Gym, a benchmark for Automatic GUI development spanning 52 applications across diverse domains. Using language models, we synthesize 1560 tasks that simulate real-world scenarios. To ensure task reliability, we further develop a verifier that programmatically checks whether each task is executable within its environment. Building on this, we propose a Coder-CUA in Collaboration framework: the Coder acts as Designer, generating and revising websites, while the CUA serves as Judge, evaluating functionality and refining designs. Success is measured not by visual appearance, but by task solvability and CUA navigation success rate. To turn CUA feedback into usable guidance, we design a CUA Dashboard that compresses multi-step navigation histories into concise visual summaries, offering interpretable guidance for iterative redesign. By positioning agents as both designers and judges, our framework shifts interface design toward agent-native efficiency and reliability. Our work takes a step toward shifting agents from passive use toward active participation in digital environments. Our code and dataset are available at https://github.com/showlab/AUI.",
+        "url": "http://arxiv.org/abs/2511.15567v1",
+        "pdf_url": "https://arxiv.org/pdf/2511.15567v1",
+        "arxiv_id": "2511.15567v1",
+        "authors": [
+            "Kevin Qinghong Lin",
+            "Siyuan Hu",
+            "Linjie Li",
+            "Zhengyuan Yang",
+            "Lijuan Wang",
+            "Philip Torr",
+            "Mike Zheng Shou"
+        ],
+        "submitted": "2025-11-19 16:00:02",
+        "source": "arxiv",
+        "comment": "Project: https://showlab.github.io/AUI Github: https://github.com/showlab/AUI"
+    },
+    {
+        "title": "Multimodal Evaluation of Russian-language Architectures",
+        "abstract": "Multimodal large language models (MLLMs) are currently at the center of research attention, showing rapid progress in scale and capabilities, yet their intelligence, limitations, and risks remain insufficiently understood. To address these issues, particularly in the context of the Russian language, where no multimodal benchmarks currently exist, we introduce Mera Multi, an open multimodal evaluation framework for Russian-spoken architectures. The benchmark is instruction-based and encompasses default text, image, audio, and video modalities, comprising 18 newly constructed evaluation tasks for both general-purpose models and modality-specific architectures (image-to-text, video-to-text, and audio-to-text). Our contributions include: (i) a universal taxonomy of multimodal abilities; (ii) 18 datasets created entirely from scratch with attention to Russian cultural and linguistic specificity, unified prompts, and metrics; (iii) baseline results for both closed-source and open-source models; (iv) a methodology for preventing benchmark leakage, including watermarking and licenses for private sets. While our current focus is on Russian, the proposed benchmark provides a replicable methodology for constructing multimodal benchmarks in typologically diverse languages, particularly within the Slavic language family.",
+        "url": "http://arxiv.org/abs/2511.15552v2",
+        "pdf_url": "https://arxiv.org/pdf/2511.15552v2",
+        "arxiv_id": "2511.15552v2",
+        "authors": [
+            "Artem Chervyakov",
+            "Ulyana Isaeva",
+            "Anton Emelyanov",
+            "Artem Safin",
+            "Maria Tikhonova",
+            "Alexander Kharitonov",
+            "Yulia Lyakh",
+            "Petr Surovtsev",
+            "Denis Shevelev",
+            "Vildan Saburov",
+            "Vasily Konovalov",
+            "Elisei Rykov",
+            "Ivan Sviridov",
+            "Amina Miftakhova",
+            "Ilseyar Alimova",
+            "Alexander Panchenko",
+            "Alexander Kapitanov",
+            "Alena Fenogenova"
+        ],
+        "submitted": "2025-11-19 15:43:53",
+        "source": "arxiv",
+        "comment": null
+    },
+    {
+        "title": "Standardising the NLP Workflow: A Framework for Reproducible Linguistic Analysis",
+        "abstract": "The introduction of large language models and other influential developments in AI-based language processing have led to an evolution in the methods available to quantitatively analyse language data. With the resultant growth of attention on language processing, significant challenges have emerged, including the lack of standardisation in organising and sharing linguistic data and the absence of standardised and reproducible processing methodologies. Striving for future standardisation, we first propose the Language Processing Data Structure (LPDS), a data structure inspired by the Brain Imaging Data Structure (BIDS), a widely adopted standard for handling neuroscience data. It provides a folder structure and file naming conventions for linguistic research. Second, we introduce pelican nlp, a modular and extensible Python package designed to enable streamlined language processing, from initial data cleaning and task-specific preprocessing to the extraction of sophisticated linguistic and acoustic features, such as semantic embeddings and prosodic metrics. The entire processing workflow can be specified within a single, shareable configuration file, which pelican nlp then executes on LPDS-formatted data. Depending on the specifications, the reproducible output can consist of preprocessed language data or standardised extraction of both linguistic and acoustic features and corresponding result aggregations. LPDS and pelican nlp collectively offer an end-to-end processing pipeline for linguistic data, designed to ensure methodological transparency and enhance reproducibility.",
+        "url": "http://arxiv.org/abs/2511.15512v1",
+        "pdf_url": "https://arxiv.org/pdf/2511.15512v1",
+        "arxiv_id": "2511.15512v1",
+        "authors": [
+            "Yves Pauli",
+            "Jan-Bernard Marsman",
+            "Finn Rabe",
+            "Victoria Edkins",
+            "Roya Hüppi",
+            "Silvia Ciampelli",
+            "Akhil Ratan Misra",
+            "Nils Lang",
+            "Wolfram Hinzen",
+            "Iris Sommer",
+            "Philipp Homan"
+        ],
+        "submitted": "2025-11-19 15:06:08",
+        "source": "arxiv",
+        "comment": "26 pages, 3 figures"
+    },
+    {
+        "title": "CroPS: Improving Dense Retrieval with Cross-Perspective Positive Samples in Short-Video Search",
+        "abstract": "Dense retrieval has become a foundational paradigm in modern search systems, especially on short-video platforms. However, most industrial systems adopt a self-reinforcing training pipeline that relies on historically exposed user interactions for supervision. This paradigm inevitably leads to a filter bubble effect, where potentially relevant but previously unseen content is excluded from the training signal, biasing the model toward narrow and conservative retrieval. In this paper, we present CroPS (Cross-Perspective Positive Samples), a novel retrieval data engine designed to alleviate this problem by introducing diverse and semantically meaningful positive examples from multiple perspectives. CroPS enhances training with positive signals derived from user query reformulation behavior (query-level), engagement data in recommendation streams (system-level), and world knowledge synthesized by large language models (knowledge-level). To effectively utilize these heterogeneous signals, we introduce a Hierarchical Label Assignment (HLA) strategy and a corresponding H-InfoNCE loss that together enable fine-grained, relevance-aware optimization. Extensive experiments conducted on Kuaishou Search, a large-scale commercial short-video search platform, demonstrate that CroPS significantly outperforms strong baselines both offline and in live A/B tests, achieving superior retrieval performance and reducing query reformulation rates. CroPS is now fully deployed in Kuaishou Search, serving hundreds of millions of users daily.",
+        "url": "http://arxiv.org/abs/2511.15443v1",
+        "pdf_url": "https://arxiv.org/pdf/2511.15443v1",
+        "arxiv_id": "2511.15443v1",
+        "authors": [
+            "Ao Xie",
+            "Jiahui Chen",
+            "Quanzhi Zhu",
+            "Xiaoze Jiang",
+            "Zhiheng Qin",
+            "Enyun Yu",
+            "Han Li"
+        ],
+        "submitted": "2025-11-19 13:57:40",
+        "source": "arxiv",
+        "comment": "AAAI-2026, Oral"
+    },
+    {
+        "title": "HV-Attack: Hierarchical Visual Attack for Multimodal Retrieval Augmented Generation",
+        "abstract": "Advanced multimodal Retrieval-Augmented Generation (MRAG) techniques have been widely applied to enhance the capabilities of Large Multimodal Models (LMMs), but they also bring along novel safety issues. Existing adversarial research has revealed the vulnerability of MRAG systems to knowledge poisoning attacks, which fool the retriever into recalling injected poisoned contents. However, our work considers a different setting: visual attack of MRAG by solely adding imperceptible perturbations at the image inputs of users, without manipulating any other components. This is challenging due to the robustness of fine-tuned retrievers and large-scale generators, and the effect of visual perturbation may be further weakened by propagation through the RAG chain. We propose a novel Hierarchical Visual Attack that misaligns and disrupts the two inputs (the multimodal query and the augmented knowledge) of MRAG's generator to confuse its generation. We further design a hierarchical two-stage strategy to obtain misaligned augmented knowledge. We disrupt the image input of the retriever to make it recall irrelevant knowledge from the original database, by optimizing the perturbation which first breaks the cross-modal alignment and then disrupts the multimodal semantic alignment. We conduct extensive experiments on two widely-used MRAG datasets: OK-VQA and InfoSeek. We use CLIP-based retrievers and two LMMs BLIP-2 and LLaVA as generators. Results demonstrate the effectiveness of our visual attack on MRAG through the significant decrease in both retrieval and generation performance.",
+        "url": "http://arxiv.org/abs/2511.15435v1",
+        "pdf_url": "https://arxiv.org/pdf/2511.15435v1",
+        "arxiv_id": "2511.15435v1",
+        "authors": [
+            "Linyin Luo",
+            "Yujuan Ding",
+            "Yunshan Ma",
+            "Wenqi Fan",
+            "Hanjiang Lai"
+        ],
+        "submitted": "2025-11-19 13:45:24",
+        "source": "arxiv",
+        "comment": null
+    },
+    {
+        "title": "LLM-MemCluster: Empowering Large Language Models with Dynamic Memory for Text Clustering",
+        "abstract": "Large Language Models (LLMs) are reshaping unsupervised learning by offering an unprecedented ability to perform text clustering based on their deep semantic understanding. However, their direct application is fundamentally limited by a lack of stateful memory for iterative refinement and the difficulty of managing cluster granularity. As a result, existing methods often rely on complex pipelines with external modules, sacrificing a truly end-to-end approach. We introduce LLM-MemCluster, a novel framework that reconceptualizes clustering as a fully LLM-native task. It leverages a Dynamic Memory to instill state awareness and a Dual-Prompt Strategy to enable the model to reason about and determine the number of clusters. Evaluated on several benchmark datasets, our tuning-free framework significantly and consistently outperforms strong baselines. LLM-MemCluster presents an effective, interpretable, and truly end-to-end paradigm for LLM-based text clustering.",
+        "url": "http://arxiv.org/abs/2511.15424v1",
+        "pdf_url": "https://arxiv.org/pdf/2511.15424v1",
+        "arxiv_id": "2511.15424v1",
+        "authors": [
+            "Yuanjie Zhu",
+            "Liangwei Yang",
+            "Ke Xu",
+            "Weizhi Zhang",
+            "Zihe Song",
+            "Jindong Wang",
+            "Philip S. Yu"
+        ],
+        "submitted": "2025-11-19 13:22:08",
+        "source": "arxiv",
+        "comment": null
+    },
+    {
+        "title": "Building Robust and Scalable Multilingual ASR for Indian Languages",
+        "abstract": "This paper describes the systems developed by SPRING Lab, Indian Institute of Technology Madras, for the ASRU MADASR 2.0 challenge. The systems developed focuses on adapting ASR systems to improve in predicting the language and dialect of the utterance among 8 languages across 33 dialects. We participated in Track 1 and Track 2, which restricts the use of additional data and develop from-the-scratch multilingual systems. We presented a novel training approach using Multi-Decoder architecture with phonemic Common Label Set (CLS) as intermediate representation. It improved the performance over the baseline (in the CLS space). We also discuss various methods used to retain the gain obtained in the phonemic space while converting them back to the corresponding grapheme representations. Our systems beat the baseline in 3 languages (Track 2) in terms of WER/CER and achieved the highest language ID and dialect ID accuracy among all participating teams (Track 2).",
+        "url": "http://arxiv.org/abs/2511.15418v1",
+        "pdf_url": "https://arxiv.org/pdf/2511.15418v1",
+        "arxiv_id": "2511.15418v1",
+        "authors": [
+            "Arjun Gangwar",
+            "Kaousheik Jayakumar",
+            "S. Umesh"
+        ],
+        "submitted": "2025-11-19 13:17:16",
+        "source": "arxiv",
+        "comment": null
+    },
+    {
+        "title": "NAMeGEn: Creative Name Generation via A Novel Agent-based Multiple Personalized Goal Enhancement Framework",
+        "abstract": "Trained on diverse human-authored texts, Large Language Models (LLMs) unlocked the potential for Creative Natural Language Generation (CNLG), benefiting various applications like advertising and storytelling. Nevertheless, CNLG still remains difficult due to two main challenges. (1) Multi-objective flexibility: user requirements are often personalized, fine-grained, and pluralistic, which LLMs struggle to satisfy simultaneously; (2) Interpretive complexity: beyond generation, creativity also involves understanding and interpreting implicit meaning to enhance users' perception. These challenges significantly limit current methods, especially in short-form text generation, in generating creative and insightful content. To address this, we focus on Chinese baby naming, a representative short-form CNLG task requiring adherence to explicit user constraints (e.g., length, semantics, anthroponymy) while offering meaningful aesthetic explanations. We propose NAMeGEn, a novel multi-agent optimization framework that iteratively alternates between objective extraction, name generation, and evaluation to meet diverse requirements and generate accurate explanations. To support this task, we further construct a classical Chinese poetry corpus with 17k+ poems to enhance aesthetics, and introduce CBNames, a new benchmark with tailored metrics. Extensive experiments demonstrate that NAMeGEn effectively generates creative names that meet diverse, personalized requirements while providing meaningful explanations, outperforming six baseline methods spanning various LLM backbones without any training.",
+        "url": "http://arxiv.org/abs/2511.15408v1",
+        "pdf_url": "https://arxiv.org/pdf/2511.15408v1",
+        "arxiv_id": "2511.15408v1",
+        "authors": [
+            "Shanlin Zhou",
+            "Xinpeng Wang",
+            "Jianxun Lian",
+            "Zhenghao Liu",
+            "Laks V. S. Lakshmanan",
+            "Xiaoyuan Yi",
+            "Yongtao Hao"
+        ],
+        "submitted": "2025-11-19 13:05:25",
+        "source": "arxiv",
+        "comment": "13 pages,9 figures. This work has been submitted to the IEEE for possible publication"
+    },
+    {
+        "title": "DEPO: Dual-Efficiency Preference Optimization for LLM Agents",
+        "abstract": "Recent advances in large language models (LLMs) have greatly improved their reasoning and decision-making abilities when deployed as agents. Richer reasoning, however, often comes at the cost of longer chain of thought (CoT), hampering interaction efficiency in real-world scenarios. Nevertheless, there still lacks systematic definition of LLM agent efficiency, hindering targeted improvements. To this end, we introduce dual-efficiency, comprising (i) step-level efficiency, which minimizes tokens per step, and (ii) trajectory-level efficiency, which minimizes the number of steps to complete a task. Building on this definition, we propose DEPO, a dual-efficiency preference optimization method that jointly rewards succinct responses and fewer action steps. Experiments on WebShop and BabyAI show that DEPO cuts token usage by up to 60.9% and steps by up to 26.9%, while achieving up to a 29.3% improvement in performance. DEPO also generalizes to three out-of-domain math benchmarks and retains its efficiency gains when trained on only 25% of the data. Our project page is at https://opencausalab.github.io/DEPO.",
+        "url": "http://arxiv.org/abs/2511.15392v1",
+        "pdf_url": "https://arxiv.org/pdf/2511.15392v1",
+        "arxiv_id": "2511.15392v1",
+        "authors": [
+            "Sirui Chen",
+            "Mengshi Zhao",
+            "Lei Xu",
+            "Yuying Zhao",
+            "Beier Zhu",
+            "Hanwang Zhang",
+            "Shengjie Zhao",
+            "Chaochao Lu"
+        ],
+        "submitted": "2025-11-19 12:38:43",
+        "source": "arxiv",
+        "comment": "Accepted to AAAI 2026"
+    },
+    {
+        "title": "Unveiling Inference Scaling for Difference-Aware User Modeling in LLM Personalization",
+        "abstract": "Large Language Models (LLMs) are increasingly integrated into users' daily lives, driving a growing demand for personalized outputs. Prior work has primarily leveraged a user's own history, often overlooking inter-user differences that are critical for effective personalization. While recent methods have attempted to model such differences, their feature extraction processes typically rely on fixed dimensions and quick, intuitive inference (System-1 thinking), limiting both the coverage and granularity of captured user differences. To address these limitations, we propose Difference-aware Reasoning Personalization (DRP), a framework that reconstructs the difference extraction mechanism by leveraging inference scaling to enhance LLM personalization. DRP autonomously identifies relevant difference feature dimensions and generates structured definitions and descriptions, enabling slow, deliberate reasoning (System-2 thinking) over user differences. Experiments on personalized review generation demonstrate that DRP consistently outperforms baseline methods across multiple metrics.",
+        "url": "http://arxiv.org/abs/2511.15389v1",
+        "pdf_url": "https://arxiv.org/pdf/2511.15389v1",
+        "arxiv_id": "2511.15389v1",
+        "authors": [
+            "Suyu Chen",
+            "Yimeng Bai",
+            "Yulong Huang",
+            "Xiaoyan Zhao",
+            "Yang Zhang"
+        ],
+        "submitted": "2025-11-19 12:35:40",
+        "source": "arxiv",
+        "comment": null
+    },
+    {
+        "title": "A Compliance-Preserving Retrieval System for Aircraft MRO Task Search",
+        "abstract": "Aircraft Maintenance Technicians (AMTs) spend up to 30% of work time searching manuals, a documented efficiency bottleneck in MRO operations where every procedure must be traceable to certified sources. We present a compliance-preserving retrieval system that adapts LLM reranking and semantic search to aviation MRO environments by operating alongside, rather than replacing, certified legacy viewers. The system constructs revision-robust embeddings from ATA chapter hierarchies and uses vision-language parsing to structure certified content, allowing technicians to preview ranked tasks and access verified procedures in existing viewers. Evaluation on 49k synthetic queries achieves >90% retrieval accuracy, while bilingual controlled studies with 10 licensed AMTs demonstrate 90.9% top-10 success rate and 95% reduction in lookup time, from 6-15 minutes to 18 seconds per task. These gains provide concrete evidence that semantic retrieval can operate within strict regulatory constraints and meaningfully reduce operational workload in real-world multilingual MRO workflows.",
+        "url": "http://arxiv.org/abs/2511.15383v1",
+        "pdf_url": "https://arxiv.org/pdf/2511.15383v1",
+        "arxiv_id": "2511.15383v1",
+        "authors": [
+            "Byungho Jo"
+        ],
+        "submitted": "2025-11-19 12:25:40",
+        "source": "arxiv",
+        "comment": null
+    },
+    {
+        "title": "The Empowerment of Science of Science by Large Language Models: New Tools and Methods",
+        "abstract": "Large language models (LLMs) have exhibited exceptional capabilities in natural language understanding and generation, image recognition, and multimodal tasks, charting a course towards AGI and emerging as a central issue in the global technological race. This manuscript conducts a comprehensive review of the core technologies that support LLMs from a user standpoint, including prompt engineering, knowledge-enhanced retrieval augmented generation, fine tuning, pretraining, and tool learning. Additionally, it traces the historical development of Science of Science (SciSci) and presents a forward looking perspective on the potential applications of LLMs within the scientometric domain. Furthermore, it discusses the prospect of an AI agent based model for scientific evaluation, and presents new research fronts detection and knowledge graph building methods with LLMs.",
+        "url": "http://arxiv.org/abs/2511.15370v1",
+        "pdf_url": "https://arxiv.org/pdf/2511.15370v1",
+        "arxiv_id": "2511.15370v1",
+        "authors": [
+            "Guoqiang Liang",
+            "Jingqian Gong",
+            "Mengxuan Li",
+            "Gege Lin",
+            "Shuo Zhang"
+        ],
+        "submitted": "2025-11-19 11:57:22",
+        "source": "arxiv",
+        "comment": "The manuscript is currently ongoing the underreview process of the journal of information science"
+    },
+    {
+        "title": "HEAD-QA v2: Expanding a Healthcare Benchmark for Reasoning",
+        "abstract": "We introduce HEAD-QA v2, an expanded and updated version of a Spanish/English healthcare multiple-choice reasoning dataset originally released by Vilares and Gómez-Rodríguez (2019). The update responds to the growing need for high-quality datasets that capture the linguistic and conceptual complexity of healthcare reasoning. We extend the dataset to over 12,000 questions from ten years of Spanish professional exams, benchmark several open-source LLMs using prompting, RAG, and probability-based answer selection, and provide additional multilingual versions to support future work. Results indicate that performance is mainly driven by model scale and intrinsic reasoning ability, with complex inference strategies obtaining limited gains. Together, these results establish HEAD-QA v2 as a reliable resource for advancing research on biomedical reasoning and model improvement.",
+        "url": "http://arxiv.org/abs/2511.15355v1",
+        "pdf_url": "https://arxiv.org/pdf/2511.15355v1",
+        "arxiv_id": "2511.15355v1",
+        "authors": [
+            "Alexis Correa-Guillén",
+            "Carlos Gómez-Rodríguez",
+            "David Vilares"
+        ],
+        "submitted": "2025-11-19 11:31:32",
+        "source": "arxiv",
+        "comment": "Preprint. 12 pages"
+    },
+    {
+        "title": "SkyEgg: Joint Implementation Selection and Scheduling for Hardware Synthesis using E-graphs",
+        "abstract": "Hardware synthesis from high-level descriptions remains fundamentally limited by the sequential optimization of interdependent design decisions. Current methodologies, including state-of-the-art high-level synthesis (HLS) tools, artificially separate implementation selection from scheduling, leading to suboptimal designs that cannot fully exploit modern FPGA heterogeneous architectures. Implementation selection is typically performed by ad-hoc pattern matching on operations, a process that does not consider the impact on scheduling. Subsequently, scheduling algorithms operate on fixed selection solutions with inaccurate delay estimates, which misses critical optimization opportunities from appropriately configured FPGA blocks like DSP slices.\n  We present SkyEgg, a novel hardware synthesis framework that jointly optimizes implementation selection and scheduling using the e-graph data structure. Our key insight is that both algebraic transformations and hardware implementation choices can be uniformly represented as rewrite rules within an e-graph, modeling the complete design space of implementation candidates to be selected and scheduled together. First, SkyEgg constructs an e-graph from the input program. It then applies both algebraic and implementation rewrites through equality saturation. Finally, it formulates the joint optimization as a mixed-integer linear programming (MILP) problem on the saturated e-graph. We provide both exact MILP solving and an efficient ASAP heuristic for scalable synthesis. Our evaluation on benchmarks from diverse applications targeting Xilinx Kintex UltraScale+ FPGAs demonstrates that SkyEgg achieves an average speedup of 3.01x over Vitis HLS, with improvements up to 5.22x for complex expressions.",
+        "url": "http://arxiv.org/abs/2511.15323v1",
+        "pdf_url": "https://arxiv.org/pdf/2511.15323v1",
+        "arxiv_id": "2511.15323v1",
+        "authors": [
+            "Youwei Xiao",
+            "Yuyang Zou",
+            "Yun Liang"
+        ],
+        "submitted": "2025-11-19 10:39:45",
+        "source": "arxiv",
+        "comment": null
+    },
+    {
+        "title": "Adversarial Poetry as a Universal Single-Turn Jailbreak Mechanism in Large Language Models",
+        "abstract": "We present evidence that adversarial poetry functions as a universal single-turn jailbreak technique for Large Language Models (LLMs). Across 25 frontier proprietary and open-weight models, curated poetic prompts yielded high attack-success rates (ASR), with some providers exceeding 90%. Mapping prompts to MLCommons and EU CoP risk taxonomies shows that poetic attacks transfer across CBRN, manipulation, cyber-offence, and loss-of-control domains. Converting 1,200 MLCommons harmful prompts into verse via a standardized meta-prompt produced ASRs up to 18 times higher than their prose baselines. Outputs are evaluated using an ensemble of 3 open-weight LLM judges, whose binary safety assessments were validated on a stratified human-labeled subset. Poetic framing achieved an average jailbreak success rate of 62% for hand-crafted poems and approximately 43% for meta-prompt conversions (compared to non-poetic baselines), substantially outperforming non-poetic baselines and revealing a systematic vulnerability across model families and safety training approaches. These findings demonstrate that stylistic variation alone can circumvent contemporary safety mechanisms, suggesting fundamental limitations in current alignment methods and evaluation protocols.",
+        "url": "http://arxiv.org/abs/2511.15304v2",
+        "pdf_url": "https://arxiv.org/pdf/2511.15304v2",
+        "arxiv_id": "2511.15304v2",
+        "authors": [
+            "Piercosma Bisconti",
+            "Matteo Prandi",
+            "Federico Pierucci",
+            "Francesco Giarrusso",
+            "Marcantonio Bracale",
+            "Marcello Galisai",
+            "Vincenzo Suriani",
+            "Olga Sorokoletova",
+            "Federico Sartore",
+            "Daniele Nardi"
+        ],
+        "submitted": "2025-11-19 10:14:08",
+        "source": "arxiv",
+        "comment": null
+    },
+    {
+        "title": "Opinion Dynamics Models for Sentiment Evolution in Weibo Blogs",
+        "abstract": "Online social media platforms enable influencers to distribute content and quickly capture audience reactions, significantly shaping their promotional strategies and advertising agreements. Understanding how sentiment dynamics and emotional contagion unfold among followers is vital for influencers and marketers, as these processes shape engagement, brand perception, and purchasing behavior. While sentiment analysis tools effectively track sentiment fluctuations, dynamical models explaining their evolution remain limited, often neglecting network structures and interactions both among blogs and between their topic-focused follower groups. In this study, we tracked influential tech-focused Weibo bloggers over six months, quantifying follower sentiment from text-mined feedback. By treating each blogger's audience as a single \"macro-agent\", we find that sentiment trajectories follow the principle of iterative averaging -- a foundational mechanism in many dynamical models of opinion formation, a theoretical framework at the intersection of social network analysis and dynamical systems theory. The sentiment evolution aligns closely with opinion-dynamics models, particularly modified versions of the classical French-DeGroot model that incorporate delayed perception and distinguish between expressed and private opinions. The inferred influence structures reveal interdependencies among blogs that may arise from homophily, whereby emotionally similar users subscribe to the same blogs and collectively shape the shared sentiment expressed within these communities.",
+        "url": "http://arxiv.org/abs/2511.15303v1",
+        "pdf_url": "https://arxiv.org/pdf/2511.15303v1",
+        "arxiv_id": "2511.15303v1",
+        "authors": [
+            "Yulong He",
+            "Anton V. Proskurnikov",
+            "Artem Sedakov"
+        ],
+        "submitted": "2025-11-19 10:13:39",
+        "source": "arxiv",
+        "comment": null
+    },
+    {
+        "title": "MAPROC at AHaSIS Shared Task: Few-Shot and Sentence Transformer for Sentiment Analysis of Arabic Hotel Reviews",
+        "abstract": "Sentiment analysis of Arabic dialects presents significant challenges due to linguistic diversity and the scarcity of annotated data. This paper describes our approach to the AHaSIS shared task, which focuses on sentiment analysis on Arabic dialects in the hospitality domain. The dataset comprises hotel reviews written in Moroccan and Saudi dialects, and the objective is to classify the reviewers sentiment as positive, negative, or neutral. We employed the SetFit (Sentence Transformer Fine-tuning) framework, a data-efficient few-shot learning technique. On the official evaluation set, our system achieved an F1 of 73%, ranking 12th among 26 participants. This work highlights the potential of few-shot learning to address data scarcity in processing nuanced dialectal Arabic text within specialized domains like hotel reviews.",
+        "url": "http://arxiv.org/abs/2511.15291v1",
+        "pdf_url": "https://arxiv.org/pdf/2511.15291v1",
+        "arxiv_id": "2511.15291v1",
+        "authors": [
+            "Randa Zarnoufi"
+        ],
+        "submitted": "2025-11-19 09:56:16",
+        "source": "arxiv",
+        "comment": null
+    },
+    {
+        "title": "ChartEditor: A Reinforcement Learning Framework for Robust Chart Editing",
+        "abstract": "Chart editing reduces manual effort in visualization design. Typical benchmarks limited in data diversity and assume access to complete chart code, which is seldom in real-world scenarios. To address this gap, we present ChartEditVista, a comprehensive benchmark consisting of 7,964 samples spanning 31 chart categories. It encompasses diverse editing instructions and covers nearly all editable chart elements. The inputs in ChartEditVista include only the original chart image and natural language editing instructions, without the original chart codes. ChartEditVista is generated through a fully automated pipeline that produces, edits, and verifies charts, ensuring high-quality chart editing data. Besides, we introduce two novel fine-grained, rule-based evaluation metrics: the layout metric, which evaluates the position, size and color of graphical components; and the text metric, which jointly assesses textual content and font styling. Building on top of ChartEditVista, we present ChartEditor, a model trained using a reinforcement learning framework that incorporates a novel rendering reward to simultaneously enforce code executability and visual fidelity. Through extensive experiments and human evaluations, we demonstrate that ChartEditVista provides a robust evaluation, while ChartEditor consistently outperforms models with similar-scale and larger-scale on chart editing tasks.",
+        "url": "http://arxiv.org/abs/2511.15266v1",
+        "pdf_url": "https://arxiv.org/pdf/2511.15266v1",
+        "arxiv_id": "2511.15266v1",
+        "authors": [
+            "Liangyu Chen",
+            "Yichen Xu",
+            "Jianzhe Ma",
+            "Yuqi Liu",
+            "Donglu Yang",
+            "Liang Zhang",
+            "Wenxuan Wang",
+            "Qin Jin"
+        ],
+        "submitted": "2025-11-19 09:27:37",
+        "source": "arxiv",
+        "comment": "Accept to AAAI 2026 Main Track"
+    },
+    {
+        "title": "IndicGEC: Powerful Models, or a Measurement Mirage?",
+        "abstract": "In this paper, we report the results of the TeamNRC's participation in the BHASHA-Task 1 Grammatical Error Correction shared task https://github.com/BHASHA-Workshop/IndicGEC2025/ for 5 Indian languages. Our approach, focusing on zero/few-shot prompting of language models of varying sizes (4B to large proprietary models) achieved a Rank 4 in Telugu and Rank 2 in Hindi with GLEU scores of 83.78 and 84.31 respectively. In this paper, we extend the experiments to the other three languages of the shared task - Tamil, Malayalam and Bangla, and take a closer look at the data quality and evaluation metric used. Our results primarily highlight the potential of small language models, and summarize the concerns related to creating good quality datasets and appropriate metrics for this task that are suitable for Indian language scripts.",
+        "url": "http://arxiv.org/abs/2511.15260v1",
+        "pdf_url": "https://arxiv.org/pdf/2511.15260v1",
+        "arxiv_id": "2511.15260v1",
+        "authors": [
+            "Sowmya Vajjala"
+        ],
+        "submitted": "2025-11-19 09:24:23",
+        "source": "arxiv",
+        "comment": "Technical report"
+    },
+    {
+        "title": "M, Toolchain and Language for Reusable Model Compilation",
+        "abstract": "Complex software-driven systems often interleave distributed, concurrent computation processes with physical interactions with the environment. Developing these systems more efficiently and safely can be achieved by employing actionable, software-based models. From a high-level system model, engineers often need to derive multiple specialized models for different purposes, including simulation, deployment, and formal verification. Each of these target models usually rely on its own formalism, specification language, and execution platform. Traditionally, a compiler analyzes a program written in a programming language and generates executable code. In contrast, a model compiler processes a source model written in a modeling language and should ideally support the generation of multiple heterogeneous targets. However, most existing modeling languages are designed with a narrow focus, typically targeting only simulation or implementation. Multi-target compilation, when not considered during the language's early design, becomes significantly harder to achieve. In this paper, we introduce our initiative: a toolchain and modeling language called M, designed to support system modeling and multi-target compilation for model-driven engineering of complex, concurrent, and time-aware systems. M is a textual, grammar-driven language based on the actor model and extended with discrete-event scheduling semantics. It provides constructs for modeling system entities, message-based interactions, and time- or state-triggered reactions. From such models, M enables the systematic generation of diverse target artifacts while preserving semantic conformance to the original model. Moreover, M can serve as a middle language to which other modeling languages may anchor, thereby allowing them to benefit from its compilation framework.",
+        "url": "http://arxiv.org/abs/2511.15257v1",
+        "pdf_url": "https://arxiv.org/pdf/2511.15257v1",
+        "arxiv_id": "2511.15257v1",
+        "authors": [
+            "Hiep Hong Trinh",
+            "Federico Ciccozzi",
+            "Abu Naser Masud",
+            "Marjan Sirjani",
+            "Mikael Sjödin"
+        ],
+        "submitted": "2025-11-19 09:21:46",
+        "source": "arxiv",
+        "comment": null
+    },
+    {
+        "title": "Context Cascade Compression: Exploring the Upper Limits of Text Compression",
+        "abstract": "Million-level token inputs in long-context tasks pose significant computational and memory challenges for Large Language Models (LLMs). Recently, DeepSeek-OCR conducted research into the feasibility of Contexts Optical Compression and achieved preliminary results. Inspired by this, we introduce Context Cascade Compression C3 to explore the upper limits of text compression. Our method cascades two LLMs of different sizes to handle the compression and decoding tasks. Specifically, a small LLM, acting as the first stage, performs text compression by condensing a long context into a set of latent tokens (e.g., 32 or 64 in length), achieving a high ratio of text tokens to latent tokens. A large LLM, as the second stage, then executes the decoding task on this compressed context. Experiments show that at a 20x compression ratio (where the number of text tokens is 20 times the number of latent tokens), our model achieves 98% decoding accuracy, compared to approximately 60% for DeepSeek-OCR. When we further increase the compression ratio to 40x, the accuracy is maintained at around 93%. This indicates that in the domain of context compression, C3 Compression demonstrates superior performance and feasibility over optical character compression. C3 uses a simpler, pure-text pipeline that ignores factors like layout, color, and information loss from a visual encoder. This also suggests a potential upper bound for compression ratios in future work on optical character compression, OCR, and related fields. Codes and model weights are publicly accessible at https://github.com/liufanfanlff/C3-Context-Cascade-Compression",
+        "url": "http://arxiv.org/abs/2511.15244v1",
+        "pdf_url": "https://arxiv.org/pdf/2511.15244v1",
+        "arxiv_id": "2511.15244v1",
+        "authors": [
+            "Fanfan Liu",
+            "Haibo Qiu"
+        ],
+        "submitted": "2025-11-19 09:02:56",
+        "source": "arxiv",
+        "comment": null
+    },
+    {
+        "title": "Selective Mixup for Debiasing Question Selection in Computerized Adaptive Testing",
+        "abstract": "Computerized Adaptive Testing (CAT) is a widely used technology for evaluating learners' proficiency in online education platforms. By leveraging prior estimates of proficiency to select questions and updating the estimates iteratively based on responses, CAT enables personalized learner modeling and has attracted substantial attention. Despite this progress, most existing works focus primarily on improving diagnostic accuracy, while overlooking the selection bias inherent in the adaptive process. Selection Bias arises because the question selection is strongly influenced by the estimated proficiency, such as assigning easier questions to learners with lower proficiency and harder ones to learners with higher proficiency. Since the selection depends on prior estimation, this bias propagates into the diagnosis model, which is further amplified during iterative updates, leading to misalignment and biased predictions. Moreover, the imbalanced nature of learners' historical interactions often exacerbates the bias in diagnosis models. To address this issue, we propose a debiasing framework consisting of two key modules: Cross-Attribute Examinee Retrieval and Selective Mixup-based Regularization. First, we retrieve balanced examinees with relatively even distributions of correct and incorrect responses and use them as neutral references for biased examinees. Then, mixup is applied between each biased examinee and its matched balanced counterpart under label consistency. This augmentation enriches the diversity of bias-conflicting samples and smooths selection boundaries. Finally, extensive experiments on two benchmark datasets with multiple advanced diagnosis models demonstrate that our method substantially improves both the generalization ability and fairness of question selection in CAT.",
+        "url": "http://arxiv.org/abs/2511.15241v2",
+        "pdf_url": "https://arxiv.org/pdf/2511.15241v2",
+        "arxiv_id": "2511.15241v2",
+        "authors": [
+            "Mi Tian",
+            "Kun Zhang",
+            "Fei Liu",
+            "Jinglong Li",
+            "Yuxin Liao",
+            "Chenxi Bai",
+            "Zhengtao Tan",
+            "Le Wu",
+            "Richang Hong"
+        ],
+        "submitted": "2025-11-19 08:55:01",
+        "source": "arxiv",
+        "comment": "Accepted by CIKM 2025"
+    },
+    {
+        "title": "OEMA: Ontology-Enhanced Multi-Agent Collaboration Framework for Zero-Shot Clinical Named Entity Recognition",
+        "abstract": "With the rapid expansion of unstructured clinical texts in electronic health records (EHRs), clinical named entity recognition (NER) has become a crucial technique for extracting medical information. However, traditional supervised models such as CRF and BioClinicalBERT suffer from high annotation costs. Although zero-shot NER based on large language models (LLMs) reduces the dependency on labeled data, challenges remain in aligning example selection with task granularity and effectively integrating prompt design with self-improvement frameworks. To address these limitations, we propose OEMA, a novel zero-shot clinical NER framework based on multi-agent collaboration. OEMA consists of three core components: (1) a self-annotator that autonomously generates candidate examples; (2) a discriminator that leverages SNOMED CT to filter token-level examples by clinical relevance; and (3) a predictor that incorporates entity-type descriptions to enhance inference accuracy. Experimental results on two benchmark datasets, MTSamples and VAERS, demonstrate that OEMA achieves state-of-the-art performance under exact-match evaluation. Moreover, under related-match criteria, OEMA performs comparably to the supervised BioClinicalBERT model while significantly outperforming the traditional CRF method. OEMA improves zero-shot clinical NER, achieving near-supervised performance under related-match criteria. Future work will focus on continual learning and open-domain adaptation to expand its applicability in clinical NLP.",
+        "url": "http://arxiv.org/abs/2511.15211v2",
+        "pdf_url": "https://arxiv.org/pdf/2511.15211v2",
+        "arxiv_id": "2511.15211v2",
+        "authors": [
+            "Xinli Tao",
+            "Xin Dong",
+            "Xuezhong Zhou"
+        ],
+        "submitted": "2025-11-19 08:02:55",
+        "source": "arxiv",
+        "comment": "12 pages, 4 figures, 4 tables"
+    },
+    {
+        "title": "Unveiling Intrinsic Dimension of Texts: from Academic Abstract to Creative Story",
+        "abstract": "Intrinsic dimension (ID) is an important tool in modern LLM analysis, informing studies of training dynamics, scaling behavior, and dataset structure, yet its textual determinants remain underexplored. We provide the first comprehensive study grounding ID in interpretable text properties through cross-encoder analysis, linguistic features, and sparse autoencoders (SAEs). In this work, we establish three key findings. First, ID is complementary to entropy-based metrics: after controlling for length, the two are uncorrelated, with ID capturing geometric complexity orthogonal to prediction quality. Second, ID exhibits robust genre stratification: scientific prose shows low ID (~8), encyclopedic content medium ID (~9), and creative/opinion writing high ID (~10.5) across all models tested. This reveals that contemporary LLMs find scientific text \"representationally simple\" while fiction requires additional degrees of freedom. Third, using SAEs, we identify causal features: scientific signals (formal tone, report templates, statistics) reduce ID; humanized signals (personalization, emotion, narrative) increase it. Steering experiments confirm these effects are causal. Thus, for contemporary models, scientific writing appears comparatively \"easy\", whereas fiction, opinion, and affect add representational degrees of freedom. Our multi-faceted analysis provides practical guidance for the proper use of ID and the sound interpretation of ID-based results.",
+        "url": "http://arxiv.org/abs/2511.15210v1",
+        "pdf_url": "https://arxiv.org/pdf/2511.15210v1",
+        "arxiv_id": "2511.15210v1",
+        "authors": [
+            "Vladislav Pedashenko",
+            "Laida Kushnareva",
+            "Yana Khassan Nibal",
+            "Eduard Tulchinskii",
+            "Kristian Kuznetsov",
+            "Vladislav Zharchinskii",
+            "Yury Maximov",
+            "Irina Piontkovskaya"
+        ],
+        "submitted": "2025-11-19 08:00:40",
+        "source": "arxiv",
+        "comment": null
+    },
+    {
+        "title": "HinTel-AlignBench: A Framework and Benchmark for Hindi-Telugu with English-Aligned Samples",
+        "abstract": "With nearly 1.5 billion people and more than 120 major languages, India represents one of the most diverse regions in the world. As multilingual Vision-Language Models (VLMs) gain prominence, robust evaluation methodologies are essential to drive progress toward equitable AI for low-resource languages. Current multilingual VLM evaluations suffer from four major limitations: reliance on unverified auto-translations, narrow task/domain coverage, limited sample sizes, and lack of cultural and natively sourced Question-Answering (QA). To address these gaps, we present a scalable framework to evaluate VLMs in Indian languages and compare it with performance in English. Using the framework, we generate HinTel-AlignBench, a benchmark that draws from diverse sources in Hindi and Telugu with English-aligned samples. Our contributions are threefold: (1) a semi-automated dataset creation framework combining back-translation, filtering, and human verification; (2) the most comprehensive vision-language benchmark for Hindi and and Telugu, including adapted English datasets (VQAv2, RealWorldQA, CLEVR-Math) and native novel Indic datasets (JEE for STEM, VAANI for cultural grounding) with approximately 4,000 QA pairs per language; and (3) a detailed performance analysis of various State-of-the-Art (SOTA) open-weight and closed-source VLMs. We find a regression in performance for tasks in English versus in Indian languages for 4 out of 5 tasks across all the models, with an average regression of 8.3 points in Hindi and 5.5 points for Telugu. We categorize common failure modes to highlight concrete areas of improvement in multilingual multimodal understanding.",
+        "url": "http://arxiv.org/abs/2511.15183v1",
+        "pdf_url": "https://arxiv.org/pdf/2511.15183v1",
+        "arxiv_id": "2511.15183v1",
+        "authors": [
+            "Rishikant Chigrupaatii",
+            "Ponnada Sai Tulasi Kanishka",
+            "Lalit Chandra Routhu",
+            "Martin Patel Sama Supratheek Reddy",
+            "Divyam Gupta",
+            "Dasari Srikar",
+            "Krishna Teja Kuchimanchi",
+            "Rajiv Misra",
+            "Rohun Tripathi"
+        ],
+        "submitted": "2025-11-19 07:11:00",
+        "source": "arxiv",
+        "comment": null
+    },
+    {
+        "title": "Teaching According to Students' Aptitude: Personalized Mathematics Tutoring via Persona-, Memory-, and Forgetting-Aware LLMs",
+        "abstract": "Large Language Models (LLMs) are increasingly integrated into intelligent tutoring systems to provide human-like and adaptive instruction. However, most existing approaches fail to capture how students' knowledge evolves dynamically across their proficiencies, conceptual gaps, and forgetting patterns. This challenge is particularly acute in mathematics tutoring, where effective instruction requires fine-grained scaffolding precisely calibrated to each student's mastery level and cognitive retention. To address this issue, we propose TASA (Teaching According to Students' Aptitude), a student-aware tutoring framework that integrates persona, memory, and forgetting dynamics for personalized mathematics learning. Specifically, TASA maintains a structured student persona capturing proficiency profiles and an event memory recording prior learning interactions. By incorporating a continuous forgetting curve with knowledge tracing, TASA dynamically updates each student's mastery state and generates contextually appropriate, difficulty-calibrated questions and explanations. Empirical results demonstrate that TASA achieves superior learning outcomes and more adaptive tutoring behavior compared to representative baselines, underscoring the importance of modeling temporal forgetting and learner profiles in LLM-based tutoring systems.",
+        "url": "http://arxiv.org/abs/2511.15163v1",
+        "pdf_url": "https://arxiv.org/pdf/2511.15163v1",
+        "arxiv_id": "2511.15163v1",
+        "authors": [
+            "Yang Wu",
+            "Rujing Yao",
+            "Tong Zhang",
+            "Yufei Shi",
+            "Zhuoren Jiang",
+            "Zhushan Li",
+            "Xiaozhong Liu"
+        ],
+        "submitted": "2025-11-19 06:28:16",
+        "source": "arxiv",
+        "comment": "AAAI 2026 Workshop"
+    },
+    {
+        "title": "Generating Natural-Language Surgical Feedback: From Structured Representation to Domain-Grounded Evaluation",
+        "abstract": "High-quality intraoperative feedback from a surgical trainer is pivotal for improving trainee performance and long-term skill acquisition. Automating natural, trainer-style feedback promises timely, accessible, and consistent guidance at scale but requires models that understand clinically relevant representations. We present a structure-aware pipeline that learns a surgical action ontology from real trainer-to-trainee transcripts (33 surgeries) and uses it to condition feedback generation. We contribute by (1) mining Instrument-Action-Target (IAT) triplets from real-world feedback text and clustering surface forms into normalized categories, (2) fine-tuning a video-to-IAT model that leverages the surgical procedure and task contexts as well as fine-grained temporal instrument motion, and (3) demonstrating how to effectively use IAT triplet representations to guide GPT-4o in generating clinically grounded, trainer-style feedback. We show that, on Task 1: Video-to-IAT recognition, our context injection and temporal tracking deliver consistent AUC gains (Instrument: 0.67 to 0.74; Action: 0.60 to 0.63; Tissue: 0.74 to 0.79). For Task 2: feedback text generation (rated on a 1-5 fidelity rubric where 1 = opposite/unsafe, 3 = admissible, and 5 = perfect match to a human trainer), GPT-4o from video alone scores 2.17, while IAT conditioning reaches 2.44 (+12.4%), doubling the share of admissible generations with score >= 3 from 21% to 42%. Traditional text-similarity metrics also improve: word error rate decreases by 15-31% and ROUGE (phrase/substring overlap) increases by 9-64%. Grounding generation in explicit IAT structure improves fidelity and yields clinician-verifiable rationales, supporting auditable use in surgical training.",
+        "url": "http://arxiv.org/abs/2511.15159v1",
+        "pdf_url": "https://arxiv.org/pdf/2511.15159v1",
+        "arxiv_id": "2511.15159v1",
+        "authors": [
+            "Firdavs Nasriddinov",
+            "Rafal Kocielnik",
+            "Anima Anandkumar",
+            "Andrew J. Hung"
+        ],
+        "submitted": "2025-11-19 06:19:34",
+        "source": "arxiv",
+        "comment": "Accepted as proceedings paper for ML4H 2025"
+    },
+    {
+        "title": "ItemRAG: Item-Based Retrieval-Augmented Generation for LLM-Based Recommendation",
+        "abstract": "Recently, large language models (LLMs) have been widely used as recommender systems, owing to their strong reasoning capability and their effectiveness in handling cold-start items. To better adapt LLMs for recommendation, retrieval-augmented generation (RAG) has been incorporated. Most existing RAG methods are user-based, retrieving purchase patterns of users similar to the target user and providing them to the LLM. In this work, we propose ItemRAG, an item-based RAG method for LLM-based recommendation that retrieves relevant items (rather than users) from item-item co-purchase histories. ItemRAG helps LLMs capture co-purchase patterns among items, which are beneficial for recommendations. Especially, our retrieval strategy incorporates semantically similar items to better handle cold-start items and uses co-purchase frequencies to improve the relevance of the retrieved items. Through extensive experiments, we demonstrate that ItemRAG consistently (1) improves the zero-shot LLM-based recommender by up to 43% in Hit-Ratio-1 and (2) outperforms user-based RAG baselines under both standard and cold-start item recommendation settings.",
+        "url": "http://arxiv.org/abs/2511.15141v1",
+        "pdf_url": "https://arxiv.org/pdf/2511.15141v1",
+        "arxiv_id": "2511.15141v1",
+        "authors": [
+            "Sunwoo Kim",
+            "Geon Lee",
+            "Kyungho Kim",
+            "Jaemin Yoo",
+            "Kijung Shin"
+        ],
+        "submitted": "2025-11-19 05:39:14",
+        "source": "arxiv",
+        "comment": null
+    },
+    {
+        "title": "CASTELLA: Long Audio Dataset with Captions and Temporal Boundaries",
+        "abstract": "We introduce CASTELLA, a human-annotated audio benchmark for the task of audio moment retrieval (AMR). Although AMR has various useful potential applications, there is still no established benchmark with real-world data. The early study of AMR trained the model with solely synthetic datasets. Moreover, the evaluation is based on annotated dataset of fewer than 100 samples. This resulted in less reliable reported performance. To ensure performance for applications in real-world environments, we present CASTELLA, a large-scale manually annotated AMR dataset. CASTELLA consists of 1,009, 213, and 640 audio recordings for train, valid, and test split, respectively, which is 24 times larger than the previous dataset. We also establish a baseline model for AMR using CASTELLA. Our experiments demonstrate that a model fine-tuned on CASTELLA after pre-training on the synthetic data outperformed a model trained solely on the synthetic data by 10.4 points in Recall1@0.7. CASTELLA is publicly available in https://h-munakata.github.io/CASTELLA-demo/.",
+        "url": "http://arxiv.org/abs/2511.15131v1",
+        "pdf_url": "https://arxiv.org/pdf/2511.15131v1",
+        "arxiv_id": "2511.15131v1",
+        "authors": [
+            "Hokuto Munakata",
+            "Takehiro Imamura",
+            "Taichi Nishimura",
+            "Tatsuya Komatsu"
+        ],
+        "submitted": "2025-11-19 05:19:34",
+        "source": "arxiv",
+        "comment": null
+    },
+    {
+        "title": "Multi-Aspect Cross-modal Quantization for Generative Recommendation",
+        "abstract": "Generative Recommendation (GR) has emerged as a new paradigm in recommender systems. This approach relies on quantized representations to discretize item features, modeling users' historical interactions as sequences of discrete tokens. Based on these tokenized sequences, GR predicts the next item by employing next-token prediction methods. The challenges of GR lie in constructing high-quality semantic identifiers (IDs) that are hierarchically organized, minimally conflicting, and conducive to effective generative model training. However, current approaches remain limited in their ability to harness multimodal information and to capture the deep and intricate interactions among diverse modalities, both of which are essential for learning high-quality semantic IDs and for effectively training GR models. To address this, we propose Multi-Aspect Cross-modal quantization for generative Recommendation (MACRec), which introduces multimodal information and incorporates it into both semantic ID learning and generative model training from different aspects. Specifically, we first introduce cross-modal quantization during the ID learning process, which effectively reduces conflict rates and thus improves codebook usability through the complementary integration of multimodal information. In addition, to further enhance the generative ability of our GR model, we incorporate multi-aspect cross-modal alignments, including the implicit and explicit alignments. Finally, we conduct extensive experiments on three well-known recommendation datasets to demonstrate the effectiveness of our proposed method.",
+        "url": "http://arxiv.org/abs/2511.15122v1",
+        "pdf_url": "https://arxiv.org/pdf/2511.15122v1",
+        "arxiv_id": "2511.15122v1",
+        "authors": [
+            "Fuwei Zhang",
+            "Xiaoyu Liu",
+            "Dongbo Xi",
+            "Jishen Yin",
+            "Huan Chen",
+            "Peng Yan",
+            "Fuzhen Zhuang",
+            "Zhao Zhang"
+        ],
+        "submitted": "2025-11-19 04:55:14",
+        "source": "arxiv",
+        "comment": "Accepted by AAAI 2026 (Oral)"
+    },
+    {
+        "title": "Knowledge-Informed Automatic Feature Extraction via Collaborative Large Language Model Agents",
+        "abstract": "The performance of machine learning models on tabular data is critically dependent on high-quality feature engineering. While Large Language Models (LLMs) have shown promise in automating feature extraction (AutoFE), existing methods are often limited by monolithic LLM architectures, simplistic quantitative feedback, and a failure to systematically integrate external domain knowledge. This paper introduces Rogue One, a novel, LLM-based multi-agent framework for knowledge-informed automatic feature extraction. Rogue One operationalizes a decentralized system of three specialized agents-Scientist, Extractor, and Tester-that collaborate iteratively to discover, generate, and validate predictive features. Crucially, the framework moves beyond primitive accuracy scores by introducing a rich, qualitative feedback mechanism and a \"flooding-pruning\" strategy, allowing it to dynamically balance feature exploration and exploitation. By actively incorporating external knowledge via an integrated retrieval-augmented (RAG) system, Rogue One generates features that are not only statistically powerful but also semantically meaningful and interpretable. We demonstrate that Rogue One significantly outperforms state-of-the-art methods on a comprehensive suite of 19 classification and 9 regression datasets. Furthermore, we show qualitatively that the system surfaces novel, testable hypotheses, such as identifying a new potential biomarker in the myocardial dataset, underscoring its utility as a tool for scientific discovery.",
+        "url": "http://arxiv.org/abs/2511.15074v1",
+        "pdf_url": "https://arxiv.org/pdf/2511.15074v1",
+        "arxiv_id": "2511.15074v1",
+        "authors": [
+            "Henrik Bradland",
+            "Morten Goodwin",
+            "Vladimir I. Zadorozhny",
+            "Per-Arne Andersen"
+        ],
+        "submitted": "2025-11-19 03:27:14",
+        "source": "arxiv",
+        "comment": "19 pages, 4 figures, in review"
+    },
+    {
+        "title": "ProRAC: A Neuro-symbolic Method for Reasoning about Actions with LLM-based Progression",
+        "abstract": "In this paper, we propose ProRAC (Progression-based Reasoning about Actions and Change), a neuro-symbolic framework that leverages LLMs to tackle RAC problems. ProRAC extracts fundamental RAC elements including actions and questions from the problem, progressively executes each action to derive the final state, and then evaluates the query against the progressed state to arrive at an answer. We evaluate ProRAC on several RAC benchmarks, and the results demonstrate that our approach achieves strong performance across different benchmarks, domains, LLM backbones, and types of RAC tasks.",
+        "url": "http://arxiv.org/abs/2511.15069v1",
+        "pdf_url": "https://arxiv.org/pdf/2511.15069v1",
+        "arxiv_id": "2511.15069v1",
+        "authors": [
+            "Haoyong Wu",
+            "Yongmei Liu"
+        ],
+        "submitted": "2025-11-19 03:20:06",
+        "source": "arxiv",
+        "comment": null
+    },
+    {
+        "title": "Beyond GeneGPT: A Multi-Agent Architecture with Open-Source LLMs for Enhanced Genomic Question Answering",
+        "abstract": "Genomic question answering often requires complex reasoning and integration across diverse biomedical sources. GeneGPT addressed this challenge by combining domain-specific APIs with OpenAI's code-davinci-002 large language model to enable natural language interaction with genomic databases. However, its reliance on a proprietary model limits scalability, increases operational costs, and raises concerns about data privacy and generalization.\n  In this work, we revisit and reproduce GeneGPT in a pilot study using open source models, including Llama 3.1, Qwen2.5, and Qwen2.5 Coder, within a monolithic architecture; this allows us to identify the limitations of this approach. Building on this foundation, we then develop OpenBioLLM, a modular multi-agent framework that extends GeneGPT by introducing agent specialization for tool routing, query generation, and response validation. This enables coordinated reasoning and role-based task execution.\n  OpenBioLLM matches or outperforms GeneGPT on over 90% of the benchmark tasks, achieving average scores of 0.849 on Gene-Turing and 0.830 on GeneHop, while using smaller open-source models without additional fine-tuning or tool-specific pretraining. OpenBioLLM's modular multi-agent design reduces latency by 40-50% across benchmark tasks, significantly improving efficiency without compromising model capability. The results of our comprehensive evaluation highlight the potential of open-source multi-agent systems for genomic question answering. Code and resources are available at https://github.com/ielab/OpenBioLLM.",
+        "url": "http://arxiv.org/abs/2511.15061v1",
+        "pdf_url": "https://arxiv.org/pdf/2511.15061v1",
+        "arxiv_id": "2511.15061v1",
+        "authors": [
+            "Haodong Chen",
+            "Guido Zuccon",
+            "Teerapong Leelanupab"
+        ],
+        "submitted": "2025-11-19 03:08:20",
+        "source": "arxiv",
+        "comment": "This paper has been accepted to SIGIR-AP 2025"
+    },
+    {
+        "title": "Evaluating Multimodal Large Language Models on Vertically Written Japanese Text",
+        "abstract": "Multimodal Large Language Models (MLLMs) have seen rapid advances in recent years and are now being applied to visual document understanding tasks. They are expected to process a wide range of document images across languages, including Japanese. Understanding documents from images requires models to read what are written in them. Since some Japanese documents are written vertically, support for vertical writing is essential. However, research specifically focused on vertically written Japanese text remains limited. In this study, we evaluate the reading capability of existing MLLMs on vertically written Japanese text. First, we generate a synthetic Japanese OCR dataset by rendering Japanese texts into images, and use it for both model fine-tuning and evaluation. This dataset includes Japanese text in both horizontal and vertical writing. We also create an evaluation dataset sourced from the real-world document images containing vertically written Japanese text. Using these datasets, we demonstrate that the existing MLLMs perform worse on vertically written Japanese text than on horizontally written Japanese text. Furthermore, we show that training MLLMs on our synthesized Japanese OCR dataset results in improving the performance of models that previously could not handle vertical writing. The datasets and code are publicly available https://github.com/llm-jp/eval_vertical_ja.",
+        "url": "http://arxiv.org/abs/2511.15059v1",
+        "pdf_url": "https://arxiv.org/pdf/2511.15059v1",
+        "arxiv_id": "2511.15059v1",
+        "authors": [
+            "Keito Sasagawa",
+            "Shuhei Kurita",
+            "Daisuke Kawahara"
+        ],
+        "submitted": "2025-11-19 03:04:22",
+        "source": "arxiv",
+        "comment": "17pages, 8 figures"
+    },
+    {
+        "title": "Mathematical Analysis of Hallucination Dynamics in Large Language Models: Uncertainty Quantification, Advanced Decoding, and Principled Mitigation",
+        "abstract": "Large Language Models (LLMs) are powerful linguistic engines but remain susceptible to hallucinations: plausible-sounding outputs that are factually incorrect or unsupported. In this work, we present a mathematically grounded framework to understand, measure, and mitigate these hallucinations. Drawing on probabilistic modeling, information theory, trigonometric signal analysis, and Bayesian uncertainty estimation, we analyze how errors compound autoregressively, propose refined uncertainty metrics, including semantic and phase-aware variants, and develop principled mitigation strategies such as contrastive decoding, retrieval-augmented grounding, factual alignment, and abstention. This unified lens connects recent advances in calibration, retrieval, and alignment to support safer and more reliable LLMs.",
+        "url": "http://arxiv.org/abs/2511.15005v1",
+        "pdf_url": "https://arxiv.org/pdf/2511.15005v1",
+        "arxiv_id": "2511.15005v1",
+        "authors": [
+            "Moses Kiprono"
+        ],
+        "submitted": "2025-11-19 00:58:36",
+        "source": "arxiv",
+        "comment": "10 pages, theoretical/mathematical LLM research, no figures, intended for peer-reviewed journal"
+    },
+    {
+        "title": "How to Train Private Clinical Language Models: A Comparative Study of Privacy-Preserving Pipelines for ICD-9 Coding",
+        "abstract": "Large language models trained on clinical text risk exposing sensitive patient information, yet differential privacy (DP) methods often severely degrade the diagnostic accuracy needed for deployment. Despite rapid progress in DP optimisation and text generation, it remains unclear which privacy-preserving strategy actually works best for clinical language tasks. We present the first systematic head-to-head comparison of four training pipelines for automated diagnostic coding from hospital discharge summaries. All pipelines use identical 1B-parameter models and matched privacy budgets to predict ICD-9 codes. At moderate and relaxed privacy budgets ($\\varepsilon \\in \\{4, 6\\}$), knowledge distillation from DP-trained teachers outperforms both direct DP-SGD and DP-synthetic data training, recovering up to 63\\% of the non-private performance whilst maintaining strong empirical privacy (membership-inference AUC $\\approx$ 0.5). These findings expose large differences in the privacy-utility trade-off across architectures and identify knowledge distillation as the most practical route to privacy-preserving clinical NLP.",
+        "url": "http://arxiv.org/abs/2511.14936v1",
+        "pdf_url": "https://arxiv.org/pdf/2511.14936v1",
+        "arxiv_id": "2511.14936v1",
+        "authors": [
+            "Mathieu Dufour",
+            "Andrew Duncan"
+        ],
+        "submitted": "2025-11-18 21:51:04",
+        "source": "arxiv",
+        "comment": "10 pages, 5 figures. Accepted to the Privacy-Preserving Machine Learning Workshop at EurIPS 2025"
+    },
+    {
+        "title": "Skin-R1: Toward Trustworthy Clinical Reasoning for Dermatological Diagnosis",
+        "abstract": "The emergence of vision-language models (VLMs) has opened new possibilities for clinical reasoning and has shown promising performance in dermatological diagnosis. However, their trustworthiness and clinical utility are often limited by three major factors: (1) Data heterogeneity, where diverse datasets lack consistent diagnostic labels and clinical concept annotations; (2) Absence of grounded diagnostic rationales, leading to a scarcity of reliable reasoning supervision; and (3) Limited scalability and generalization, as models trained on small, densely annotated datasets struggle to transfer nuanced reasoning to large, sparsely-annotated ones.\n  To address these limitations, we propose SkinR1, a novel dermatological VLM that combines deep, textbook-based reasoning with the broad generalization capabilities of reinforcement learning (RL). SkinR1 systematically resolves the key challenges through a unified, end-to-end framework. First, we design a textbook-based reasoning generator that synthesizes high-fidelity, hierarchy-aware, and differential-diagnosis (DDx)-informed trajectories, providing reliable expert-level supervision. Second, we leverage the constructed trajectories for supervised fine-tuning (SFT) empowering the model with grounded reasoning ability. Third, we develop a novel RL paradigm that, by incorporating the hierarchical structure of diseases, effectively transfers these grounded reasoning patterns to large-scale, sparse data. Extensive experiments on multiple dermatology datasets demonstrate that SkinR1 achieves superior diagnostic accuracy. The ablation study demonstrates the importance of the reasoning foundation instilled by SFT.",
+        "url": "http://arxiv.org/abs/2511.14900v1",
+        "pdf_url": "https://arxiv.org/pdf/2511.14900v1",
+        "arxiv_id": "2511.14900v1",
+        "authors": [
+            "Zehao Liu",
+            "Wejieying Ren",
+            "Jipeng Zhang",
+            "Tianxiang Zhao",
+            "Jingxi Zhu",
+            "Xiaoting Li",
+            "Vasant G. Honavar"
+        ],
+        "submitted": "2025-11-18 20:38:36",
+        "source": "arxiv",
+        "comment": null
+    },
+    {
+        "title": "SilverTorch: A Unified Model-based System to Democratize Large-Scale Recommendation on GPUs",
+        "abstract": "Serving deep learning based recommendation models (DLRM) at scale is challenging. Existing systems rely on CPU-based ANN indexing and filtering services, suffering from non-negligible costs and forgoing joint optimization opportunities. Such inefficiency makes them difficult to support more complex model architectures, such as learned similarities and multi-task retrieval.\n  In this paper, we propose SilverTorch, a model-based system for serving recommendation models on GPUs. SilverTorch unifies model serving by replacing standalone indexing and filtering services with layers of served models. We propose a Bloom index algorithm on GPUs for feature filtering and a tensor-native fused Int8 ANN kernel on GPUs for nearest neighbor search. We further co-design the ANN search index and filtering index to reduce GPU memory utilization and eliminate unnecessary computation. Benefit from SilverTorch's serving paradigm, we introduce a OverArch scoring layer and a Value Model to aggregate results across multi-tasks. These advancements improve the accuracy for retrieval and enable future studies for serving more complex models. For ranking, SilverTorch's design accelerates item embedding calculation by caching the pre-calculated embeddings inside the serving model.\n  Our evaluation on the industry-scale datasets show that SilverTorch achieves up to 5.6x lower latency and 23.7x higher throughput compared to the state-of-the-art approaches. We also demonstrate that SilverTorch's solution is 13.35x more cost-efficient than CPU-based solution while improving accuracy via serving more complex models. SilverTorch serves over hundreds of models online across major products and recommends contents for billions of daily active users.",
+        "url": "http://arxiv.org/abs/2511.14881v1",
+        "pdf_url": "https://arxiv.org/pdf/2511.14881v1",
+        "arxiv_id": "2511.14881v1",
+        "authors": [
+            "Bi Xue",
+            "Hong Wu",
+            "Lei Chen",
+            "Chao Yang",
+            "Yiming Ma",
+            "Fei Ding",
+            "Zhen Wang",
+            "Liang Wang",
+            "Xiaoheng Mao",
+            "Ke Huang",
+            "Xialu Li",
+            "Peng Xia",
+            "Rui Jian",
+            "Yanli Zhao",
+            "Yanzun Huang",
+            "Yijie Deng",
+            "Harry Tran",
+            "Ryan Chang",
+            "Min Yu",
+            "Eric Dong",
+            "Jiazhou Wang",
+            "Qianqian Zhang",
+            "Keke Zhai",
+            "Hongzhang Yin",
+            "Pawel Garbacki",
+            "Zheng Fang",
+            "Yiyi Pan",
+            "Min Ni",
+            "Yang Liu"
+        ],
+        "submitted": "2025-11-18 20:00:19",
+        "source": "arxiv",
+        "comment": null
+    },
+    {
+        "title": "Hierarchical Token Prepending: Enhancing Information Flow in Decoder-based LLM Embeddings",
+        "abstract": "Large language models produce powerful text embeddings, but their causal attention mechanism restricts the flow of information from later to earlier tokens, degrading representation quality. While recent methods attempt to solve this by prepending a single summary token, they over-compress information, hence harming performance on long documents. We propose Hierarchical Token Prepending (HTP), a method that resolves two critical bottlenecks. To mitigate attention-level compression, HTP partitions the input into blocks and prepends block-level summary tokens to subsequent blocks, creating multiple pathways for backward information flow. To address readout-level over-squashing, we replace last-token pooling with mean-pooling, a choice supported by theoretical analysis. HTP achieves consistent performance gains across 11 retrieval datasets and 30 general embedding benchmarks, especially in long-context settings. As a simple, architecture-agnostic method, HTP enhances both zero-shot and finetuned models, offering a scalable route to superior long-document embeddings.",
+        "url": "http://arxiv.org/abs/2511.14868v1",
+        "pdf_url": "https://arxiv.org/pdf/2511.14868v1",
+        "arxiv_id": "2511.14868v1",
+        "authors": [
+            "Xueying Ding",
+            "Xingyue Huang",
+            "Mingxuan Ju",
+            "Liam Collins",
+            "Yozen Liu",
+            "Leman Akoglu",
+            "Neil Shah",
+            "Tong Zhao"
+        ],
+        "submitted": "2025-11-18 19:37:40",
+        "source": "arxiv",
+        "comment": null
+    },
+    {
+        "title": "Empowering Multi-Turn Tool-Integrated Reasoning with Group Turn Policy Optimization",
+        "abstract": "Training Large Language Models (LLMs) for multi-turn Tool-Integrated Reasoning (TIR) - where models iteratively reason, generate code, and verify through execution - remains challenging for existing reinforcement learning (RL) approaches. Current RL methods, exemplified by Group Relative Policy Optimization (GRPO), suffer from coarse-grained, trajectory-level rewards that provide insufficient learning signals for complex multi-turn interactions, leading to training stagnation. To address this issue, we propose Group Turn Policy Optimization (GTPO), a novel RL algorithm specifically designed for training LLMs on multi-turn TIR tasks. GTPO introduces three key innovations: (1) turn-level reward assignment that provides fine-grained feedback for individual turns, (2) return-based advantage estimation where normalized discounted returns are calculated as advantages, and (3) self-supervised reward shaping that exploits self-supervision signals from generated code to densify sparse binary outcome-based rewards. Our comprehensive evaluation demonstrates that GTPO outperforms GRPO by 3.0% on average across diverse reasoning benchmarks, establishing its effectiveness for advancing complex mathematical reasoning in the real world.",
+        "url": "http://arxiv.org/abs/2511.14846v1",
+        "pdf_url": "https://arxiv.org/pdf/2511.14846v1",
+        "arxiv_id": "2511.14846v1",
+        "authors": [
+            "Yifeng Ding",
+            "Hung Le",
+            "Songyang Han",
+            "Kangrui Ruan",
+            "Zhenghui Jin",
+            "Varun Kumar",
+            "Zijian Wang",
+            "Anoop Deoras"
+        ],
+        "submitted": "2025-11-18 19:01:16",
+        "source": "arxiv",
+        "comment": null
+    }
+]

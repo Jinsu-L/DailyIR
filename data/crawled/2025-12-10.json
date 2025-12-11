@@ -1,0 +1,598 @@
+[
+    {
+        "title": "Luxical: High-Speed Lexical-Dense Text Embeddings",
+        "abstract": "Frontier language model quality increasingly hinges on our ability to organize web-scale text corpora for training. Today's dominant tools trade off speed and flexibility: lexical classifiers (e.g., FastText) are fast but limited to producing classification output scores, while the vector-valued outputs of transformer text embedding models flexibly support numerous workflows (e.g., clustering, classification, and retrieval) but are computationally expensive to produce. We introduce Luxical, a library for high-speed \"lexical-dense\" text embeddings that aims to recover the best properties of both approaches for web-scale text organization. Luxical combines sparse TF--IDF features, a small ReLU network, and a knowledge distillation training regimen to approximate large transformer embedding models at a fraction of their operational cost. In this technical report, we describe the Luxical architecture and training objective and evaluate a concrete Luxical model in two disparate applications: a targeted webcrawl document retrieval test and an end-to-end language model data curation task grounded in text classification. In these tasks we demonstrate speedups ranging from 3x to 100x over varying-sized neural baselines, and comparable to FastText model inference during the data curation task. On these evaluations, the tested Luxical model illustrates favorable compute/quality trade-offs for large-scale text organization, matching the quality of neural baselines. Luxical is available as open-source software at https://github.com/datologyai/luxical.",
+        "url": "http://arxiv.org/abs/2512.09015v1",
+        "pdf_url": "https://arxiv.org/pdf/2512.09015v1",
+        "arxiv_id": "2512.09015v1",
+        "authors": [
+            "DatologyAI",
+            ":",
+            "Luke Merrick",
+            "Alex Fang",
+            "Aldo Carranza",
+            "Alvin Deng",
+            "Amro Abbas",
+            "Brett Larsen",
+            "Cody Blakeney",
+            "Darren Teh",
+            "David Schwab",
+            "Fan Pan",
+            "Haakon Mongstad",
+            "Haoli Yin",
+            "Jack Urbanek",
+            "Jason Lee",
+            "Jason Telanoff",
+            "Josh Wills",
+            "Kaleigh Mentzer",
+            "Paul Burstein",
+            "Parth Doshi",
+            "Paul Burnstein",
+            "Pratyush Maini",
+            "Ricardo Monti",
+            "Rishabh Adiga",
+            "Scott Loftin",
+            "Siddharth Joshi",
+            "Spandan Das",
+            "Tony Jiang",
+            "Vineeth Dorma",
+            "Zhengping Wang",
+            "Bogdan Gaza",
+            "Ari Morcos",
+            "Matthew Leavitt"
+        ],
+        "submitted": "2025-12-09 18:58:44",
+        "source": "arxiv",
+        "comment": "9 pages, 6 figures"
+    },
+    {
+        "title": "Revisiting the Scaling Properties of Downstream Metrics in Large Language Model Training",
+        "abstract": "While scaling laws for Large Language Models (LLMs) traditionally focus on proxy metrics like pretraining loss, predicting downstream task performance has been considered unreliable. This paper challenges that view by proposing a direct framework to model the scaling of benchmark performance from the training budget. We find that for a fixed token-to-parameter ratio, a simple power law can accurately describe the scaling behavior of log accuracy on multiple popular downstream tasks. Our results show that the direct approach extrapolates better than the previously proposed two-stage procedure, which is prone to compounding errors. Furthermore, we introduce functional forms that predict accuracy across token-to-parameter ratios and account for inference compute under repeated sampling. We validate our findings on models with up to 17B parameters trained on up to 350B tokens across two dataset mixtures. To support reproducibility and encourage future research, we release the complete set of pretraining losses and downstream evaluation results.",
+        "url": "http://arxiv.org/abs/2512.08894v1",
+        "pdf_url": "https://arxiv.org/pdf/2512.08894v1",
+        "arxiv_id": "2512.08894v1",
+        "authors": [
+            "Jakub Krajewski",
+            "Amitis Shidani",
+            "Dan Busbridge",
+            "Sam Wiseman",
+            "Jason Ramapuram"
+        ],
+        "submitted": "2025-12-09 18:33:48",
+        "source": "arxiv",
+        "comment": null
+    },
+    {
+        "title": "Toward Faithful Retrieval-Augmented Generation with Sparse Autoencoders",
+        "abstract": "Retrieval-Augmented Generation (RAG) improves the factuality of large language models (LLMs) by grounding outputs in retrieved evidence, but faithfulness failures, where generations contradict or extend beyond the provided sources, remain a critical challenge. Existing hallucination detection methods for RAG often rely either on large-scale detector training, which requires substantial annotated data, or on querying external LLM judges, which leads to high inference costs. Although some approaches attempt to leverage internal representations of LLMs for hallucination detection, their accuracy remains limited. Motivated by recent advances in mechanistic interpretability, we employ sparse autoencoders (SAEs) to disentangle internal activations, successfully identifying features that are specifically triggered during RAG hallucinations. Building on a systematic pipeline of information-based feature selection and additive feature modeling, we introduce RAGLens, a lightweight hallucination detector that accurately flags unfaithful RAG outputs using LLM internal representations. RAGLens not only achieves superior detection performance compared to existing methods, but also provides interpretable rationales for its decisions, enabling effective post-hoc mitigation of unfaithful RAG. Finally, we justify our design choices and reveal new insights into the distribution of hallucination-related signals within LLMs. The code is available at https://github.com/Teddy-XiongGZ/RAGLens.",
+        "url": "http://arxiv.org/abs/2512.08892v1",
+        "pdf_url": "https://arxiv.org/pdf/2512.08892v1",
+        "arxiv_id": "2512.08892v1",
+        "authors": [
+            "Guangzhi Xiong",
+            "Zhenghao He",
+            "Bohan Liu",
+            "Sanchit Sinha",
+            "Aidong Zhang"
+        ],
+        "submitted": "2025-12-09 18:33:22",
+        "source": "arxiv",
+        "comment": null
+    },
+    {
+        "title": "Do Depth-Grown Models Overcome the Curse of Depth? An In-Depth Analysis",
+        "abstract": "Gradually growing the depth of Transformers during training can not only reduce training cost but also lead to improved reasoning performance, as shown by MIDAS (Saunshi et al., 2024). Thus far, however, a mechanistic understanding of these gains has been missing. In this work, we establish a connection to recent work showing that layers in the second half of non-grown, pre-layernorm Transformers contribute much less to the final output distribution than those in the first half - also known as the Curse of Depth (Sun et al., 2025, Csordás et al., 2025). Using depth-wise analyses, we demonstrate that growth via gradual middle stacking yields more effective utilization of model depth, alters the residual stream structure, and facilitates the formation of permutable computational blocks. In addition, we propose a lightweight modification of MIDAS that yields further improvements in downstream reasoning benchmarks. Overall, this work highlights how the gradual growth of model depth can lead to the formation of distinct computational circuits and overcome the limited depth utilization seen in standard non-grown models.",
+        "url": "http://arxiv.org/abs/2512.08819v1",
+        "pdf_url": "https://arxiv.org/pdf/2512.08819v1",
+        "arxiv_id": "2512.08819v1",
+        "authors": [
+            "Ferdinand Kapl",
+            "Emmanouil Angelis",
+            "Tobias Höppe",
+            "Kaitlin Maile",
+            "Johannes von Oswald",
+            "Nino Scherrer",
+            "Stefan Bauer"
+        ],
+        "submitted": "2025-12-09 17:12:04",
+        "source": "arxiv",
+        "comment": null
+    },
+    {
+        "title": "Ask, Answer, and Detect: Role-Playing LLMs for Personality Detection with Question-Conditioned Mixture-of-Experts",
+        "abstract": "Understanding human personality is crucial for web applications such as personalized recommendation and mental health assessment. Existing studies on personality detection predominantly adopt a \"posts -> user vector -> labels\" modeling paradigm, which encodes social media posts into user representations for predicting personality labels (e.g., MBTI labels). While recent advances in large language models (LLMs) have improved text encoding capacities, these approaches remain constrained by limited supervision signals due to label scarcity, and under-specified semantic mappings between user language and abstract psychological constructs. We address these challenges by proposing ROME, a novel framework that explicitly injects psychological knowledge into personality detection. Inspired by standardized self-assessment tests, ROME leverages LLMs' role-play capability to simulate user responses to validated psychometric questionnaires. These generated question-level answers transform free-form user posts into interpretable, questionnaire-grounded evidence linking linguistic cues to personality labels, thereby providing rich intermediate supervision to mitigate label scarcity while offering a semantic reasoning chain that guides and simplifies the text-to-personality mapping learning. A question-conditioned Mixture-of-Experts module then jointly routes over post and question representations, learning to answer questionnaire items under explicit supervision. The predicted answers are summarized into an interpretable answer vector and fused with the user representation for final prediction within a multi-task learning framework, where question answering serves as a powerful auxiliary task for personality detection. Extensive experiments on two real-world datasets demonstrate that ROME consistently outperforms state-of-the-art baselines, achieving improvements (15.41% on Kaggle dataset).",
+        "url": "http://arxiv.org/abs/2512.08814v1",
+        "pdf_url": "https://arxiv.org/pdf/2512.08814v1",
+        "arxiv_id": "2512.08814v1",
+        "authors": [
+            "Yifan Lyu",
+            "Liang Zhang"
+        ],
+        "submitted": "2025-12-09 17:07:54",
+        "source": "arxiv",
+        "comment": null
+    },
+    {
+        "title": "A Systematic Evaluation of Preference Aggregation in Federated RLHF for Pluralistic Alignment of LLMs",
+        "abstract": "This paper addresses the challenge of aligning large language models (LLMs) with diverse human preferences within federated learning (FL) environments, where standard methods often fail to adequately represent diverse viewpoints. We introduce a comprehensive evaluation framework that systematically assesses the trade-off between alignment quality and fairness when using different aggregation strategies for human preferences. In our federated setting, each group locally evaluates rollouts and produces reward signals, and the server aggregates these group-level rewards without accessing any raw data. Specifically, we evaluate standard reward aggregation techniques (min, max, and average) and introduce a novel adaptive scheme that dynamically adjusts preference weights based on a group's historical alignment performance. Our experiments on question-answering (Q/A) tasks using a PPO-based RLHF pipeline demonstrate that our adaptive approach consistently achieves superior fairness while maintaining competitive alignment scores. This work offers a robust methodology for evaluating LLM behavior across diverse populations and provides a practical solution for developing truly pluralistic and fairly aligned models.",
+        "url": "http://arxiv.org/abs/2512.08786v1",
+        "pdf_url": "https://arxiv.org/pdf/2512.08786v1",
+        "arxiv_id": "2512.08786v1",
+        "authors": [
+            "Mahmoud Srewa",
+            "Tianyu Zhao",
+            "Salma Elmalaki"
+        ],
+        "submitted": "2025-12-09 16:39:32",
+        "source": "arxiv",
+        "comment": null
+    },
+    {
+        "title": "Fluent Alignment with Disfluent Judges: Post-training for Lower-resource Languages",
+        "abstract": "We propose a post-training method for lower-resource languages that preserves fluency of language models even when aligned by disfluent reward models. Preference-optimization is now a well-researched topic, but previous work has mostly addressed models for English and Chinese. Lower-resource languages lack both datasets written by native speakers and language models capable of generating fluent synthetic data. Thus, in this work, we focus on developing a fluent preference-aligned language model without any instruction-tuning data in the target language. Our approach uses an on-policy training method, which we compare with two common approaches: supervised finetuning on machine-translated data and multilingual finetuning. We conduct a case study on Norwegian Bokmål and evaluate fluency through native-speaker assessments. The results show that the on-policy aspect is crucial and outperforms the alternatives without relying on any hard-to-obtain data.",
+        "url": "http://arxiv.org/abs/2512.08777v1",
+        "pdf_url": "https://arxiv.org/pdf/2512.08777v1",
+        "arxiv_id": "2512.08777v1",
+        "authors": [
+            "David Samuel",
+            "Lilja Øvrelid",
+            "Erik Velldal",
+            "Andrey Kutuzov"
+        ],
+        "submitted": "2025-12-09 16:31:48",
+        "source": "arxiv",
+        "comment": null
+    },
+    {
+        "title": "Pose-Based Sign Language Spotting via an End-to-End Encoder Architecture",
+        "abstract": "Automatic Sign Language Recognition (ASLR) has emerged as a vital field for bridging the gap between deaf and hearing communities. However, the problem of sign-to-sign retrieval or detecting a specific sign within a sequence of continuous signs remains largely unexplored. We define this novel task as Sign Language Spotting. In this paper, we present a first step toward sign language retrieval by addressing the challenge of detecting the presence or absence of a query sign video within a sentence-level gloss or sign video. Unlike conventional approaches that rely on intermediate gloss recognition or text-based matching, we propose an end-to-end model that directly operates on pose keypoints extracted from sign videos. Our architecture employs an encoder-only backbone with a binary classification head to determine whether the query sign appears within the target sequence. By focusing on pose representations instead of raw RGB frames, our method significantly reduces computational cost and mitigates visual noise. We evaluate our approach on the Word Presence Prediction dataset from the WSLP 2025 shared task, achieving 61.88\\% accuracy and 60.00\\% F1-score. These results demonstrate the effectiveness of our pose-based framework for Sign Language Spotting, establishing a strong foundation for future research in automatic sign language retrieval and verification. Code is available at https://github.com/EbimoJohnny/Pose-Based-Sign-Language-Spotting",
+        "url": "http://arxiv.org/abs/2512.08738v1",
+        "pdf_url": "https://arxiv.org/pdf/2512.08738v1",
+        "arxiv_id": "2512.08738v1",
+        "authors": [
+            "Samuel Ebimobowei Johnny",
+            "Blessed Guda",
+            "Emmanuel Enejo Aaron",
+            "Assane Gueye"
+        ],
+        "submitted": "2025-12-09 15:49:23",
+        "source": "arxiv",
+        "comment": "To appear at AACL-IJCNLP 2025 Workshop WSLP"
+    },
+    {
+        "title": "Automatic Essay Scoring and Feedback Generation in Basque Language Learning",
+        "abstract": "This paper introduces the first publicly available dataset for Automatic Essay Scoring (AES) and feedback generation in Basque, targeting the CEFR C1 proficiency level. The dataset comprises 3,200 essays from HABE, each annotated by expert evaluators with criterion specific scores covering correctness, richness, coherence, cohesion, and task alignment enriched with detailed feedback and error examples. We fine-tune open-source models, including RoBERTa-EusCrawl and Latxa 8B/70B, for both scoring and explanation generation. Our experiments show that encoder models remain highly reliable for AES, while supervised fine-tuning (SFT) of Latxa significantly enhances performance, surpassing state-of-the-art (SoTA) closed-source systems such as GPT-5 and Claude Sonnet 4.5 in scoring consistency and feedback quality. We also propose a novel evaluation methodology for assessing feedback generation, combining automatic consistency metrics with expert-based validation of extracted learner errors. Results demonstrate that the fine-tuned Latxa model produces criterion-aligned, pedagogically meaningful feedback and identifies a wider range of error types than proprietary models. This resource and benchmark establish a foundation for transparent, reproducible, and educationally grounded NLP research in low-resource languages such as Basque.",
+        "url": "http://arxiv.org/abs/2512.08713v1",
+        "pdf_url": "https://arxiv.org/pdf/2512.08713v1",
+        "arxiv_id": "2512.08713v1",
+        "authors": [
+            "Ekhi Azurmendi",
+            "Xabier Arregi",
+            "Oier Lopez de Lacalle"
+        ],
+        "submitted": "2025-12-09 15:28:35",
+        "source": "arxiv",
+        "comment": "Submitted to LREC 2026"
+    },
+    {
+        "title": "VI-MMRec: Similarity-Aware Training Cost-free Virtual User-Item Interactions for Multimodal Recommendation",
+        "abstract": "Although existing multimodal recommendation models have shown promising performance, their effectiveness continues to be limited by the pervasive data sparsity problem. This problem arises because users typically interact with only a small subset of available items, leading existing models to arbitrarily treat unobserved items as negative samples. To this end, we propose VI-MMRec, a model-agnostic and training cost-free framework that enriches sparse user-item interactions via similarity-aware virtual user-item interactions. These virtual interactions are constructed based on modality-specific feature similarities of user-interacted items. Specifically, VI-MMRec introduces two different strategies: (1) Overlay, which independently aggregates modality-specific similarities to preserve modality-specific user preferences, and (2) Synergistic, which holistically fuses cross-modal similarities to capture complementary user preferences. To ensure high-quality augmentation, we design a statistically informed weight allocation mechanism that adaptively assigns weights to virtual user-item interactions based on dataset-specific modality relevance. As a plug-and-play framework, VI-MMRec seamlessly integrates with existing models to enhance their performance without modifying their core architecture. Its flexibility allows it to be easily incorporated into various existing models, maximizing performance with minimal implementation effort. Moreover, VI-MMRec introduces no additional overhead during training, making it significantly advantageous for practical deployment. Comprehensive experiments conducted on six real-world datasets using seven state-of-the-art multimodal recommendation models validate the effectiveness of our VI-MMRec.",
+        "url": "http://arxiv.org/abs/2512.08702v1",
+        "pdf_url": "https://arxiv.org/pdf/2512.08702v1",
+        "arxiv_id": "2512.08702v1",
+        "authors": [
+            "Jinfeng Xu",
+            "Zheyu Chen",
+            "Shuo Yang",
+            "Jinze Li",
+            "Zitong Wan",
+            "Hewei Wang",
+            "Weijie Liu",
+            "Yijie Li",
+            "Edith C. H. Ngai"
+        ],
+        "submitted": "2025-12-09 15:18:51",
+        "source": "arxiv",
+        "comment": "Accepted by KDD 2026"
+    },
+    {
+        "title": "An Agentic AI System for Multi-Framework Communication Coding",
+        "abstract": "Clinical communication is central to patient outcomes, yet large-scale human annotation of patient-provider conversation remains labor-intensive, inconsistent, and difficult to scale. Existing approaches based on large language models typically rely on single-task models that lack adaptability, interpretability, and reliability, especially when applied across various communication frameworks and clinical domains. In this study, we developed a Multi-framework Structured Agentic AI system for Clinical Communication (MOSAIC), built on a LangGraph-based architecture that orchestrates four core agents, including a Plan Agent for codebook selection and workflow planning, an Update Agent for maintaining up-to-date retrieval databases, a set of Annotation Agents that applies codebook-guided retrieval-augmented generation (RAG) with dynamic few-shot prompting, and a Verification Agent that provides consistency checks and feedback. To evaluate performance, we compared MOSAIC outputs against gold-standard annotations created by trained human coders. We developed and evaluated MOSAIC using 26 gold standard annotated transcripts for training and 50 transcripts for testing, spanning rheumatology and OB/GYN domains. On the test set, MOSAIC achieved an overall F1 score of 0.928. Performance was highest in the Rheumatology subset (F1 = 0.962) and strongest for Patient Behavior (e.g., patients asking questions, expressing preferences, or showing assertiveness). Ablations revealed that MOSAIC outperforms baseline benchmarking.",
+        "url": "http://arxiv.org/abs/2512.08659v1",
+        "pdf_url": "https://arxiv.org/pdf/2512.08659v1",
+        "arxiv_id": "2512.08659v1",
+        "authors": [
+            "Bohao Yang",
+            "Rui Yang",
+            "Joshua M. Biro",
+            "Haoyuan Wang",
+            "Jessica L. Handley",
+            "Brianna Richardson",
+            "Sophia Bessias",
+            "Nicoleta Economou-Zavlanos",
+            "Armando D. Bedoya",
+            "Monica Agrawal",
+            "Michael M. Zavlanos",
+            "Anand Chowdhury",
+            "Raj M. Ratwani",
+            "Kai Sun",
+            "Kathryn I. Pollak",
+            "Michael J. Pencina",
+            "Chuan Hong"
+        ],
+        "submitted": "2025-12-09 14:46:16",
+        "source": "arxiv",
+        "comment": null
+    },
+    {
+        "title": "QSTN: A Modular Framework for Robust Questionnaire Inference with Large Language Models",
+        "abstract": "We introduce QSTN, an open-source Python framework for systematically generating responses from questionnaire-style prompts to support in-silico surveys and annotation tasks with large language models (LLMs). QSTN enables robust evaluation of questionnaire presentation, prompt perturbations, and response generation methods. Our extensive evaluation ($>40 $ million survey responses) shows that question structure and response generation methods have a significant impact on the alignment of generated survey responses with human answers, and can be obtained for a fraction of the compute cost. In addition, we offer a no-code user interface that allows researchers to set up robust experiments with LLMs without coding knowledge. We hope that QSTN will support the reproducibility and reliability of LLM-based research in the future.",
+        "url": "http://arxiv.org/abs/2512.08646v1",
+        "pdf_url": "https://arxiv.org/pdf/2512.08646v1",
+        "arxiv_id": "2512.08646v1",
+        "authors": [
+            "Maximilian Kreutner",
+            "Jens Rupprecht",
+            "Georg Ahnert",
+            "Ahmed Salem",
+            "Markus Strohmaier"
+        ],
+        "submitted": "2025-12-09 14:35:26",
+        "source": "arxiv",
+        "comment": "The Python package is available at https://github.com/dess-mannheim/QSTN/"
+    },
+    {
+        "title": "HealthcareNLP: where are we and what is next?",
+        "abstract": "This proposed tutorial focuses on Healthcare Domain Applications of NLP, what we have achieved around HealthcareNLP, and the challenges that lie ahead for the future. Existing reviews in this domain either overlook some important tasks, such as synthetic data generation for addressing privacy concerns, or explainable clinical NLP for improved integration and implementation, or fail to mention important methodologies, including retrieval augmented generation and the neural symbolic integration of LLMs and KGs. In light of this, the goal of this tutorial is to provide an introductory overview of the most important sub-areas of a patient- and resource-oriented HealthcareNLP, with three layers of hierarchy: data/resource layer: annotation guidelines, ethical approvals, governance, synthetic data; NLP-Eval layer: NLP tasks such as NER, RE, sentiment analysis, and linking/coding with categorised methods, leading to explainable HealthAI; patients layer: Patient Public Involvement and Engagement (PPIE), health literacy, translation, simplification, and summarisation (also NLP tasks), and shared decision-making support. A hands-on session will be included in the tutorial for the audience to use HealthcareNLP applications. The target audience includes NLP practitioners in the healthcare application domain, NLP researchers who are interested in domain applications, healthcare researchers, and students from NLP fields. The type of tutorial is \"Introductory to CL/NLP topics (HealthcareNLP)\" and the audience does not need prior knowledge to attend this. Tutorial materials: https://github.com/4dpicture/HealthNLP",
+        "url": "http://arxiv.org/abs/2512.08617v1",
+        "pdf_url": "https://arxiv.org/pdf/2512.08617v1",
+        "arxiv_id": "2512.08617v1",
+        "authors": [
+            "Lifeng Han",
+            "Paul Rayson",
+            "Suzan Verberne",
+            "Andrew Moore",
+            "Goran Nenadic"
+        ],
+        "submitted": "2025-12-09 14:01:51",
+        "source": "arxiv",
+        "comment": "Accepted Tutorial by LREC 2026 https://lrec2026.info/"
+    },
+    {
+        "title": "Curriculum Guided Massive Multi Agent System Solving For Robust Long Horizon Tasks",
+        "abstract": "Large Language Models and multi-agent systems have shown promise in decomposing complex tasks, yet they struggle with long-horizon reasoning tasks and escalating computation cost. This work introduces a hierarchical multi-agent architecture that distributes reasoning across a 64*64 grid of lightweight agents, supported by a selective oracle. A spatial curriculum progressively expands the operational region of the grid, ensuring that agents master easier central tasks before tackling harder peripheral ones. To improve reliability, the system integrates Negative Log-Likelihood as a measure of confidence, allowing the curriculum to prioritize regions where agents are both accurate and well calibrated. A Thompson Sampling curriculum manager adaptively chooses training zones based on competence and NLL-driven reward signals. We evaluate the approach on a spatially grounded Tower of Hanoi benchmark, which mirrors the long-horizon structure of many robotic manipulation and planning tasks. Results demonstrate improved stability, reduced oracle usage, and stronger long-range reasoning from distributed agent cooperation.",
+        "url": "http://arxiv.org/abs/2512.08545v1",
+        "pdf_url": "https://arxiv.org/pdf/2512.08545v1",
+        "arxiv_id": "2512.08545v1",
+        "authors": [
+            "Indrajit Kar",
+            "Kalathur Chenchu Kishore Kumar"
+        ],
+        "submitted": "2025-12-09 12:40:39",
+        "source": "arxiv",
+        "comment": "22 pages, 2 tables, 9 figures"
+    },
+    {
+        "title": "Beyond Real Weights: Hypercomplex Representations for Stable Quantization",
+        "abstract": "Multimodal language models (MLLMs) require large parameter capacity to align high-dimensional visual features with linguistic representations, making them computationally heavy and difficult to deploy efficiently. We introduce a progressive reparameterization strategy that compresses these models by gradually replacing dense feed-forward network blocks with compact Parameterized Hypercomplex Multiplication (PHM) layers. A residual interpolation schedule, together with lightweight reconstruction and knowledge distillation losses, ensures that the PHM modules inherit the functional behavior of their dense counterparts during training. This transition yields substantial parameter and FLOP reductions while preserving strong multimodal alignment, enabling faster inference without degrading output quality. We evaluate the approach on multiple vision-language models (VLMs). Our method maintains performance comparable to the base models while delivering significant reductions in model size and inference latency. Progressive PHM substitution thus offers an architecture-compatible path toward more efficient multimodal reasoning and complements existing low-bit quantization techniques.",
+        "url": "http://arxiv.org/abs/2512.08524v1",
+        "pdf_url": "https://arxiv.org/pdf/2512.08524v1",
+        "arxiv_id": "2512.08524v1",
+        "authors": [
+            "Jawad Ibn Ahad",
+            "Maisha Rahman",
+            "Amrijit Biswas",
+            "Muhammad Rafsan Kabir",
+            "Robin Krambroeckers",
+            "Sifat Momen",
+            "Nabeel Mohammed",
+            "Shafin Rahman"
+        ],
+        "submitted": "2025-12-09 12:10:57",
+        "source": "arxiv",
+        "comment": "Accepted in Winter Conference on Applications of Computer Vision (WACV) 2026"
+    },
+    {
+        "title": "Soft Inductive Bias Approach via Explicit Reasoning Perspectives in Inappropriate Utterance Detection Using Large Language Models",
+        "abstract": "Recent incidents in certain online games and communities, where anonymity is guaranteed, show that unchecked inappropriate remarks frequently escalate into verbal abuse and even criminal behavior, raising significant social concerns. Consequently, there is a growing need for research on techniques that can detect inappropriate utterances within conversational texts to help build a safer communication environment. Although large-scale language models trained on Korean corpora and chain-of-thought reasoning have recently gained attention, research applying these approaches to inappropriate utterance detection remains limited. In this study, we propose a soft inductive bias approach that explicitly defines reasoning perspectives to guide the inference process, thereby promoting rational decision-making and preventing errors that may arise during reasoning. We fine-tune a Korean large language model using the proposed method and conduct both quantitative performance comparisons and qualitative evaluations across different training strategies. Experimental results show that the Kanana-1.5 model achieves an average accuracy of 87.0046, improving by approximately 3.89 percent over standard supervised learning. These findings indicate that the proposed method goes beyond simple knowledge imitation by large language models and enables more precise and consistent judgments through constrained reasoning perspectives, demonstrating its effectiveness for inappropriate utterance detection.",
+        "url": "http://arxiv.org/abs/2512.08480v1",
+        "pdf_url": "https://arxiv.org/pdf/2512.08480v1",
+        "arxiv_id": "2512.08480v1",
+        "authors": [
+            "Ju-Young Kim",
+            "Ji-Hong Park",
+            "Se-Yeon Lee",
+            "Sujin Park",
+            "Gun-Woo Kim"
+        ],
+        "submitted": "2025-12-09 10:55:33",
+        "source": "arxiv",
+        "comment": "in Korean language, Published in the Proceedings of the 37th Annual Conference on Human and Language Technology, 2025, pp. 714-719. (English translation assisted by GPT)"
+    },
+    {
+        "title": "What Triggers my Model? Contrastive Explanations Inform Gender Choices by Translation Models",
+        "abstract": "Interpretability can be implemented as a means to understand decisions taken by (black box) models, such as machine translation (MT) or large language models (LLMs). Yet, research in this area has been limited in relation to a manifested problem in these models: gender bias. With this research, we aim to move away from simply measuring bias to exploring its origins. Working with gender-ambiguous natural source data, this study examines which context, in the form of input tokens in the source sentence, influences (or triggers) the translation model choice of a certain gender inflection in the target language. To analyse this, we use contrastive explanations and compute saliency attribution. We first address the challenge of a lacking scoring threshold and specifically examine different attribution levels of source words on the model gender decisions in the translation. We compare salient source words with human perceptions of gender and demonstrate a noticeable overlap between human perceptions and model attribution. Additionally, we provide a linguistic analysis of salient words. Our work showcases the relevance of understanding model translation decisions in terms of gender, how this compares to human decisions and that this information should be leveraged to mitigate gender bias.",
+        "url": "http://arxiv.org/abs/2512.08440v1",
+        "pdf_url": "https://arxiv.org/pdf/2512.08440v1",
+        "arxiv_id": "2512.08440v1",
+        "authors": [
+            "Janiça Hackenbuchner",
+            "Arda Tezcan",
+            "Joke Daems"
+        ],
+        "submitted": "2025-12-09 10:14:10",
+        "source": "arxiv",
+        "comment": null
+    },
+    {
+        "title": "Are generative AI text annotations systematically biased?",
+        "abstract": "This paper investigates bias in GLLM annotations by conceptually replicating manual annotations of Boukes (2024). Using various GLLMs (Llama3.1:8b, Llama3.3:70b, GPT4o, Qwen2.5:72b) in combination with five different prompts for five concepts (political content, interactivity, rationality, incivility, and ideology). We find GLLMs perform adequate in terms of F1 scores, but differ from manual annotations in terms of prevalence, yield substantively different downstream results, and display systematic bias in that they overlap more with each other than with manual annotations. Differences in F1 scores fail to account for the degree of bias.",
+        "url": "http://arxiv.org/abs/2512.08404v1",
+        "pdf_url": "https://arxiv.org/pdf/2512.08404v1",
+        "arxiv_id": "2512.08404v1",
+        "authors": [
+            "Sjoerd B. Stolwijk",
+            "Mark Boukes",
+            "Damian Trilling"
+        ],
+        "submitted": "2025-12-09 09:36:43",
+        "source": "arxiv",
+        "comment": "9 pages, 6 figures, 1 table; version submitted to the International Communication Association Annual Conference in Cape Town 2026"
+    },
+    {
+        "title": "Ontology-Based Knowledge Graph Framework for Industrial Standard Documents via Hierarchical and Propositional Structuring",
+        "abstract": "Ontology-based knowledge graph (KG) construction is a core technology that enables multidimensional understanding and advanced reasoning over domain knowledge. Industrial standards, in particular, contain extensive technical information and complex rules presented in highly structured formats that combine tables, scopes of application, constraints, exceptions, and numerical calculations, making KG construction especially challenging. In this study, we propose a method that organizes such documents into a hierarchical semantic structure, decomposes sentences and tables into atomic propositions derived from conditional and numerical rules, and integrates them into an ontology-knowledge graph through LLM-based triple extraction. Our approach captures both the hierarchical and logical structures of documents, effectively representing domain-specific semantics that conventional methods fail to reflect. To verify its effectiveness, we constructed rule, table, and multi-hop QA datasets, as well as a toxic clause detection dataset, from industrial standards, and implemented an ontology-aware KG-RAG framework for comparative evaluation. Experimental results show that our method achieves significant performance improvements across all QA types compared to existing KG-RAG approaches. This study demonstrates that reliable and scalable knowledge representation is feasible even for industrial documents with intertwined conditions, constraints, and scopes, contributing to future domain-specific RAG development and intelligent document management.",
+        "url": "http://arxiv.org/abs/2512.08398v1",
+        "pdf_url": "https://arxiv.org/pdf/2512.08398v1",
+        "arxiv_id": "2512.08398v1",
+        "authors": [
+            "Jiin Park",
+            "Hyuna Jeon",
+            "Yoonseo Lee",
+            "Jisu Hong",
+            "Misuk Kim"
+        ],
+        "submitted": "2025-12-09 09:26:37",
+        "source": "arxiv",
+        "comment": null
+    },
+    {
+        "title": "The High Cost of Incivility: Quantifying Interaction Inefficiency via Multi-Agent Monte Carlo Simulations",
+        "abstract": "Workplace toxicity is widely recognized as detrimental to organizational culture, yet quantifying its direct impact on operational efficiency remains methodologically challenging due to the ethical and practical difficulties of reproducing conflict in human subjects. This study leverages Large Language Model (LLM) based Multi-Agent Systems to simulate 1-on-1 adversarial debates, creating a controlled \"sociological sandbox\". We employ a Monte Carlo method to simulate hundrets of discussions, measuring the convergence time (defined as the number of arguments required to reach a conclusion) between a baseline control group and treatment groups involving agents with \"toxic\" system prompts. Our results demonstrate a statistically significant increase of approximately 25\\% in the duration of conversations involving toxic participants. We propose that this \"latency of toxicity\" serves as a proxy for financial damage in corporate and academic settings. Furthermore, we demonstrate that agent-based modeling provides a reproducible, ethical alternative to human-subject research for measuring the mechanics of social friction.",
+        "url": "http://arxiv.org/abs/2512.08345v1",
+        "pdf_url": "https://arxiv.org/pdf/2512.08345v1",
+        "arxiv_id": "2512.08345v1",
+        "authors": [
+            "Benedikt Mangold"
+        ],
+        "submitted": "2025-12-09 08:17:35",
+        "source": "arxiv",
+        "comment": "8 figures, 3 tables"
+    },
+    {
+        "title": "Reasoning Models Ace the CFA Exams",
+        "abstract": "Previous research has reported that large language models (LLMs) demonstrate poor performance on the Chartered Financial Analyst (CFA) exams. However, recent reasoning models have achieved strong results on graduate-level academic and professional examinations across various disciplines. In this paper, we evaluate state-of-the-art reasoning models on a set of mock CFA exams consisting of 980 questions across three Level I exams, two Level II exams, and three Level III exams. Using the same pass/fail criteria from prior studies, we find that most models clear all three levels. The models that pass, ordered by overall performance, are Gemini 3.0 Pro, Gemini 2.5 Pro, GPT-5, Grok 4, Claude Opus 4.1, and DeepSeek-V3.1. Specifically, Gemini 3.0 Pro achieves a record score of 97.6% on Level I. Performance is also strong on Level II, led by GPT-5 at 94.3%. On Level III, Gemini 2.5 Pro attains the highest score with 86.4% on multiple-choice questions while Gemini 3.0 Pro achieves 92.0% on constructed-response questions.",
+        "url": "http://arxiv.org/abs/2512.08270v1",
+        "pdf_url": "https://arxiv.org/pdf/2512.08270v1",
+        "arxiv_id": "2512.08270v1",
+        "authors": [
+            "Jaisal Patel",
+            "Yunzhe Chen",
+            "Kaiwen He",
+            "Keyi Wang",
+            "David Li",
+            "Kairong Xiao",
+            "Xiao-Yang Liu"
+        ],
+        "submitted": "2025-12-09 05:57:19",
+        "source": "arxiv",
+        "comment": null
+    },
+    {
+        "title": "ClinicalTrialsHub: Bridging Registries and Literature for Comprehensive Clinical Trial Access",
+        "abstract": "We present ClinicalTrialsHub, an interactive search-focused platform that consolidates all data from ClinicalTrials.gov and augments it by automatically extracting and structuring trial-relevant information from PubMed research articles. Our system effectively increases access to structured clinical trial data by 83.8% compared to relying on ClinicalTrials.gov alone, with potential to make access easier for patients, clinicians, researchers, and policymakers, advancing evidence-based medicine. ClinicalTrialsHub uses large language models such as GPT-5.1 and Gemini-3-Pro to enhance accessibility. The platform automatically parses full-text research articles to extract structured trial information, translates user queries into structured database searches, and provides an attributed question-answering system that generates evidence-grounded answers linked to specific source sentences. We demonstrate its utility through a user study involving clinicians, clinical researchers, and PhD students of pharmaceutical sciences and nursing, and a systematic automatic evaluation of its information extraction and question answering capabilities.",
+        "url": "http://arxiv.org/abs/2512.08193v1",
+        "pdf_url": "https://arxiv.org/pdf/2512.08193v1",
+        "arxiv_id": "2512.08193v1",
+        "authors": [
+            "Jiwoo Park",
+            "Ruoqi Liu",
+            "Avani Jagdale",
+            "Andrew Srisuwananukorn",
+            "Jing Zhao",
+            "Lang Li",
+            "Ping Zhang",
+            "Sachin Kumar"
+        ],
+        "submitted": "2025-12-09 02:52:06",
+        "source": "arxiv",
+        "comment": null
+    },
+    {
+        "title": "Universal Adversarial Suffixes for Language Models Using Reinforcement Learning with Calibrated Reward",
+        "abstract": "Language models are vulnerable to short adversarial suffixes that can reliably alter predictions. Previous works usually find such suffixes with gradient search or rule-based methods, but these are brittle and often tied to a single task or model. In this paper, a reinforcement learning framework is used where the suffix is treated as a policy and trained with Proximal Policy Optimization against a frozen model as a reward oracle. Rewards are shaped using calibrated cross-entropy, removing label bias and aggregating across surface forms to improve transferability. The proposed method is evaluated on five diverse NLP benchmark datasets, covering sentiment, natural language inference, paraphrase, and commonsense reasoning, using three distinct language models: Qwen2-1.5B Instruct, TinyLlama-1.1B Chat, and Phi-1.5. Results show that RL-trained suffixes consistently degrade accuracy and transfer more effectively across tasks and models than previous adversarial triggers of similar genres.",
+        "url": "http://arxiv.org/abs/2512.08131v1",
+        "pdf_url": "https://arxiv.org/pdf/2512.08131v1",
+        "arxiv_id": "2512.08131v1",
+        "authors": [
+            "Sampriti Soor",
+            "Suklav Ghosh",
+            "Arijit Sur"
+        ],
+        "submitted": "2025-12-09 00:18:06",
+        "source": "arxiv",
+        "comment": "5 pages"
+    },
+    {
+        "title": "Universal Adversarial Suffixes Using Calibrated Gumbel-Softmax Relaxation",
+        "abstract": "Language models (LMs) are often used as zero-shot or few-shot classifiers by scoring label words, but they remain fragile to adversarial prompts. Prior work typically optimizes task- or model-specific triggers, making results difficult to compare and limiting transferability. We study universal adversarial suffixes: short token sequences (4-10 tokens) that, when appended to any input, broadly reduce accuracy across tasks and models. Our approach learns the suffix in a differentiable \"soft\" form using Gumbel-Softmax relaxation and then discretizes it for inference. Training maximizes calibrated cross-entropy on the label region while masking gold tokens to prevent trivial leakage, with entropy regularization to avoid collapse. A single suffix trained on one model transfers effectively to others, consistently lowering both accuracy and calibrated confidence. Experiments on sentiment analysis, natural language inference, paraphrase detection, commonsense QA, and physical reasoning with Qwen2-1.5B, Phi-1.5, and TinyLlama-1.1B demonstrate consistent attack effectiveness and transfer across tasks and model families.",
+        "url": "http://arxiv.org/abs/2512.08123v1",
+        "pdf_url": "https://arxiv.org/pdf/2512.08123v1",
+        "arxiv_id": "2512.08123v1",
+        "authors": [
+            "Sampriti Soor",
+            "Suklav Ghosh",
+            "Arijit Sur"
+        ],
+        "submitted": "2025-12-09 00:03:39",
+        "source": "arxiv",
+        "comment": "10 pages"
+    },
+    {
+        "title": "Balanced Accuracy: The Right Metric for Evaluating LLM Judges -- Explained through Youden's J statistic",
+        "abstract": "Rigorous evaluation of large language models (LLMs) relies on comparing models by the prevalence of desirable or undesirable behaviors, such as task pass rates or policy violations. These prevalence estimates are produced by a classifier, either an LLM-as-a-judge or human annotators, making the choice of classifier central to trustworthy evaluation. Common metrics used for this choice, such as Accuracy, Precision, and F1, are sensitive to class imbalance and to arbitrary choices of positive class, and can favor judges that distort prevalence estimates. We show that Youden's $J$ statistic is theoretically aligned with choosing the best judge to compare models, and that Balanced Accuracy is an equivalent linear transformation of $J$. Through both analytical arguments and empirical examples and simulations, we demonstrate how selecting judges using Balanced Accuracy leads to better, more robust classifier selection.",
+        "url": "http://arxiv.org/abs/2512.08121v1",
+        "pdf_url": "https://arxiv.org/pdf/2512.08121v1",
+        "arxiv_id": "2512.08121v1",
+        "authors": [
+            "Stephane Collot",
+            "Colin Fraser",
+            "Justin Zhao",
+            "William F. Shen",
+            "Timon Willi",
+            "Ilias Leontiadis"
+        ],
+        "submitted": "2025-12-08 23:58:32",
+        "source": "arxiv",
+        "comment": "9 pages, 5 figures"
+    },
+    {
+        "title": "Segment, Embed, and Align: A Universal Recipe for Aligning Subtitles to Signing",
+        "abstract": "The goal of this work is to develop a universal approach for aligning subtitles (i.e., spoken language text with corresponding timestamps) to continuous sign language videos. Prior approaches typically rely on end-to-end training tied to a specific language or dataset, which limits their generality. In contrast, our method Segment, Embed, and Align (SEA) provides a single framework that works across multiple languages and domains. SEA leverages two pretrained models: the first to segment a video frame sequence into individual signs and the second to embed the video clip of each sign into a shared latent space with text. Alignment is subsequently performed with a lightweight dynamic programming procedure that runs efficiently on CPUs within a minute, even for hour-long episodes. SEA is flexible and can adapt to a wide range of scenarios, utilizing resources from small lexicons to large continuous corpora. Experiments on four sign language datasets demonstrate state-of-the-art alignment performance, highlighting the potential of SEA to generate high-quality parallel data for advancing sign language processing. SEA's code and models are openly available.",
+        "url": "http://arxiv.org/abs/2512.08094v1",
+        "pdf_url": "https://arxiv.org/pdf/2512.08094v1",
+        "arxiv_id": "2512.08094v1",
+        "authors": [
+            "Zifan Jiang",
+            "Youngjoon Jang",
+            "Liliane Momeni",
+            "Gül Varol",
+            "Sarah Ebling",
+            "Andrew Zisserman"
+        ],
+        "submitted": "2025-12-08 23:07:48",
+        "source": "arxiv",
+        "comment": null
+    },
+    {
+        "title": "Adaptation of Embedding Models to Financial Filings via LLM Distillation",
+        "abstract": "Despite advances in generative large language models (LLMs), practical application of specialized conversational AI agents remains constrained by computation costs, latency requirements, and the need for precise domain-specific relevance measures. While existing embedding models address the first two constraints, they underperform on information retrieval in specialized domains like finance. This paper introduces a scalable pipeline that trains specialized models from an unlabeled corpus using a general purpose retrieval embedding model as foundation. Our method yields an average of 27.7% improvement in MRR$\\texttt{@}$5, 44.6% improvement in mean DCG$\\texttt{@}$5 across 14 financial filing types measured over 21,800 query-document pairs, and improved NDCG on 3 of 4 document classes in FinanceBench. We adapt retrieval embeddings (bi-encoder) for RAG, not LLM generators, using LLM-judged relevance to distill domain knowledge into a compact retriever. There are prior works which pair synthetically generated queries with real passages to directly fine-tune the retrieval model. Our pipeline differs from these by introducing interaction between student and teacher models that interleaves retrieval-based mining of hard positive/negative examples from the unlabeled corpus with iterative retraining of the student model's weights using these examples. Each retrieval iteration uses the refined student model to mine the corpus for progressively harder training examples for the subsequent training iteration. The methodology provides a cost-effective solution to bridging the gap between general-purpose models and specialized domains without requiring labor-intensive human annotation.",
+        "url": "http://arxiv.org/abs/2512.08088v1",
+        "pdf_url": "https://arxiv.org/pdf/2512.08088v1",
+        "arxiv_id": "2512.08088v1",
+        "authors": [
+            "Eliot Brenner",
+            "Dominic Seyler",
+            "Manjunath Hegde",
+            "Andrei Simion",
+            "Koustuv Dasgupta",
+            "Bing Xiang"
+        ],
+        "submitted": "2025-12-08 22:43:14",
+        "source": "arxiv",
+        "comment": "In proceedings of LLM-Finance 2025 : The 2nd IEEE International Workshop on Large Language Models for Finance"
+    },
+    {
+        "title": "Exploiting the Randomness of Large Language Models (LLM) in Text Classification Tasks: Locating Privileged Documents in Legal Matters",
+        "abstract": "In legal matters, text classification models are most often used to filter through large datasets in search of documents that meet certain pre-selected criteria like relevance to a certain subject matter, such as legally privileged communications and attorney-directed documents. In this context, large language models have demonstrated strong performance. This paper presents an empirical study investigating the role of randomness in LLM-based classification for attorney-client privileged document detection, focusing on four key dimensions: (1) the effectiveness of LLMs in identifying legally privileged documents, (2) the influence of randomness control parameters on classification outputs, (3) their impact on overall classification performance, and (4) a methodology for leveraging randomness to enhance accuracy. Experimental results showed that LLMs can identify privileged documents effectively, randomness control parameters have minimal impact on classification performance, and importantly, our developed methodology for leveraging randomness can have a significant impact on improving accuracy. Notably, this methodology that leverages randomness could also enhance a corporation's confidence in an LLM's output when incorporated into its sanctions-compliance processes. As organizations increasingly rely on LLMs to augment compliance workflows, reducing output variability helps build internal and regulatory confidence in LLM-derived sanctions-screening decisions.",
+        "url": "http://arxiv.org/abs/2512.08083v1",
+        "pdf_url": "https://arxiv.org/pdf/2512.08083v1",
+        "arxiv_id": "2512.08083v1",
+        "authors": [
+            "Keith Huffman",
+            "Jianping Zhang",
+            "Nathaniel Huber-Fliflet",
+            "Fusheng Wei",
+            "Peter Gronvall"
+        ],
+        "submitted": "2025-12-08 22:28:49",
+        "source": "arxiv",
+        "comment": null
+    },
+    {
+        "title": "Short-Context Dominance: How Much Local Context Natural Language Actually Needs?",
+        "abstract": "We investigate the short-context dominance hypothesis: that for most sequences, a small local prefix suffices to predict their next tokens. Using large language models as statistical oracles, we measure the minimum context length (MCL) needed to reproduce accurate full-context predictions across datasets with sequences of varying lengths. For sequences with 1-7k tokens from long-context documents, we consistently find that 75-80% require only the last 96 tokens at most. Given the dominance of short-context tokens, we then ask whether it is possible to detect challenging long-context sequences for which a short local prefix does not suffice for prediction. We introduce a practical proxy to MCL, called Distributionally Aware MCL (DaMCL), that does not require knowledge of the actual next-token and is compatible with sampling strategies beyond greedy decoding. Our experiments validate that simple thresholding of the metric defining DaMCL achieves high performance in detecting long vs. short context sequences. Finally, to counter the bias that short-context dominance induces in LLM output distributions, we develop an intuitive decoding algorithm that leverages our detector to identify and boost tokens that are long-range-relevant. Across Q&A tasks and model architectures, we confirm that mitigating the bias improves performance.",
+        "url": "http://arxiv.org/abs/2512.08082v1",
+        "pdf_url": "https://arxiv.org/pdf/2512.08082v1",
+        "arxiv_id": "2512.08082v1",
+        "authors": [
+            "Vala Vakilian",
+            "Zimeng Wang",
+            "Ankit Singh Rawat",
+            "Christos Thrampoulidis"
+        ],
+        "submitted": "2025-12-08 22:25:00",
+        "source": "arxiv",
+        "comment": "38 pages, 7 figures, includes appendix and references"
+    },
+    {
+        "title": "Leveraging Machine Learning and Large Language Models for Automated Image Clustering and Description in Legal Discovery",
+        "abstract": "The rapid increase in digital image creation and retention presents substantial challenges during legal discovery, digital archive, and content management. Corporations and legal teams must organize, analyze, and extract meaningful insights from large image collections under strict time pressures, making manual review impractical and costly. These demands have intensified interest in automated methods that can efficiently organize and describe large-scale image datasets. This paper presents a systematic investigation of automated cluster description generation through the integration of image clustering, image captioning, and large language models (LLMs). We apply K-means clustering to group images into 20 visually coherent clusters and generate base captions using the Azure AI Vision API. We then evaluate three critical dimensions of the cluster description process: (1) image sampling strategies, comparing random, centroid-based, stratified, hybrid, and density-based sampling against using all cluster images; (2) prompting techniques, contrasting standard prompting with chain-of-thought prompting; and (3) description generation methods, comparing LLM-based generation with traditional TF-IDF and template-based approaches. We assess description quality using semantic similarity and coverage metrics. Results show that strategic sampling with 20 images per cluster performs comparably to exhaustive inclusion while significantly reducing computational cost, with only stratified sampling showing modest degradation. LLM-based methods consistently outperform TF-IDF baselines, and standard prompts outperform chain-of-thought prompts for this task. These findings provide practical guidance for deploying scalable, accurate cluster description systems that support high-volume workflows in legal discovery and other domains requiring automated organization of large image collections.",
+        "url": "http://arxiv.org/abs/2512.08079v1",
+        "pdf_url": "https://arxiv.org/pdf/2512.08079v1",
+        "arxiv_id": "2512.08079v1",
+        "authors": [
+            "Qiang Mao",
+            "Fusheng Wei",
+            "Robert Neary",
+            "Charles Wang",
+            "Han Qin",
+            "Jianping Zhang",
+            "Nathaniel Huber-Fliflet"
+        ],
+        "submitted": "2025-12-08 22:22:23",
+        "source": "arxiv",
+        "comment": null
+    },
+    {
+        "title": "A Comparative Study of Retrieval Methods in Azure AI Search",
+        "abstract": "Increasingly, attorneys are interested in moving beyond keyword and semantic search to improve the efficiency of how they find key information during a document review task. Large language models (LLMs) are now seen as tools that attorneys can use to ask natural language questions of their data during document review to receive accurate and concise answers. This study evaluates retrieval strategies within Microsoft Azure's Retrieval-Augmented Generation (RAG) framework to identify effective approaches for Early Case Assessment (ECA) in eDiscovery. During ECA, legal teams analyze data at the outset of a matter to gain a general understanding of the data and attempt to determine key facts and risks before beginning full-scale review. In this paper, we compare the performance of Azure AI Search's keyword, semantic, vector, hybrid, and hybrid-semantic retrieval methods. We then present the accuracy, relevance, and consistency of each method's AI-generated responses. Legal practitioners can use the results of this study to enhance how they select RAG configurations in the future.",
+        "url": "http://arxiv.org/abs/2512.08078v1",
+        "pdf_url": "https://arxiv.org/pdf/2512.08078v1",
+        "arxiv_id": "2512.08078v1",
+        "authors": [
+            "Qiang Mao",
+            "Han Qin",
+            "Robert Neary",
+            "Charles Wang",
+            "Fusheng Wei",
+            "Jianping Zhang",
+            "Nathaniel Huber-Fliflet"
+        ],
+        "submitted": "2025-12-08 22:20:02",
+        "source": "arxiv",
+        "comment": null
+    },
+    {
+        "title": "Detecting Privileged Documents by Ranking Connected Network Entities",
+        "abstract": "This paper presents a link analysis approach for identifying privileged documents by constructing a network of human entities derived from email header metadata. Entities are classified as either counsel or non-counsel based on a predefined list of known legal professionals. The core assumption is that individuals with frequent interactions with lawyers are more likely to participate in privileged communications. To quantify this likelihood, an algorithm assigns a score to each entity within the network. By utilizing both entity scores and the strength of their connections, the method enhances the identification of privileged documents. Experimental results demonstrate the algorithm's effectiveness in ranking legal entities for privileged document detection.",
+        "url": "http://arxiv.org/abs/2512.08073v1",
+        "pdf_url": "https://arxiv.org/pdf/2512.08073v1",
+        "arxiv_id": "2512.08073v1",
+        "authors": [
+            "Jianping Zhang",
+            "Han Qin",
+            "Nathaniel Huber-Fliflet"
+        ],
+        "submitted": "2025-12-08 22:16:54",
+        "source": "arxiv",
+        "comment": null
+    },
+    {
+        "title": "Beyond Unified Models: A Service-Oriented Approach to Low Latency, Context Aware Phonemization for Real Time TTS",
+        "abstract": "Lightweight, real-time text-to-speech systems are crucial for accessibility. However, the most efficient TTS models often rely on lightweight phonemizers that struggle with context-dependent challenges. In contrast, more advanced phonemizers with a deeper linguistic understanding typically incur high computational costs, which prevents real-time performance.\n  This paper examines the trade-off between phonemization quality and inference speed in G2P-aided TTS systems, introducing a practical framework to bridge this gap. We propose lightweight strategies for context-aware phonemization and a service-oriented TTS architecture that executes these modules as independent services. This design decouples heavy context-aware components from the core TTS engine, effectively breaking the latency barrier and enabling real-time use of high-quality phonemization models. Experimental results confirm that the proposed system improves pronunciation soundness and linguistic accuracy while maintaining real-time responsiveness, making it well-suited for offline and end-device TTS applications.",
+        "url": "http://arxiv.org/abs/2512.08006v1",
+        "pdf_url": "https://arxiv.org/pdf/2512.08006v1",
+        "arxiv_id": "2512.08006v1",
+        "authors": [
+            "Mahta Fetrat",
+            "Donya Navabi",
+            "Zahra Dehghanian",
+            "Morteza Abolghasemi",
+            "Hamid R. Rabiee"
+        ],
+        "submitted": "2025-12-08 19:49:33",
+        "source": "arxiv",
+        "comment": null
+    }
+]

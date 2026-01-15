@@ -5,6 +5,7 @@ A curated list of daily papers related to Information Retrieval.
 ## 2026
 
 ### January
+- [2026-01-14](./reports/2026-01/2026-01-14.md)
 - [2026-01-13](./reports/2026-01/2026-01-13.md)
 - [2026-01-12](./reports/2026-01/2026-01-12.md)
 - [2026-01-11](./reports/2026-01/2026-01-11.md)

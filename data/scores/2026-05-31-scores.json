@@ -1,0 +1,1250 @@
+[
+    {
+        "title": "SPECTRA: Synthetic IR Test Collections with Relevance Oracles and Controlled Distractor Diagnostics",
+        "abstract": "Scalable information retrieval testing needs corpora that are large enough to stress index construction, ranking latency, query routing, and evaluation tooling, yet human-judged test collections remain expensive and may be unavailable when documents are private or still under design. This paper introduces SPECTRA, a reproducible framework for generating synthetic text corpora and retrieval test collections through a separation of latent topical structure, surface text realization, metadata controls, query intent generation, and deterministic relevance oracles. The framework is intended as a diagnostic complement to Cranfield-style and TREC-style evaluation, not as a replacement for human assessment. A single-process Python prototype generated corpora up to 60,000 documents and 9.61 million tokens while preserving controllable long-tail vocabulary growth and producing graded relevance labels for 96 queries. In the local simulation study, generation remained close to linear at roughly 12K to 14K documents per second, estimated Zipf slopes stayed near 0.86 in absolute value, and increasing cross-topic distractor text reduced BM25 nDCG@10 from 1.00 at 2% distractors to 0.43 at 36% distractors. These results show that lightweight synthetic corpora can expose retrieval-system scaling and failure modes before costly collection construction begins.",
+        "url": "http://arxiv.org/abs/2605.31575v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.31575v1",
+        "arxiv_id": "2605.31575v1",
+        "authors": [
+            "Eric Liang"
+        ],
+        "submitted": "2026-05-29 17:44:15",
+        "source": "arxiv",
+        "comment": null,
+        "score": 24,
+        "keyword_reasons": [
+            "Found 'information retrieval' (score: +3)",
+            "Found 'query' (score: +3)",
+            "Found 'queries' (score: +3)",
+            "Found 'ranking' (score: +3)",
+            "Found 'relevance' (score: +3)",
+            "Found 'ctr' (score: +2)",
+            "Found 'retrieval' (score: +2)",
+            "Found 'rank' (score: +1)",
+            "Found 'acl' (score: +2)",
+            "Found 'trec' (score: +2)"
+        ],
+        "llm_score": 8,
+        "llm_reason": "This paper is highly relevant to Information Retrieval (IR) and Search technologies, specifically addressing the need for scalable testing and evaluation frameworks. The focus on synthetic test collections and relevance oracles aligns with your interests in query understanding and ranking models. However, the paper's primary focus on testing and evaluation frameworks, rather than deep semantic understanding or real-time relevance optimization, prevents it from being a perfect match."
+    },
+    {
+        "title": "Evaluating Factual Density in Multi-Source RAG: A Study in Medical AI Accuracy",
+        "abstract": "Retrieval-Augmented Generation (RAG) is the current industry standard for grounding AI in real-world facts. Traditional retrieval methods rely on keyword matching and topic proximity, ranking content based on how closely it sounds like the user's query. What they do not measure is how many verified facts the content actually contains. This structural gap, termed the Expert Blindness Effect, causes standard RAG pipelines to consistently bury high-density factual evidence in favor of lexically dominant text on the same topic. To address this gap, this paper introduces Factual Density (FD*), a novel retrieval optimization signal that measures the proportion of verified atomic claims relative to total token count. Using the NexusAgentics Ghost Audit preprocessing pipeline, raw text is scored for factual specificity using probabilistic factuality analysis to filter content before corpus ingestion. An initial formulation introduced a severe document-length confound (Pearson R = -0.8636, p = 2.27e-07). Implementing Z-score normalization within length bins resolved this bias, validating FD* as a length-independent density signal (p = 0.0749). Evaluated against the HealthFC benchmark (750 health claims labeled Supported, Refuted, or No Evidence by medical experts), FD*-optimized retrieval was the only condition to achieve 100% systematic review saturation in top-5 results, surfacing Cochrane evidence that standard cosine similarity ranked outside the top ten. Ground truth verification confirmed 25 mappings across seven HealthFC-supported claims. While full statistical validation across n=50 queries remains future work due to constraints on corpus-benchmark alignment, these findings establish factual density reranking as a low-cost, high-impact intervention for improving factual precision in health RAG architectures.",
+        "url": "http://arxiv.org/abs/2605.31506v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.31506v1",
+        "arxiv_id": "2605.31506v1",
+        "authors": [
+            "Michael R. DeMarco"
+        ],
+        "submitted": "2026-05-29 16:25:39",
+        "source": "arxiv",
+        "comment": "15 pages, 7 tables. Preliminary findings; Experiment 3 identified as future work",
+        "score": 17,
+        "keyword_reasons": [
+            "Found 'query' (score: +3)",
+            "Found 'queries' (score: +3)",
+            "Found 'ranking' (score: +3)",
+            "Found 'rerank' (score: +3)",
+            "Found 'rag' (score: +2)",
+            "Found 'retrieval' (score: +2)",
+            "Found 'rank' (score: +1)"
+        ],
+        "llm_score": 4,
+        "llm_reason": "This paper introduces a novel retrieval optimization signal called Factual Density, which measures the proportion of verified atomic claims in text. While it's related to information retrieval and ranking models, the focus is on medical AI accuracy and factual precision, which is somewhat tangential to your core research themes in query understanding, ranking models, and user behavior modeling."
+    },
+    {
+        "title": "Inference-Free Multimodal Learned Sparse Retrieval for Production-Scale Visual Document Search",
+        "abstract": "As large-scale visual-document corpora such as arXiv papers and enterprise PDFs continue to grow, visual-document retrieval has gained increasing attention; yet it still lacks a deployable system that lexically indexes visual documents to serve queries without neural encoding at scale. Existing methods either achieve strong retrieval quality with VLM-based dense or multi-vector models but require neural query encoding at serving time, or avoid query encoding with OCR- or caption-based BM25 at the cost of time-consuming text extraction or generation. To fill this missing serving regime, we present V-SPLADE, an inference-free sparse retriever for visual-document retrieval. However, such inference-free multimodal learned sparse retrieval systems remain underexplored and have not yet shown dense-level effectiveness under high sparsity. We attribute this limitation to a lexical grounding problem: visual sparse representations often fail to capture the lexical content embedded in document images. To address this problem, we introduce caption-gated token supervision, a training-only signal that uses VLM-generated captions as lexical cues to activate retrieval-relevant vocabulary dimensions. With this supervision, V-SPLADE improves average NDCG@5 across six visual-document retrieval benchmarks by +13.8pp over the same-scale dense baseline and by up to +6.3pp over OCR- or caption-based BM25 baselines. On an 18.7M-document corpus, it more than doubles R@5 over the same-scale dense baseline and further improves competing retrievers through score fusion by up to +2.4pp R@5. Code will be released soon at https://github.com/naver/v-splade.",
+        "url": "http://arxiv.org/abs/2605.30917v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.30917v1",
+        "arxiv_id": "2605.30917v1",
+        "authors": [
+            "Gyu-Hwung Cho",
+            "Youngjune Lee",
+            "Kiyoon Jeong",
+            "Siyoung Lee",
+            "Sanggyu Han",
+            "Hervé Dejean",
+            "Stéphane Clinchant",
+            "Seung-won Hwang"
+        ],
+        "submitted": "2026-05-29 07:01:45",
+        "source": "arxiv",
+        "comment": "12 pages, 5 figures, 12 tables, preprint",
+        "score": 17,
+        "keyword_reasons": [
+            "Found 'retriever' (score: +3)",
+            "Found 'sparse retrieval' (score: +3)",
+            "Found 'query' (score: +3)",
+            "Found 'queries' (score: +3)",
+            "Found 'rag' (score: +2)",
+            "Found 'retrieval' (score: +2)",
+            "Found 'search' (score: +1)"
+        ],
+        "llm_score": 4,
+        "llm_reason": "The paper presents a novel approach to visual-document retrieval, focusing on inference-free sparse retrieval. While it explores a related area of information retrieval, it doesn't directly address query understanding, ranking models, or user behavior modeling, which are core research themes for you. The connection to your interests is somewhat related, but not central."
+    },
+    {
+        "title": "DynaTree: Dynamic Agentic Retrieval Tree for Time-Sensitive News Retrieval",
+        "abstract": "Agentic Retrieval-Augmented Generation improves retrieval by integrating planning, tool use, and iterative reasoning, but existing agentic RAG methods often couple semantic expansion with retrieval decisions in short-horizon inference loops, leading to high inference cost and limited suitability for time-sensitive news retrieval. We propose DynaTree, a two-stage framework for efficient and adaptive news retrieval. In the offline stage, DynaTree uses coordinated agents to construct a reusable retrieval tree that materializes the semantic space of a query topic. In the online stage, DynaTree performs lightweight daily subtree selection over a time-localized evaluation proxy, without further agentic reasoning, tree modification, or retraining. Experiments on a multi-day Syft news benchmark and multiple BEIR datasets show that DynaTree achieves strong recall and ranking performance, consistently outperforming standard RAG and prior agentic baselines. We further deploy DynaTree in the Syft production system and evaluate it through online A/B testing from Jan. 28 to Feb. 6, 2026. The dynamically adapted variant improves survival rate from 0.32-0.53 to 0.59-0.73 over a fixed offline-selected subtree and outperforms existing production recallers on every evaluation day. These results show that persistent, structure-aware semantic expansion can translate offline agentic reasoning into practical improvements in coverage, freshness, and relevance for real-world news retrieval.",
+        "url": "http://arxiv.org/abs/2605.31377v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.31377v1",
+        "arxiv_id": "2605.31377v1",
+        "authors": [
+            "Siyuan Qi",
+            "Xinyuan Wang",
+            "Yingxuan Yang",
+            "Haochuan Guo",
+            "Jianghao Lin",
+            "Weiwen Liu",
+            "Yong Yu",
+            "Weinan Zhang"
+        ],
+        "submitted": "2026-05-29 14:45:58",
+        "source": "arxiv",
+        "comment": null,
+        "score": 14,
+        "keyword_reasons": [
+            "Found 'query' (score: +3)",
+            "Found 'ranking' (score: +3)",
+            "Found 'relevance' (score: +3)",
+            "Found 'rag' (score: +2)",
+            "Found 'retrieval' (score: +2)",
+            "Found 'rank' (score: +1)"
+        ],
+        "llm_score": 6,
+        "llm_reason": "This paper proposes a novel framework, DynaTree, for efficient and adaptive news retrieval. While it leverages agentic retrieval-augmented generation, which is related to query understanding and ranking models, the focus is on news retrieval and time-sensitive applications. Although it touches on semantic understanding, the primary emphasis is on retrieval efficiency and practical improvements in coverage and relevance, which aligns somewhat with your research interests in information retrieval and search technologies."
+    },
+    {
+        "title": "Generalistic or Specific Embeddings, Which is Better? An Empirical Study on Search for Clinical Coding in Non-English Languages",
+        "abstract": "Sentence-embedding models for semantic search are overwhelmingly developed and evaluated on English corpora. When applied to clinical retrieval in other languages -- particularly retrieval of ICD-10-CM / CIE-10 codes -- recall degrades in ways often masked by aggregate benchmarks. We study whether large generative language models can serve as data factories to close this gap. We build a two-stage retriever (bi-encoder followed by cross-encoder reranker), fine-tuned from a Spanish biomedical encoder (PlanTL-GOB-ES/bsc-bio-ehr-es) on Gemini-generated synthetic data covering English, Spanish, Catalan, Italian, Portuguese and French, and evaluate against BioBERT-ST and the un-tuned Spanish encoder. The bi-encoder alone matches BioBERT-ST on MRR (0.876 vs. 0.866) and overtakes it on R@3 (0.650 vs. 0.626) and R@5 (0.804 vs. 0.790) without English biomedical pretraining. Adding a cross-encoder reranker lifts aggregate R@5 to 0.822 and dominates on four of five languages (+0.017 Spanish, +0.033 Catalan, +0.018 French, +0.037 Portuguese) at the cost of a small English regression. The trade-off is clinically acceptable: Portuguese reaches R@5 = 0.829 vs. BioBERT-ST's 0.714. Contributions: an open recipe for building domain-specific medical retrievers from LLM-generated data; quantification of the learning gain (MRR 0.755 to 0.876, +15.9% with ~19,500 synthetic pairs); and a characterisation of where gains concentrate by language and rank.",
+        "url": "http://arxiv.org/abs/2605.30529v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.30529v1",
+        "arxiv_id": "2605.30529v1",
+        "authors": [
+            "David Rey-Blanco",
+            "Roberto Cruz"
+        ],
+        "submitted": "2026-05-28 20:06:43",
+        "source": "arxiv",
+        "comment": "24 pages, 12 figures, 6 tables",
+        "score": 13,
+        "keyword_reasons": [
+            "Found 'retriever' (score: +3)",
+            "Found 'semantic search' (score: +3)",
+            "Found 'rerank' (score: +3)",
+            "Found 'retrieval' (score: +2)",
+            "Found 'rank' (score: +1)",
+            "Found 'search' (score: +1)"
+        ],
+        "llm_score": 6,
+        "llm_reason": "This paper is somewhat related to your research interests in Information Retrieval, particularly in the area of semantic search and ranking models. However, the focus on clinical coding in non-English languages and the use of large generative language models as data factories is not a central match to your primary research themes."
+    },
+    {
+        "title": "Bounded Behavioral Indistinguishability for Black-Box LLM Distillation",
+        "abstract": "Black-box LLM distillation is usually evaluated as an output-matching problem: a student is considered successful when its responses are semantically similar to, or task-consistent with, those of a teacher. However, output similarity does not imply that the student is behaviorally indistinguishable from the model it imitates. We introduce bounded behavioral indistinguishability, formalized as $(ε,q,t,\\mathbb{A})$-behavioral indistinguishability over an explicit prompt distribution, where $ε$ bounds distinguishing advantage, $q$ bounds oracle queries, $t$ bounds computation, and $\\mathbb{A}$ denotes the adversary class.\n  We instantiate this notion on Qwen and Llama teacher-student pairs using a controlled $5,000$-prompt behavioral probe suite. For each family, we compare the teacher with both the base student and the LoRA-distilled student, measuring whether distillation reduces distinguishability rather than merely improving similarity. LoRA raises semantic similarity from $0.788$ to $0.862$ for Qwen and from $0.814$ to $0.874$ for Llama. Yet adversarial evaluation reveals remaining behavioral differences: learned discriminators retain nonzero advantage, and pairwise category analysis shows artifacts concentrated in style/format, robustness, and domain-technical prompts. A pairwise teacher-identification adversary confirms this trend. With a different-family Llama judge and A/B-swap consistency filtering, Qwen distinguishing advantage drops from $0.158$ for the base student to $0.081$ after LoRA distillation. Query-budget experiments show that disagreement-guided acquisition does not consistently outperform stratified random sampling, indicating that coverage and diversity remain strong baselines. Our results show that semantic fidelity is useful but insufficient: black-box LLM distillation requires bounded, adversarial, and category-aware evaluation.",
+        "url": "http://arxiv.org/abs/2605.30448v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.30448v1",
+        "arxiv_id": "2605.30448v1",
+        "authors": [
+            "Munawar Hasan"
+        ],
+        "submitted": "2026-05-28 18:19:32",
+        "source": "arxiv",
+        "comment": null,
+        "score": 13,
+        "keyword_reasons": [
+            "Found 'query' (score: +3)",
+            "Found 'queries' (score: +3)",
+            "Found 'pairwise' (score: +3)",
+            "Found 'rag' (score: +2)",
+            "Found 'acl' (score: +2)"
+        ],
+        "llm_score": 4,
+        "llm_reason": "This paper discusses black-box LLM distillation, which is somewhat related to query understanding and ranking models in Information Retrieval. However, the focus on adversarial evaluation and semantic fidelity is more aligned with Natural Language Processing and deep learning, making it only loosely relevant to the user's primary research interests."
+    },
+    {
+        "title": "Fighting Numerical Hallucinations via Data-centric Compilation for Online Financial QA",
+        "abstract": "Large Language Models (LLMs) have significantly advanced online data services, particularly in the domain of financial question answering (FinQA). However, such systems remain susceptible to numerical reasoning hallucinations, which critically undermine reliability in high-stakes financial applications. Although retrieval-augmented generation (RAG) has been widely adopted to ground responses in external knowledge, it introduces three persistent challenges: noise sensitivity, calculation fragility, and an auditability crisis. Existing model-centric approaches, which primarily focus on optimizing either the retriever or generator in isolation, still struggle to address these issues in an integrated manner. In this work, we pioneer a data-centric paradigm and propose a novel framework, the Data-centric Reasoning Compiler (DCRC). The framework operates through three cohesive phases: (1) adversarial data construction, which synthesizes training examples with controlled noise to teach robustness; (2) multi-stage training that cultivates a Data-centric Structuring Agent (DSA) capable of explicit evidence auditing and program synthesis; and (3) a compile-and-execute inference process, where the DSA transforms user queries and retrieved documents into verifiable, executable reasoning programs. This data-driven framework ensures faithful numerical reasoning by design. We conduct extensive experiments on established offline benchmarks and further validate our framework through deployment in a real-world online financial QA system.",
+        "url": "http://arxiv.org/abs/2605.31064v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.31064v1",
+        "arxiv_id": "2605.31064v1",
+        "authors": [
+            "Hao Chen",
+            "Xing Tang",
+            "Qirui Liu",
+            "Weijie Shi",
+            "Shiwei Li",
+            "Fuyuan Lyu",
+            "Weihong Luo",
+            "Xiku Du",
+            "Xiuqiang He"
+        ],
+        "submitted": "2026-05-29 09:35:11",
+        "source": "arxiv",
+        "comment": "Accepted by KDD 2026 ADS track",
+        "score": 10,
+        "keyword_reasons": [
+            "Found 'retriever' (score: +3)",
+            "Found 'queries' (score: +3)",
+            "Found 'rag' (score: +2)",
+            "Found 'retrieval' (score: +2)"
+        ],
+        "llm_score": 4,
+        "llm_reason": "This paper is somewhat related to your research interests in Information Retrieval and Natural Language Processing, as it deals with a specific application of online financial question answering and uses a novel framework to address numerical reasoning hallucinations. However, the focus is more on the application and the proposed solution, rather than the core themes of query understanding, ranking models, or user behavior modeling that are central to your research interests."
+    },
+    {
+        "title": "MIMO: Multilingual Information Retrieval via Monolingual Objectives",
+        "abstract": "Multilingual Information Retrieval (MLIR) reflects real-world search environments in which queries and relevant documents may appear in different languages within a mixed-language corpus. However, existing embedding models are primarily optimized for Multi-Monolingual retrieval and their performance often degrades in MLIR settings. Moreover, directly applying conventional contrastive learning to MLIR can exacerbate language clustering and expose a trade-off between cross-lingual alignment and embedding uniformity. To address these limitations, we propose MIMO: Multilingual Information Retrieval via Monolingual Objectives, a two-stage framework that uses a stable English semantic space from a high-performing teacher model as an anchor. MIMO first initializes the student model's cross-lingual alignment through knowledge distillation, and then jointly optimizes distillation and cross-lingual contrastive learning to improve retrieval discrimination while preserving alignment. Extensive experiments show that MIMO consistently outperforms existing cross-lingual training baselines across various MLIR and Multi-Monolingual benchmarks. MIMO also remains competitive with off-the-shelf models of similar or larger parameter scales. Furthermore, our cross-lingual Alignment-Uniformity analysis clarifies the distinct roles of the two loss components and shows that their combination yields a favorable trade-off between alignment and uniformity.",
+        "url": "http://arxiv.org/abs/2605.31171v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.31171v1",
+        "arxiv_id": "2605.31171v1",
+        "authors": [
+            "Youngjoon Jang",
+            "Seongtae Hong",
+            "Heuiseok Lim"
+        ],
+        "submitted": "2026-05-29 11:34:15",
+        "source": "arxiv",
+        "comment": null,
+        "score": 9,
+        "keyword_reasons": [
+            "Found 'information retrieval' (score: +3)",
+            "Found 'queries' (score: +3)",
+            "Found 'retrieval' (score: +2)",
+            "Found 'search' (score: +1)"
+        ],
+        "llm_score": 8,
+        "llm_reason": "This paper is highly relevant to Information Retrieval, specifically addressing Multilingual Information Retrieval (MLIR), which is a key area of interest. The proposed MIMO framework leverages deep semantic understanding and real-time relevance optimization, aligning with your research focus. However, the paper's primary focus on MLIR and cross-lingual alignment means it is not a central match to your interests in query understanding, ranking models, and user behavior modeling."
+    },
+    {
+        "title": "Graph-GRPO: Dependency-Aware Credit Assignment for Generative E-commerce Search Relevance",
+        "abstract": "Search relevance modeling is a core task in e-commerce search systems, assessing how well a user query matches candidate products. Rather than relying on a single holistic matching signal, relevance judgment often requires structured reasoning over query understanding, product understanding, and facet-level matching. With large language models (LLMs), this process is increasingly formulated as chain-of-thought (CoT) reasoning and optimized with reinforcement learning (RL). However, existing RL methods mainly rely on outcome-level rewards and treat the entire reasoning chain as a single optimization unit. This makes it difficult to distinguish faulty reasoning steps from correct intermediate ones, leading to misaligned credit assignment. Although process-reward methods provide denser supervision, they often treat reasoning steps independently and ignore dependency-driven error propagation, making responsibility attribution difficult and limiting the optimization of structured relevance reasoning. We propose Graph-GRPO, a graph-structured extension of GRPO for multi-component relevance reasoning. Graph-GRPO constructs a relevance reasoning dependency graph, where CoT steps are modeled as nodes and their logical dependencies as edges. It propagates outcome-level rewards over the graph to derive step-level credit signals, enabling more accurate fine-grained credit assignment. We further introduce a main-loss-driven controller that adaptively adjusts edge-wise credit-propagation coefficients. Together with CoT random masking for supervised policy initialization and graph-node-based multi-head distillation, we build a trainable and deployable framework for generative relevance modeling. Extensive offline evaluations and online A/B tests on a leading e-commerce platform demonstrate that the Graph-GRPO-based framework improves relevance classification metrics and key engagement metrics.",
+        "url": "http://arxiv.org/abs/2605.31003v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.31003v1",
+        "arxiv_id": "2605.31003v1",
+        "authors": [
+            "Jiarui Che",
+            "Yifei Chen",
+            "Zhixing Tian",
+            "Chenyang Wang",
+            "Ziguang Cheng"
+        ],
+        "submitted": "2026-05-29 08:36:08",
+        "source": "arxiv",
+        "comment": "11 pages, 2 figures, 2 tables. Submitted to CIKM 2026",
+        "score": 9,
+        "keyword_reasons": [
+            "Found 'query' (score: +3)",
+            "Found 'relevance' (score: +3)",
+            "Found 'commerce' (score: +1)",
+            "Found 'e-commerce' (score: +1)",
+            "Found 'search' (score: +1)"
+        ],
+        "llm_score": 9,
+        "llm_reason": "This paper is highly relevant to your research interests in Information Retrieval, particularly in the area of query understanding and ranking models. The focus on structured reasoning, chain-of-thought reasoning, and credit assignment in e-commerce search relevance modeling aligns well with your background in e-commerce and interests in deep semantic understanding and real-time relevance optimization."
+    },
+    {
+        "title": "MosaicLeaks:Privacy Risks in Querying-in-the-Open for Deep Research Agents",
+        "abstract": "Deep research agents increasingly combine private local documents with external tools like web retrieval, creating a privacy risk: an agent's external queries may leak sensitive information from its local context. This risk is amplified by the mosaic effect, where individual queries may appear harmless but become revealing in aggregate. We introduce MosaicLeaks, a benchmark of 1,001 multi-hop deep research tasks that chain private enterprise documents and a public web corpus, forcing agents to make external queries that depend on local information. We evaluate leakage with an adversary LLM that observes only the agent's external queries and attempts to infer private information at three levels: the agent's research intent, answers to specific private questions and verifiable claims about the enterprise documents. We find that models across families and sizes frequently leak at all three levels, that zero-shot privacy prompting reduces but does not eliminate leakage and that reinforcement learning for task performance alone worsens leakage. To address this, we propose Privacy-Aware Deep Research (PA-DR), an RL framework that combines situational rewards for task success with a learned privacy classifier to provide dense credit assignment over both per-query and mosaic-level leakage. Training Qwen3-4B-Instruct with PA-DR improves accuracy from 48.7% to 58.7% and reduces answer and full-information leakage from 34.0% to 9.9%.",
+        "url": "http://arxiv.org/abs/2605.30727v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.30727v1",
+        "arxiv_id": "2605.30727v1",
+        "authors": [
+            "Alexander Gurung",
+            "Spandana Gella",
+            "Alexandre Drouin",
+            "Issam H. Laradji",
+            "Perouz Taslakian",
+            "Rafael Pardinas"
+        ],
+        "submitted": "2026-05-29 01:44:35",
+        "source": "arxiv",
+        "comment": null,
+        "score": 9,
+        "keyword_reasons": [
+            "Found 'query' (score: +3)",
+            "Found 'queries' (score: +3)",
+            "Found 'retrieval' (score: +2)",
+            "Found 'search' (score: +1)"
+        ],
+        "llm_score": 2,
+        "llm_reason": "This paper focuses on privacy risks in querying external tools for deep research agents, which is not directly related to your core research interests in Information Retrieval, Search technologies, and Natural Language Processing. While it touches on query understanding and external tools, the primary focus is on privacy and leakage, which is not a central theme in your research."
+    },
+    {
+        "title": "Learning Whom to Trust: Market-Feedback Adaptive Retrieval for Frozen LLMs in Event-Driven Financial RAG",
+        "abstract": "Financial retrieval-augmented generation (RAG) systems typically rank evidence by textual relevance, but in financial markets the useful evidence source depends on event type, forecast horizon, and market context. We study news-triggered event-impact prediction as a point-in-time financial RAG problem. For each company-news anchor, the system retrieves related financial news and SEC filing passages, appends a pre-decision market-context card, and predicts multi-horizon residual-return signals. Our method keeps the large language model (LLM) reader frozen and adapts the retrieval layer through an external Bayesian source memory updated from matured residual-return feedback. On a fixed 89-stock Nasdaq-oriented universe derived from the FinRL-DeepSeek/FNSPID task, using original FNSPID news and point-in-time EDGAR filing passages, Frozen Reader with Source Memory improves held-out macro-F1 from 0.438 to 0.471 and downstream portfolio Sharpe from 0.52 to 0.84 relative to Frozen Reader with No Memory. A supervised LoRA reader improves static RAG modestly, but does not improve over the frozen source-memory reader. These results suggest that, for financial RAG, learning where to retrieve from can be as important as learning how to read, offering a simple, modular route to market-feedback adaptation.",
+        "url": "http://arxiv.org/abs/2605.31201v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.31201v1",
+        "arxiv_id": "2605.31201v1",
+        "authors": [
+            "Zijie Zhao",
+            "Roy E. Welsch"
+        ],
+        "submitted": "2026-05-29 12:08:58",
+        "source": "arxiv",
+        "comment": null,
+        "score": 8,
+        "keyword_reasons": [
+            "Found 'relevance' (score: +3)",
+            "Found 'rag' (score: +2)",
+            "Found 'retrieval' (score: +2)",
+            "Found 'rank' (score: +1)"
+        ],
+        "llm_score": 4,
+        "llm_reason": "The paper explores a specific application of Information Retrieval in the financial domain, using a large language model (LLM) reader and adapting the retrieval layer through external feedback. While it touches on query understanding and ranking models, the focus is on market-feedback adaptation and event-driven financial retrieval-augmented generation, which is somewhat related to the user's interests in IR and NLP, but not directly aligned with their core themes."
+    },
+    {
+        "title": "AdaptR1: Reinforcement Learning Based Adaptive Interleaved Thinking in Multi-hop Question Answering",
+        "abstract": "Large Language Models (LLMs) have achieved remarkable performance in complex reasoning tasks through Chain-of-Thought (CoT) prompting. However, this approach often leads to ``over-thinking,'' where models generate unnecessarily long reasoning traces for simple queries and incur avoidable inference cost. While recent work has explored adaptive reasoning, existing methods typically make a single query-level decision about whether to reason. This overlooks the dynamic nature of multi-step tasks, where the need for explicit reasoning varies across intermediate stages. To address this limitation, we introduce AdaptR1, a Reinforcement Learning (RL) based framework for adaptive interleaved thinking in multi-hop Question Answering (QA). Unlike previous approaches that require Supervised Fine-Tuning (SFT) for cold-start initialization, AdaptR1 uses a fully RL-based strategy with a quality-gated efficiency reward to dynamically allocate reasoning budgets at each step. Under the Graph-R1 setting, AdaptR1 reduces average think tokens by 69.71\\%, with a 90.35\\% reduction on HotpotQA, while maintaining performance comparable to or better than standard baselines. Furthermore, our analysis reveals that overthinking in multi-hop reasoning is not uniformly distributed but occurs predominantly during the initial planning stages, highlighting the effectiveness of step-wise adaptive budget allocation.",
+        "url": "http://arxiv.org/abs/2605.31062v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.31062v1",
+        "arxiv_id": "2605.31062v1",
+        "authors": [
+            "Yuxin Wang",
+            "Jiahao Lu",
+            "Qifeng Wu",
+            "Shicheng Fang",
+            "Chuanyuan Tan",
+            "Yining Zheng",
+            "Xuanjing Huang",
+            "Xipeng Qiu"
+        ],
+        "submitted": "2026-05-29 09:34:45",
+        "source": "arxiv",
+        "comment": null,
+        "score": 8,
+        "keyword_reasons": [
+            "Found 'query' (score: +3)",
+            "Found 'queries' (score: +3)",
+            "Found 'rag' (score: +2)"
+        ],
+        "llm_score": 4,
+        "llm_reason": "This paper introduces a reinforcement learning framework for adaptive interleaved thinking in multi-hop question answering, which is somewhat related to information retrieval and search technologies. However, the focus on question answering and chain-of-thought prompting is not directly aligned with the user's core research themes in query understanding, ranking models, and user behavior modeling. The paper's relevance is limited to the broader context of search technologies and NLP."
+    },
+    {
+        "title": "ExpGraph: Model-Agnostic Experience Learning with Graph-Structured Memory for LLM Agents",
+        "abstract": "Large language model (LLM) agents have shown strong capabilities in reasoning, tool use, and multi-step interaction, but they often solve tasks from scratch and fail to reuse successful strategies or failure lessons from prior experience. Fine-tuning on collected experience can improve reuse, but it is inflexible when stronger or more suitable executors emerge. We propose ExpGraph, a model-agnostic experience learning framework that enables frozen and replaceable LLM executors to improve through external experience reuse without parameter updates. ExpGraph summarizes historical trajectories into reusable skills and failure lessons, organizes them as nodes in a self-evolving experience graph, and retrieves useful experiences through graph diffusion and utility-aware ranking. A lightweight retrieval copilot is trained with reinforcement learning using feedback that compares executor performance with and without retrieved experiences, while the graph is updated online from downstream task outcomes. We evaluate ExpGraph on ExpSuite, covering question answering, mathematical reasoning, code generation, and multi-step agentic environments including ALFWorld and AppWorld. ExpGraph improves over the strongest baseline by 12.2% and 4.7% on static tasks with smaller and larger executors, and by 21.4% and 12.7% in agentic environments, while reducing average interaction steps by 12.7% and 21.6%. Ablations show that graph-structured experience, utility-aware ranking, and adaptive retrieval jointly enable effective experience reuse across diverse tasks and executor models.",
+        "url": "http://arxiv.org/abs/2605.30712v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.30712v1",
+        "arxiv_id": "2605.30712v1",
+        "authors": [
+            "Tao Feng",
+            "Chongrui Ye",
+            "Tianyang Luo",
+            "Jingjun Xu",
+            "Xueqiang Xu",
+            "Haozhen Zhang",
+            "Zhigang Hua",
+            "Yan Xie",
+            "Shuang Yang",
+            "Ge Liu",
+            "Jiaxuan You"
+        ],
+        "submitted": "2026-05-29 01:04:41",
+        "source": "arxiv",
+        "comment": null,
+        "score": 8,
+        "keyword_reasons": [
+            "Found 'ranking' (score: +3)",
+            "Found 'rag' (score: +2)",
+            "Found 'retrieval' (score: +2)",
+            "Found 'rank' (score: +1)"
+        ],
+        "llm_score": 4,
+        "llm_reason": "The paper ExpGraph: Model-Agnostic Experience Learning with Graph-Structured Memory for LLM Agents is somewhat related to the user's interests in Information Retrieval and Search technologies, particularly in the context of query understanding and ranking models. However, the focus on Large Language Model (LLM) agents and experience learning is not directly aligned with the user's primary research themes. The paper's relevance to the user's interests is limited to the application of retrieval and ranking techniques in a specific domain."
+    },
+    {
+        "title": "Knowledge Boundary Probing and Demand-Guided Intervention for LLM-Based Power System Code Generation",
+        "abstract": "Large language models (LLMs) are increasingly used to automate power-system analysis, but many utilities and energy-research labs require on-premise serving for confidentiality, regulatory, reproducibility, and cost reasons. This makes the reliability of open-weight models a deployment issue. We show that first-pass failures in power-system code generation are dominated not by reasoning alone, but by structured API-knowledge boundary errors: hallucinated function names, misused parameters, and mishandled result tables in versioned simulation libraries.\n  We introduce PowerCodeBench, an execution-validated benchmark generator that pairs natural-language operator queries with pandapower code and numerical ground truth; an L0-L3 documentation-driven probing procedure that measures per-model API knowledge profiles; and a boundary-aware intervention that combines query-side API demand estimation with targeted proactive documentation injection and routed reactive correction.\n  On a 2,000-task frozen release, we evaluate ten open-weight LLMs (1.5B-480B parameters) and four commercial mid-tier APIs. The intervention improves every evaluated open-weight model of at least 7B parameters and every commercial API by 32 to 56 accuracy points. Open-weight models in the 70B-120B range match the commercial mid-tier accuracy range, while Llama-3.1-405B and Qwen3-Coder-480B lead the panel. The targeted prompts preserve the full-context accuracy ceiling while using 41% of the prompt-token cost. The result is an accuracy-side, deployment-time path toward reliable on-premise LLM assistance for grid-analysis workflows without fine-tuning or cloud inference.",
+        "url": "http://arxiv.org/abs/2605.31478v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.31478v1",
+        "arxiv_id": "2605.31478v1",
+        "authors": [
+            "Hui Wu",
+            "Xiaoyang Wang",
+            "Zhong Fan"
+        ],
+        "submitted": "2026-05-29 16:06:34",
+        "source": "arxiv",
+        "comment": "43 pages, 12 figures, includes supplementary material",
+        "score": 7,
+        "keyword_reasons": [
+            "Found 'query' (score: +3)",
+            "Found 'queries' (score: +3)",
+            "Found 'search' (score: +1)"
+        ],
+        "llm_score": 2,
+        "llm_reason": "This paper appears to be related to Large Language Models (LLMs) and their applications in power-system analysis, but it does not align with the user's primary research interests in Information Retrieval, Search technologies, and Natural Language Processing. While it involves query understanding and ranking models, the context is specific to LLMs in the power-system domain, which is not a central match for the user's interests."
+    },
+    {
+        "title": "On the Robustness of Multilingual Text Embedding Rankings Across Learning Tasks, Languages, and Benchmark Datasets",
+        "abstract": "Large-scale multilingual text embedding models play crucial role in both research and industry, yet their behavior in language-specific, multi-task settings remains insufficiently understood. Although benchmarking platforms such as MTEB report results across more than 250 languages, conclusions about model superiority often depend on implicit choices of dataset compositions and performance aggregation methods. To address this gap, we present a meta-study of multilingual model performance robustness in MTEB, applying a diverse set of multi-criteria decision-making ranking schemes and introducing two robustness indicators: dataset-composition robustness (sensitivity of rankings to changing dataset compositions) and ranking-scheme robustness (sensitivity to aggregation method change). They enable systematic sensitivity analysis of whether benchmarking conclusions remain stable under different evaluation designs. We conduct an in-depth analysis on five languages (English, French, German, Hindi, and Spanish) across nine tasks (e.g., classification, clustering, retrieval) and release results for approximately 230 additional languages. The task-specific analyses show that large-scale LLM-based models are often robust top performers, though not uniformly (e.g., in retrieval task), while task-agnostic results reveal that only a small subset of models remains consistently strong across tasks, ranking schemes, and data subsamples.",
+        "url": "http://arxiv.org/abs/2605.31142v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.31142v1",
+        "arxiv_id": "2605.31142v1",
+        "authors": [
+            "Ana Gjorgjevikj",
+            "Barbara Koroušić Seljak",
+            "Tome Eftimov"
+        ],
+        "submitted": "2026-05-29 10:50:22",
+        "source": "arxiv",
+        "comment": null,
+        "score": 7,
+        "keyword_reasons": [
+            "Found 'ranking' (score: +3)",
+            "Found 'retrieval' (score: +2)",
+            "Found 'rank' (score: +1)",
+            "Found 'search' (score: +1)"
+        ],
+        "llm_score": 4,
+        "llm_reason": "The paper explores the robustness of multilingual text embedding models, which is related to information retrieval and ranking models. However, the focus is on model robustness and performance across various tasks and languages, rather than query understanding, user behavior modeling, or real-time relevance optimization, which are core aspects of your research interests."
+    },
+    {
+        "title": "Generating Reports or Repeating Templates? Measuring and Mitigating Template Collapse in 3D CT Report Generation",
+        "abstract": "Modern 3D medical vision-language models (VLMs) can generate fluent radiology-style text while exhibit critically low pathology detection and output diversity, collapsing to generic templates that under-report rare yet critical findings. We identify this failure mode as Template Collapse. This failure stems from the unique constraints of 3D medical imaging, e.g., limited data, severe label imbalance, and weak signals from volumetric encoders. Under these constraints, text-generation objectives encourage shortcut learning and fluent but weakly grounded reports. We systematically diagnose the Template Collapse through clinical fidelity, output diversity, normal-template bias, and rare-finding survival. To mitigate it, we propose CLarGen, a decoupled framework that separates what to say (clinical detection) from how to say it (language synthesis). CLarGen uses (i) a Latent Query Transformer for multi-label pathology detection, (ii) pathology-guided retrieval for clinically matched exemplars, and (iii) a medical language model to synthesize the final report from detected findings and retrieved context. Across state-of-the-art 3D CT report generation baselines, CLarGen mitigates Template Collapse and substantially improves clinical accuracy (macro-F1 0.487 vs. 0.189; CRG 0.472 vs. 0.368) while maintaining fluent reporting. Our results suggest that explicit, measurable clinical grounding is essential for template-collapse-resistant 3D CT report generation. Code will be released upon acceptance.",
+        "url": "http://arxiv.org/abs/2605.30984v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.30984v1",
+        "arxiv_id": "2605.30984v1",
+        "authors": [
+            "Tom Maye-Lasserre",
+            "Yitong Li",
+            "Bailiang Jian",
+            "Morteza Ghahremani",
+            "Benedikt Wiestler",
+            "Christian Wachinger"
+        ],
+        "submitted": "2026-05-29 08:21:00",
+        "source": "arxiv",
+        "comment": null,
+        "score": 7,
+        "keyword_reasons": [
+            "Found 'query' (score: +3)",
+            "Found 'rag' (score: +2)",
+            "Found 'retrieval' (score: +2)"
+        ],
+        "llm_score": 2,
+        "llm_reason": "This paper is not directly related to your research interests in Information Retrieval, Search technologies, or Natural Language Processing. While it involves text generation and language models, its focus on medical imaging and pathology detection is outside your primary areas of interest."
+    },
+    {
+        "title": "Reading Between the Citations: A Typed Claim Network for Scientific Literature",
+        "abstract": "Knowledge graphs over corpora of inter-referencing documents - scholarly papers, legal opinions, policy briefs - encode the topology of reference but not its stance. The standard representation collapses a rich evaluative relation into an untyped edge, losing the very content that supports community-level queries about how one document is received by another. We propose the claim network: a representational pattern in which each cross-document reference is reified as a typed claim, carrying source, target, claim text, and a four-class stance label grounded in the citation-intent literature. We give a construction pipeline applicable to any corpus of scholarly inter-referencing documents and instantiate it on a corpus of 127 papers in 3D point cloud semantic segmentation, producing a network of 8,260 typed claims. Three downstream task families demonstrate what the network enables: retrieval signal augmentation, aggregated-stance summarisation, and topological analytics. Head-to-head evaluation against standard Retrieval-Augmented Generation (RAG) baselines shows that the gain over flat retrieval is the gain from the right intermediate representation rather than the wrong one.",
+        "url": "http://arxiv.org/abs/2605.30966v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.30966v1",
+        "arxiv_id": "2605.30966v1",
+        "authors": [
+            "Ning Ding",
+            "Sergio J. Rodríguez Méndez",
+            "Pouya G. Omran"
+        ],
+        "submitted": "2026-05-29 08:02:45",
+        "source": "arxiv",
+        "comment": null,
+        "score": 7,
+        "keyword_reasons": [
+            "Found 'queries' (score: +3)",
+            "Found 'rag' (score: +2)",
+            "Found 'retrieval' (score: +2)"
+        ],
+        "llm_score": 4,
+        "llm_reason": "The paper explores a novel representation of scientific literature, focusing on claim networks and stance labels. While it touches on retrieval and representation, its primary focus is on knowledge graphs and scientific literature, which is somewhat related to the user's interests in Information Retrieval and NLP. However, the specific application and scope of the paper are not directly aligned with the user's core research themes."
+    },
+    {
+        "title": "On the impact of retrieved content representations in RAG Pipelines",
+        "abstract": "Retrieval-Augmented Generation (RAG) supplements a language model's input with retrieved documents, yet most RAG pipelines inherit retrieval components designed for human readers. How retrieved content should be represented when the consumer is a large language model (LLM) rather than a human is less well understood. Recent work has proposed transformations of retrieved content and identified properties that affect generation, but each examines a single transformation or property in isolation, leaving open which features of a document's representation matter most. We address this with a controlled comparison: holding retrieval fixed, we vary only the representation of retrieved documents, comparing an original baseline against thirteen transformations spanning selection, summarisation, and reformulation, in query-dependent and query-independent variants. Across these fourteen representations we measure question-answering accuracy for four generators, and for each representation we also measure answer retention: whether a known answer-bearing document still supports its answer after transformation. We find that answer retention is the primary determinant of generator accuracy; notably, when retention is high, a representation's wording, structure, length, and query-dependence have limited effect. This suggests that accuracy gains attributed to specific mechanisms in prior work may be partly explained by how well those mechanisms preserve answer-bearing content, an attribution that cannot be settled without controlling for retention.",
+        "url": "http://arxiv.org/abs/2605.30790v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.30790v1",
+        "arxiv_id": "2605.30790v1",
+        "authors": [
+            "Jonathan J Ross",
+            "Bevan Koopman",
+            "Anton van der Vegt",
+            "Guido Zuccon"
+        ],
+        "submitted": "2026-05-29 03:26:41",
+        "source": "arxiv",
+        "comment": "23 pages, 15 figures, submitted to ACL May 2026 ARR",
+        "score": 7,
+        "keyword_reasons": [
+            "Found 'query' (score: +3)",
+            "Found 'rag' (score: +2)",
+            "Found 'retrieval' (score: +2)"
+        ],
+        "llm_score": 8,
+        "llm_reason": "This paper is highly relevant to your interests in Information Retrieval, specifically in the context of query understanding and ranking models. The focus on Retrieval-Augmented Generation (RAG) pipelines and the evaluation of different content representations aligns with your research themes. However, the paper's primary focus on NLP and question-answering accuracy, rather than search technologies or user behavior modeling, prevents it from being a perfect match."
+    },
+    {
+        "title": "Pairwise Reference Alignment as a Model-Level Ordinal Observable",
+        "abstract": "Pairwise preference data is widely used in language-model evaluation and alignment, often for model ranking, reward modeling, or preference optimization. This note formulates a more basic measurement question: given a reference distribution of pairwise preferences, what model-level quantity is estimated when we test whether a model ranks preferred responses above rejected responses?\n  We define pairwise reference alignment as an ordinal observable induced by a model scoring function. Given a reference pair distribution $P_{\\mathrm{pair}}$ over triples $(x,y^+,y^-)$, and a scalar model score $S_M(x,y)$, we define the alignment observable as the probability that the model-induced ordering agrees with the reference preference ordering. We further define a centered order-parameter-like statistic and discuss a margin-based extension. The resulting quantities admit simple finite-sample estimators and concentration bounds under independent sampling assumptions.\n  This note does not introduce a new benchmark. It provides a conceptual and statistical formulation for pairwise reference alignment, clarifies the role of the reference pair distribution, and distinguishes the general ordinal observable from scoring choices such as normalized log-probability or energy-based scores. We also provide an initial empirical study on Qwen2.5 models and RewardBench, where the proposed statistics increase with model size and instruction tuning and vary across reference-pair subsets as predicted by the formulation.",
+        "url": "http://arxiv.org/abs/2605.30758v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.30758v1",
+        "arxiv_id": "2605.30758v1",
+        "authors": [
+            "Mujing Li"
+        ],
+        "submitted": "2026-05-29 02:41:18",
+        "source": "arxiv",
+        "comment": null,
+        "score": 7,
+        "keyword_reasons": [
+            "Found 'ranking' (score: +3)",
+            "Found 'pairwise' (score: +3)",
+            "Found 'rank' (score: +1)"
+        ],
+        "llm_score": 8,
+        "llm_reason": "This paper explores pairwise reference alignment as a model-level ordinal observable, which is related to ranking models and query understanding in Information Retrieval. Although it's focused on language-model evaluation, it touches on concepts relevant to your interests in ranking models and ordinal observables."
+    },
+    {
+        "title": "ElasticMem: Latent Memory as a Learnable Resource for LLM Agents",
+        "abstract": "Long-term memory is essential for LLM agents to reason coherently across extended interactions, personalize responses, and reuse past experience. However, existing memory-augmented methods typically treat memory as a fixed resource: text-space approaches concatenate retrieved memories into the context window, causing substantial token overhead and sensitivity to noisy evidence, while latent-space approaches reduce textual cost but still rely on rigid retrieval or fixed-capacity memory interfaces. This creates a mismatch between query-dependent memory utility and fixed memory allocation. We propose ElasticMem, a memory-augmented LLM framework that learns to use memory as an elastic latent resource. ElasticMem builds an offline latent memory bank with retrieval keys and content caches, retrieves memories adaptively from the reasoner's hidden state, assigns each retrieved memory a variable latent budget through a learned policy, and injects selected latent states as soft memory tokens for generation. The full memory-use process is optimized with downstream task rewards through group-relative policy optimization. We evaluate ElasticMem on MemorySuite, covering memory-intensive QA and embodied agent control. Across Qwen2.5-3B-Instruct and Qwen2.5-7B-Instruct backbones, ElasticMem improves weighted average QA accuracy by 26.2% and 24.6%, and improves ALFWorld success rate by 66.3% and 27.2%, respectively, over the strongest baselines, while achieving the lowest ALFWorld token cost. Ablations and qualitative analyses further show that adaptive retrieval and elastic budget allocation help ElasticMem prioritize useful evidence and transferable plans beyond rigid cosine similarity. Our code for ElasticMem will be released at https://github.com/ulab-uiuc/ElasticMem.",
+        "url": "http://arxiv.org/abs/2605.30690v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.30690v1",
+        "arxiv_id": "2605.30690v1",
+        "authors": [
+            "Tao Feng",
+            "Chongrui Ye",
+            "Tianyang Luo",
+            "Jingjun Xu",
+            "Xueqiang Xu",
+            "Haozhen Zhang",
+            "Ge Liu",
+            "Jiaxuan You"
+        ],
+        "submitted": "2026-05-29 00:34:40",
+        "source": "arxiv",
+        "comment": null,
+        "score": 7,
+        "keyword_reasons": [
+            "Found 'query' (score: +3)",
+            "Found 'rag' (score: +2)",
+            "Found 'retrieval' (score: +2)"
+        ],
+        "llm_score": 4,
+        "llm_reason": "The paper discusses a memory-augmented framework for Large Language Models (LLMs), which is related to query understanding and ranking models. However, the focus is on improving LLM performance through memory management, rather than directly addressing information retrieval or search technologies. While the paper touches on the idea of adaptive retrieval, it is primarily concerned with optimizing LLM performance, making it somewhat relevant but not a central match for your research interests."
+    },
+    {
+        "title": "Evaluating using Mock Tool Calls to Quarantine Untrusted Prompt Inputs",
+        "abstract": "Large language models must frequently process untrusted inputs, such as judging an answer from another model or running tasks like spam and harm classifiers while under adversarial pressure. These inputs are often string-formatted directly into a prompt template, leaving systems fragile to manipulation. Current LLM specs from major providers like OpenAI distinguish trustworthiness along an Instruction Hierarchy, from System messages (most trusted) to Tool Results (least trusted). A possible natural mitigation is to wrap untrusted content in a mock tool call as a quarantine. We explore this hypothesis with an automated redteaming search over static attack strings across seven models and three LLM-as-a-Judge tasks. Counter to our hypothesis, tool-wrapping does not broadly improve robustness. On a binary evaluation task (GSM8K grading) it typically increases attack success rates, an apparent inversion of the instruction hierarchy. On scalar and pairwise tasks the effect is smaller and model-dependent, with no tested model reliably helped, and several showing inversion. We recommend evaluating this limitation in deployed systems, and longer-term, pursuing stronger Instruction Hierarchy training or new untrusted-input primitives.",
+        "url": "http://arxiv.org/abs/2605.30521v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.30521v1",
+        "arxiv_id": "2605.30521v1",
+        "authors": [
+            "David Gros",
+            "Adam Gleave"
+        ],
+        "submitted": "2026-05-28 19:57:28",
+        "source": "arxiv",
+        "comment": null,
+        "score": 7,
+        "keyword_reasons": [
+            "Found 'pairwise' (score: +3)",
+            "Found 'rag' (score: +2)",
+            "Found 'recommend' (score: +1)",
+            "Found 'search' (score: +1)"
+        ],
+        "llm_score": 2,
+        "llm_reason": "This paper appears to be primarily focused on the security and robustness of Large Language Models (LLMs), specifically in the context of untrusted inputs and adversarial attacks. While it touches on the topic of LLMs, it does not seem to be directly related to the user's core research interests in Information Retrieval, Search technologies, and Natural Language Processing, particularly in areas requiring deep semantic understanding and real-time relevance optimization."
+    },
+    {
+        "title": "CanLegalRAGBench: Evaluating Retrieval-Augmented Generation on Canadian Case Law",
+        "abstract": "RAG-based legal assistants have been growing in popularity, but LLM hallucinations remain a key issue and potentially undermines justice. While benchmarks have been developed to evaluate progress, many rely on synthetic queries rather than realistic legal scenarios. Moreover, Canadian law remains underrepresented in existing evaluations. To address this gap, we introduce CanLegalRAGBench, a Canadian legal QA benchmark based on realistic queries and expert-annotated answers grounded in case law. Our evaluation shows that retrieval performance is sensitive to design choices and that open-source embedding models are competitive with closed source models. However, it also reveals the limitation of automatic evaluations that penalize systems for retrieving alternative relevant documents. We also find that generated answers often diverge from gold responses, either with hallucinations or by producing overly detailed or irrelevant content, with 8-29% of claims not being supported by the retrieved documents. We hope this benchmark will help drive continued progress in addressing limitations of legal RAG systems.",
+        "url": "http://arxiv.org/abs/2605.30497v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.30497v1",
+        "arxiv_id": "2605.30497v1",
+        "authors": [
+            "Ethan Zhao",
+            "Maksym Taranukhin",
+            "Wei Cui",
+            "Moira Aikenhead",
+            "Vered Shwartz"
+        ],
+        "submitted": "2026-05-28 19:24:23",
+        "source": "arxiv",
+        "comment": null,
+        "score": 7,
+        "keyword_reasons": [
+            "Found 'queries' (score: +3)",
+            "Found 'rag' (score: +2)",
+            "Found 'retrieval' (score: +2)"
+        ],
+        "llm_score": 4,
+        "llm_reason": "This paper is somewhat related to your research interests in Information Retrieval, specifically in the context of legal assistants and retrieval-augmented generation. However, the focus on Canadian case law and legal QA benchmarking is relatively narrow and does not directly align with your broader interests in query understanding, ranking models, and user behavior modeling. While it touches on retrieval performance, it does not delve into the deep semantic understanding and real-time relevance optimization aspects that are central to your research."
+    },
+    {
+        "title": "EvoGens: A Population-Based Heuristic Search Framework for Scientific Idea Generation",
+        "abstract": "Generating novel research ideas is fundamental to scientific progress. While Large Language Models (LLMs) show promise in assisting this process, existing approaches often exhibit semantic convergence, resulting in limited diversity and novelty. To address this, we introduce EvoGens, an evolution-inspired framework that recasts scientific idea generation as an evolutionary search over a population of ideas. EvoGens iteratively applies rank-based mutation with differentiated retrieval planning to incorporate external knowledge, and semantic-aware crossover to fuse complementary concepts for conceptual reorganization. A lightweight evaluation signal guides the selection process, encouraging sustained exploration while mitigating premature convergence. Extensive experiments demonstrate that EvoGens substantially enhances exploration capabilities compared to state-of-the-art baselines. Specifically, it improves the Novelty from 0.1 to 0.4 and the Diversity from 0.24 to 0.55, while maintaining comparable idea quality under the current automatic evaluation protocol. These findings suggest that evolutionary mechanisms can serve as a useful framework for exploration-oriented research ideation, especially for broadening the novelty and diversity of candidate ideas under a shared automatic evaluation setting.",
+        "url": "http://arxiv.org/abs/2605.30961v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.30961v1",
+        "arxiv_id": "2605.30961v1",
+        "authors": [
+            "Xu Li",
+            "Hanzhe Tu",
+            "Xinyi Li",
+            "Kuncheng Zhao",
+            "Xun Han",
+            "Zhonghui Liu"
+        ],
+        "submitted": "2026-05-29 07:56:31",
+        "source": "arxiv",
+        "comment": "21 pages, 6 figures",
+        "score": 6,
+        "keyword_reasons": [
+            "Found 'rag' (score: +2)",
+            "Found 'retrieval' (score: +2)",
+            "Found 'rank' (score: +1)",
+            "Found 'search' (score: +1)"
+        ],
+        "llm_score": 2,
+        "llm_reason": "The paper appears to be related to Natural Language Processing (NLP) and scientific idea generation, but it does not align with the user's primary focus on Information Retrieval, especially in areas requiring deep semantic understanding and real-time relevance optimization. The paper's focus on evolutionary mechanisms for exploration-oriented research ideation is somewhat tangential to the user's interests in query understanding, ranking models, and user behavior modeling."
+    },
+    {
+        "title": "Counterfactual Graph for Multi-Agent LLM Calibration",
+        "abstract": "Multi-agent LLM systems often treat agreement as evidence: when many agents in a panel give the same answer, that answer is assumed to be more reliable. We show that this assumption can fail after agents communicate. Communication can induce correlated failures and false consensus, so the same vote share may reflect reliable agreement in one topology but over-confidence in another. We propose CAGE-CAL, a counterfactual agent-graph calibration framework for multi-agent LLMs. For each query, CAGE-CAL compares an observed post-communication agent graph with a matched counterfactual no-communication graph, capturing both pairwise failure correlations and group-level dependencies. Rather than simply counting how many agents agree, CAGE-CAL estimates the counterfactual shift between observed and no-communication dependence, and calibrates confidence accordingly. Across five benchmarks, CAGE-CAL improves reliability discrimination with competitive ECE, and its calibrated confidence further improves topology selection over the best fixed-topology strategy.",
+        "url": "http://arxiv.org/abs/2605.30653v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.30653v1",
+        "arxiv_id": "2605.30653v1",
+        "authors": [
+            "Jiatan Huang",
+            "Mingchen Li",
+            "Ziming Li",
+            "Sunjae Kwon",
+            "Hong Yu",
+            "Chuxu Zhang"
+        ],
+        "submitted": "2026-05-28 23:16:29",
+        "source": "arxiv",
+        "comment": null,
+        "score": 6,
+        "keyword_reasons": [
+            "Found 'query' (score: +3)",
+            "Found 'pairwise' (score: +3)"
+        ],
+        "llm_score": 2,
+        "llm_reason": "This paper focuses on multi-agent LLM calibration and counterfactual graph analysis, which is not directly related to the user's primary research interests in Information Retrieval, query understanding, ranking models, and user behavior modeling. While it involves some NLP aspects, the context and application are quite different from the user's core research themes."
+    },
+    {
+        "title": "Generating and Refining Dynamic Evaluation Rubrics for LLM-as-a-Judge",
+        "abstract": "LLM-as-a-Judge is a scalable alternative to human evaluation, yet existing rubric-based methods rely on human-annotated data such as reference answers or expert-crafted rubrics. We propose to automatically generate fine-grained evaluation rubrics without any human annotation. Our training-free method generates rubrics at dataset-specific and instance-specific granularities, achieving performance competitive with existing methods across four benchmarks. We further present a method that iteratively fine-tunes a rubric generator model via meta-judge reward signals. The fine-tuned generator outperforms all existing baselines in both pairwise and pointwise evaluation. Notably, a fine-tuned 14B rubric generator outperforms a much larger proprietary model at rubric generation, showing the effectiveness of our fine-tuning strategy.",
+        "url": "http://arxiv.org/abs/2605.30568v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.30568v1",
+        "arxiv_id": "2605.30568v1",
+        "authors": [
+            "Zijie Wang",
+            "Eduardo Blanco"
+        ],
+        "submitted": "2026-05-28 20:59:45",
+        "source": "arxiv",
+        "comment": null,
+        "score": 6,
+        "keyword_reasons": [
+            "Found 'pointwise' (score: +3)",
+            "Found 'pairwise' (score: +3)"
+        ],
+        "llm_score": 2,
+        "llm_reason": "This paper focuses on generating evaluation rubrics for Large Language Models (LLMs) as judges, which is not directly related to information retrieval, search technologies, or query understanding. While it involves NLP, the context is more aligned with model evaluation and fine-tuning, rather than the user behavior modeling or ranking models that are central to your research interests."
+    },
+    {
+        "title": "Beyond Static Dialogues: Benchmarking Realistic, Heterogeneous, and Evolving Long-Term Memory",
+        "abstract": "In existing memory benchmarks for Large Language Models (LLMs), the evaluated dialogue sessions often lack long-term semantic consistency, and the underlying personas tend to be flat and static. Furthermore, in real-world scenarios, interactions between users and assistants involve more diverse, heterogeneous data streams, such as documents and emails. These shortcomings significantly limit the realism and effectiveness of current evaluations. To address these limitations, we introduce RHELM (Realistic, Heterogeneous, and Evolving Long-term Memory). Driven by meticulously crafted user profiles and a novel LOOP (pLan-rOllout-evOlve-Prune) module, we construct realistic dialogues across diverse interaction scenarios that exhibit dynamic temporal evolution and long-term coherence. Crucially, these dialogues are deeply integrated with heterogeneous external sources synchronized with the user's temporal event trajectory. The resulting benchmark encompasses challenging question-answer pairs spanning seven inquiry types, with each question mapping to at least one of 27 critical memory characteristics that we identify as essential yet underexplored in current research. Comprehensive experiments across full-context models, retrieval-augmented generation (RAG) methods, and representative memory frameworks reveal that contemporary approaches still expose critical weaknesses in complex, real-world settings, particularly in resolving multi-source aggregation and real-world contextual reasoning.",
+        "url": "http://arxiv.org/abs/2605.31086v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.31086v1",
+        "arxiv_id": "2605.31086v1",
+        "authors": [
+            "Han Zhang",
+            "Zihao Tang",
+            "Xin Yu",
+            "Xiao Liu",
+            "Yeyun Gong",
+            "Haizhen Huang",
+            "Yan Lu",
+            "Weiwei Deng",
+            "Feng Sun",
+            "Qi Zhang",
+            "Hanfang Yang"
+        ],
+        "submitted": "2026-05-29 09:51:22",
+        "source": "arxiv",
+        "comment": null,
+        "score": 5,
+        "keyword_reasons": [
+            "Found 'rag' (score: +2)",
+            "Found 'retrieval' (score: +2)",
+            "Found 'search' (score: +1)"
+        ],
+        "llm_score": 4,
+        "llm_reason": "The paper introduces a new benchmark for Large Language Models, focusing on realistic and evolving long-term memory. While it touches on aspects of query understanding and user behavior modeling, its primary focus is on memory and dialogue systems, which is somewhat related to your research interests in Information Retrieval and Natural Language Processing. However, the paper's emphasis on dialogue systems and memory frameworks makes it less central to your core research themes."
+    },
+    {
+        "title": "MoG: Mixture of Experts for Graph-based Retrieval-Augmented Generation",
+        "abstract": "Retrieval-augmented generation is intensively studied to ground large language models on external evidence. However, retrieving from a unified knowledge base could inevitably introduce irrelevant information that may mislead generation for complex reasoning. Inspired by the conditional computation of mixture of experts (MoE), where a router sparsely selects specialized experts alongside shared ones for each input, we propose \\textbf{M}ixture \\textbf{o}f experts for \\textbf{G}raph-based Retrieval-Augmented Generation, i.e., \\textbf{MoG}. It organizes knowledge into two core components: (i) diverse, always-accessible hub graphs that encode semantically and structurally central knowledge and provide contextual clues for expert activation, and (ii) sparsely activated expert graphs that contain domain-specific evidence. MoG first accesses hub graphs to identify general evidence and derive contextual clues. Then, a topology-aware router dynamically activates a limited set of expert graphs conditioned on the query, thereby confining retrieval to a focused evidence subspace. Extensive experiments on challenging benchmarks show that MoG consistently outperforms strong baselines, with over 20\\% relative improvement on MuSiQue. Our code is available in https://github.com/DEEP-PolyU/MoG.",
+        "url": "http://arxiv.org/abs/2605.31010v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.31010v1",
+        "arxiv_id": "2605.31010v1",
+        "authors": [
+            "Zheng Yuan",
+            "Chuang Zhou",
+            "Linhao Luo",
+            "Siyu An",
+            "Di Yin",
+            "Xing Sun",
+            "Xiao Huang"
+        ],
+        "submitted": "2026-05-29 08:43:12",
+        "source": "arxiv",
+        "comment": null,
+        "score": 5,
+        "keyword_reasons": [
+            "Found 'query' (score: +3)",
+            "Found 'retrieval' (score: +2)"
+        ],
+        "llm_score": 6,
+        "llm_reason": "This paper proposes a novel approach for retrieval-augmented generation, leveraging a mixture of experts for graph-based knowledge retrieval. While it touches on retrieval and knowledge representation, it doesn't directly address query understanding, ranking models, or user behavior modeling, which are core areas of interest. The paper's focus on graph-based retrieval and generation is somewhat related to IR, but it doesn't align perfectly with the user's primary research themes."
+    },
+    {
+        "title": "Extending AI for Research to the Humanities: A Multi-Agent Framework for Evidence-Grounded Scholarship",
+        "abstract": "LLM-based research agents have advanced rapidly in science and engineering, where research is organized around executable experiments, code, and quantitative signals. Humanities scholarship, however, requires a different mode of reasoning: interpretive, evidence-grounded argument over primary sources, where scholarly value depends on faithful quotation, verifiable provenance, and close reading. Existing research agents remain largely optimized for execution and retrieval, not evidence-grounded interpretive reasoning. To address this gap, we introduce SPIRE (Scholarly-Primitives-Inspired Research Engine), a multi-agent framework for evidence-grounded humanities scholarship. Drawing on Scholarly Primitives theory, SPIRE casts recurring humanities operations as cooperating agent roles (source discovery, evidence annotation, comparison, provenance checking, sampling, citation binding, and argumentative synthesis) over a multi-scale close-reading substrate of passages, intra-context graph communities, and cross-context semantic clusters. On a peer-reviewed-paper benchmark over classical Chinese and Greco-Roman Latin scholarship, SPIRE recovers cited primary-source evidence more reliably than Naive LLM, Text RAG, and GraphRAG, and receives higher blind-judge scores on answer accuracy, depth, coverage, and evidence quality. Ablations show that both the scholarly-operation agents and close-reading retrieval contribute to evidence-grounded essays. Code, data catalogues, and reproduction scripts are released at https://github.com/YatingPan/SPIRE.",
+        "url": "http://arxiv.org/abs/2605.30947v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.30947v1",
+        "arxiv_id": "2605.30947v1",
+        "authors": [
+            "Yating Pan",
+            "Jiajun Zhang",
+            "Jun Wang",
+            "Qi Su"
+        ],
+        "submitted": "2026-05-29 07:33:29",
+        "source": "arxiv",
+        "comment": "28 pages, 3 figures. Code, data catalogues, and reproduction scripts: https://github.com/YatingPan/SPIRE. Lead corresponding author: Jun Wang; corresponding author: Qi Su",
+        "score": 5,
+        "keyword_reasons": [
+            "Found 'rag' (score: +2)",
+            "Found 'retrieval' (score: +2)",
+            "Found 'search' (score: +1)"
+        ],
+        "llm_score": 2,
+        "llm_reason": "This paper is not relevant to your research interests in Information Retrieval, Search technologies, and Natural Language Processing, as it focuses on a multi-agent framework for humanities scholarship and evidence-grounded reasoning, which is outside your primary areas of interest."
+    },
+    {
+        "title": "TUX: Measuring Human--AI Tacit Understanding",
+        "abstract": "As large language models (LLMs) increasingly act as collaborative partners, human--AI alignment is often evaluated through explicit task success, accuracy, or reward optimization. Yet many collaborative settings depend on tacit understanding: whether an agent can align with a human's evaluative stance or representational priors without clear objectives, communication, or feedback. To study this capacity, we develop a spectrum-placement task inspired by the social party game Wavelength, in which humans and agents independently place concepts along subjective spectra. We operationalize the Tacit Understanding Index (TUX) as a pairwise measure of similarity between human and agent judgments, and evaluate it with 241 human participants and 200 profile-conditioned LLM agents across four models. We find that nearest human--agent pairs in trait space achieve significantly higher TUX, suggesting that tacit alignment is structured by person-level characteristics rather than random similarity. Regression analyses show that TUX becomes more explainable as predictor sets become richer, with individual traits, decision-making styles, and confidence improving over aggregate trait-distance baselines. These findings suggest that tacit understanding between humans and LLMs is measurable, while revealing the limits of profile-based conditioning for capturing deeper representational alignment.",
+        "url": "http://arxiv.org/abs/2605.30930v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.30930v1",
+        "arxiv_id": "2605.30930v1",
+        "authors": [
+            "Yueshen Li",
+            "Hanyi Min",
+            "Vedant Das Swain",
+            "Koustuv Saha"
+        ],
+        "submitted": "2026-05-29 07:19:58",
+        "source": "arxiv",
+        "comment": null,
+        "score": 5,
+        "keyword_reasons": [
+            "Found 'pairwise' (score: +3)",
+            "Found 'ctr' (score: +2)"
+        ],
+        "llm_score": 4,
+        "llm_reason": "This paper explores human-AI tacit understanding, which is related to query understanding and user behavior modeling in Information Retrieval. However, the focus on large language models and their alignment with human evaluative stances is somewhat tangential to the user's core research themes, which include search technologies and ranking models."
+    },
+    {
+        "title": "BlueFin: Benchmarking LLM Agents on Financial Spreadsheets",
+        "abstract": "We present BlueFin, a benchmark that tasks large language model (LLM) agents with synthesis, manipulation, and comprehension tasks over spreadsheet workbooks in the professional finance domain. Though estimates of the global population of paying users of spreadsheet software range in the hundreds of millions -- an order of magnitude more than the estimated global population of professional developers -- comparatively fewer resources have been devoted to exploring and expanding LLM capabilities in the spreadsheet domain, with fewer still dedicated to mirroring real occupational tasks encountered by those in professional finance roles. In response, we curate a set of 131 challenging, complex tasks with real-world relevance in the domain, containing 3,225 granular rubric criteria; notably, our rubric criteria and LM judge evaluations are validated by a team of expert human annotators, resulting in high-quality, granular evaluations of complex tasks that are difficult to verify programmatically but can be reliably evaluated by an LM judge agent. Our judge achieves parity with expert consensus ($α=0.826$) with a macro-F1 score of 0.839. Frontier LLMs demonstrate poor performance on the challenging benchmark, with the strongest LLMs achieving less than 50\\% average scores across tasks -- models exhibit particular weaknesses in dynamic correctness. Our contributions include a dataset of examples across three categories of spreadsheet tasks, an open source harness and agentic evaluation framework, and a characterization of existing frontier models' performance on our benchmark.",
+        "url": "http://arxiv.org/abs/2605.30907v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.30907v1",
+        "arxiv_id": "2605.30907v1",
+        "authors": [
+            "Srivatsa Kundurthy",
+            "Clara Na",
+            "Colton Moraine",
+            "Anoushka Mohta",
+            "Case Winter",
+            "George Fang",
+            "John Ling",
+            "Emma Strubell",
+            "Zach Kirshner"
+        ],
+        "submitted": "2026-05-29 06:43:23",
+        "source": "arxiv",
+        "comment": "26 pages",
+        "score": 5,
+        "keyword_reasons": [
+            "Found 'relevance' (score: +3)",
+            "Found 'rag' (score: +2)"
+        ],
+        "llm_score": 4,
+        "llm_reason": "The paper presents a benchmark for large language model agents in the spreadsheet domain, which is somewhat related to information retrieval and search technologies. However, the focus on large language models and spreadsheet manipulation tasks is not directly aligned with the user's core research themes in query understanding, ranking models, and user behavior modeling. The connection to the e-commerce domain is also limited, but the paper's emphasis on real-world relevance and complex tasks is somewhat relevant to the user's interests in deep semantic understanding and real-time relevance optimization."
+    },
+    {
+        "title": "Anchoring LLM Gender Bias to Human Baselines: A Cross-Lingual Audit",
+        "abstract": "We audit six large language models (LLMs) for gender stereotyping across English, Korean, Chinese, and Japanese. Three were developed primarily for English-language use (Claude, GPT, Gemini) and three for East Asian use (DeepSeek, Syn-Pro, HyperCLOVA X). We adopt the HEXACO-100 personality inventory and anchor each model against a cross-cultural human dataset spanning 48 countries to ask not whether LLMs are biased, but how far their gender attributions drift from the populations they are deployed among. Our findings show that their stereotyping spans a range roughly 2.5 times wider than the entire cross-country range found in humans, and the effect can compound across languages. One English-centric model, prompted in Korean, reached 5 times the local baseline, even when the prompt stated the candidate had already been hired, which often dampens human stereotyping. To characterize such behaviors without ranking them, we introduce a four-pattern framework -- concordance, suppression, reorganization, and amplification -- across 24 (model x language) cells. Item-level analysis reveals that translation does not just rescale stereotypes, but changes the attributes tied to it, hiding significant rearrangement under the surface while appearing well-calibrated. Our results ultimately suggest that no single debiasing pipeline is likely to address bias evenly across linguistic boundaries.",
+        "url": "http://arxiv.org/abs/2605.30804v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.30804v1",
+        "arxiv_id": "2605.30804v1",
+        "authors": [
+            "Jiwoo Choi",
+            "Seonwoo Ahn",
+            "Tongxin Zhang",
+            "Seohyon Jung"
+        ],
+        "submitted": "2026-05-29 03:45:24",
+        "source": "arxiv",
+        "comment": null,
+        "score": 5,
+        "keyword_reasons": [
+            "Found 'ranking' (score: +3)",
+            "Found 'rank' (score: +1)",
+            "Found 'korea' (score: +1)"
+        ],
+        "llm_score": 3,
+        "llm_reason": "This paper is loosely relevant to your research interests in Natural Language Processing (NLP) and related topics, but it focuses on auditing large language models for gender bias, which is not directly related to your core areas of interest in Information Retrieval, query understanding, ranking models, and user behavior modeling."
+    },
+    {
+        "title": "EUDAIMONIA: Evaluating Undesirable Dynamics in AI",
+        "abstract": "Large language models (LLMs) are increasingly used as conversational partners for companionship, emotional disclosure, and interpersonal advice, but the social dynamics of these interactions can create harms that are not captured by capability-oriented or traditional safety evaluations. We introduce the Social AI Design Code, a framework for evaluating whether LLMs align with user welfare in social interactions, including whether they encourage harmful intimacy, dependence, or prolonged engagement. To evaluate these risks in natural and diverse user-LLM interactions, we operationalize the code with EUDAIMONIA, a benchmark of 969 user inputs and 3,147 design-requirement violation checks built from WildChat through weak-to-strong filtration, multi-model relabeling, and controlled rewriting. Evaluating 22 recent LLMs, we find that even the strongest models, Claude-Opus-4.7 and GPT-5.5, violate 30.7% and 27.2% of checks, respectively. Extended thinking does not reduce violation rates, suggesting that these failures are persistent social-alignment problems rather than deficits solvable through test-time reasoning alone.",
+        "url": "http://arxiv.org/abs/2605.30654v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.30654v1",
+        "arxiv_id": "2605.30654v1",
+        "authors": [
+            "Jun Rui Huang",
+            "Wang Bill Zhu",
+            "Ziyi Liu",
+            "Nathanael Fast",
+            "Ravi Iyer",
+            "Robin Jia"
+        ],
+        "submitted": "2026-05-28 23:17:26",
+        "source": "arxiv",
+        "comment": null,
+        "score": 5,
+        "keyword_reasons": [
+            "Found 'ltr' (score: +3)",
+            "Found 'rag' (score: +2)"
+        ],
+        "llm_score": 2,
+        "llm_reason": "This paper focuses on the social dynamics of interactions with large language models, introducing a framework for evaluating their alignment with user welfare. While it touches on the concept of user behavior, it is primarily concerned with the safety and ethics of AI, which is not a central match for your research interests in Information Retrieval, Search technologies, and Natural Language Processing."
+    },
+    {
+        "title": "Semantic Motion Anchors: Bridging Motion and Meaning in Co-Speech Gestures",
+        "abstract": "Learning a shared representation between spoken text and gesture is central to co-speech gesture retrieval, synthesis, and understanding, but remains challenging for semantically meaningful gestures whose communicative intent is not captured by motion alone. Direct contrastive alignment between transcripts and continuous motion embeddings often overemphasizes low-level kinematics and misses the symbolic content of semantic gestures. We propose semantic motion anchors, natural-language abstractions of gesture motion capturing physical form and communicative intent. Our method discretizes 3D gestures into body-hand motion primitives, verbalizes them into structured descriptions, and grounds them in the transcript to provide auxiliary contrastive supervision. On BEAT2, our method improves text-to-gesture R@1 by 8.2% over a direct text-motion baseline and outperforms prior retrieval approaches on text to gesture and gesture to text retrieval directions. Beyond aggregate retrieval metrics, semantic motion anchor supervision helps retrieve gestures that are semantically meaningful for the spoken query, rather than defaulting to generic motion patterns. A downstream retrieval-augmented gesture generation study showed that users significantly preferred gestures retrieved by our approach over a retrieval-augmented generation baseline, demonstrating that semantically grounded retrieval translates to gestures that better convey communicative intent in downstream generation.",
+        "url": "http://arxiv.org/abs/2605.30608v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.30608v1",
+        "arxiv_id": "2605.30608v1",
+        "authors": [
+            "Varsha Suresh",
+            "Mohammad Mahdi Abootorabi",
+            "Mohamed Salman",
+            "M. Hamza Mughal",
+            "Christian Theobalt",
+            "Ashwin Ram",
+            "Jürgen Steimle",
+            "Vera Demberg"
+        ],
+        "submitted": "2026-05-28 22:01:11",
+        "source": "arxiv",
+        "comment": null,
+        "score": 5,
+        "keyword_reasons": [
+            "Found 'query' (score: +3)",
+            "Found 'retrieval' (score: +2)"
+        ],
+        "llm_score": 2,
+        "llm_reason": "This paper is not directly related to your core research interests in Information Retrieval and Search technologies, but it does involve Natural Language Processing (NLP) and data mining. However, the focus on co-speech gestures and gesture retrieval is not a central match for your research themes."
+    },
+    {
+        "title": "An Organization-Scoped LLM Agent Runtime Architecture for Regulated Cybersecurity Operations",
+        "abstract": "Regulated cybersecurity workflows lack a runtime substrate that enforces organization-level scope across retrieval, tool calls, memory, findings, reports, and audit while remaining model-agnostic and locally deployable. Recent large language model (LLM) agent systems report strong results on isolated cybersecurity tasks, yet they do not by themselves define an auditable platform architecture for regulated security operations centre (SOC) and compliance workflows, where a single analyst may trigger actions that bind the organization, and where the runtime must integrate with existing SIEM/XDR stacks as a primary source of context and alert-driven triggers rather than operate as a standalone analytical layer. This paper proposes an organization-scoped LLM agent runtime architecture for financial cybersecurity. The contribution is a typed Security Context that is created at every entry point, including SIEM/XDR notifications ingested as first-class triggers, and enforced at every component boundary, combined with a shared Runtime Core, logical specialist subagents, a governed Tool Adapter Layer exposing SIEM/XDR query, enrichment, and response primitives under uniform policy and audit, structured findings with evidence references, tiered human-in-the-loop (HITL) gates, and append-only audit. Model Context Protocol (MCP), extended telemetry, digital twins for pentesting, graph retrieval, and federated knowledge sharing are treated as optional extension paths rather than mandatory runtime assumptions. We describe an implementable slice as the architecture's testability surface, and we propose a falsifiable evaluation plan with metric-level pass criteria for architecture readiness, security-policy enforcement, evidence traceability, output quality, and operational observability.",
+        "url": "http://arxiv.org/abs/2605.30604v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.30604v1",
+        "arxiv_id": "2605.30604v1",
+        "authors": [
+            "George Fatouros",
+            "Georgios Makridis",
+            "George Kousiouris",
+            "John Soldatos",
+            "Dimosthenis Kyriazis"
+        ],
+        "submitted": "2026-05-28 21:51:38",
+        "source": "arxiv",
+        "comment": "8 pages, 3 figures",
+        "score": 5,
+        "keyword_reasons": [
+            "Found 'query' (score: +3)",
+            "Found 'retrieval' (score: +2)"
+        ],
+        "llm_score": 2,
+        "llm_reason": "This paper focuses on a runtime architecture for regulated cybersecurity operations, which is not directly related to the user's core research themes in Information Retrieval, Search technologies, and Natural Language Processing. Although it mentions large language models, the context is specific to cybersecurity and does not align with the user's interests in query understanding, ranking models, or user behavior modeling."
+    },
+    {
+        "title": "Fine-grained Verification via Diagnostic Reasoning Supervision for Aspect Sentiment Triplet Extraction",
+        "abstract": "Aspect Sentiment Triplet Extraction (ASTE) aims to identify aspect terms, opinion terms, and sentiment polarities as structured triplets, providing essential inputs for downstream information system applications such as opinion mining, explainable recommendations, and review summarization. Prior work mainly focuses on end-to-end extraction, while post hoc verification of extracted triplets remains comparatively underexplored. This gap limits the reliability of ASTE systems, since predicted triplets may be locally plausible while being globally invalid. Moreover, candidate invalidity is multi-faceted and candidate usability is inherently graded, motivating a fine-grained verification mechanism that can filter or re-rank outputs from diverse extractors. In this paper, we propose FiVeD, a framework for Fine-grained Verification with Diagnostic reasoning supervision. Specifically, the verifier is trained with multiple complementary objectives, including validity classification and quality score estimation as primary tasks, with error type classification and rationale generation as auxiliary tasks. We define hierarchical error categories and construct plausible incorrect triplets under semantic and syntactic constraints, and leverage an off-the-shelf LLM with task-specific rubrics to produce quality scores and diagnostic rationales. During inference, the resulting quality scores are used to filter candidate outputs, supporting adjustable precision-recall tradeoffs. Experiments across multiple ASTE baselines demonstrate that FiVeD consistently improves extraction performance by up to 3.53 F1 points as a plug-and-play verification module.",
+        "url": "http://arxiv.org/abs/2605.31446v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.31446v1",
+        "arxiv_id": "2605.31446v1",
+        "authors": [
+            "Wenna Lai",
+            "Haoran Xie",
+            "Guandong Xu",
+            "Qing Li",
+            "S. Joe Qin"
+        ],
+        "submitted": "2026-05-29 15:40:58",
+        "source": "arxiv",
+        "comment": "25 pages, 13 figures, and 6 tables",
+        "score": 4,
+        "keyword_reasons": [
+            "Found 'rag' (score: +2)",
+            "Found 'recommend' (score: +1)",
+            "Found 'rank' (score: +1)"
+        ],
+        "llm_score": 4,
+        "llm_reason": "This paper is somewhat related to information retrieval, specifically in the context of opinion mining and review summarization, but it focuses on aspect sentiment triplet extraction and verification, which is more aligned with natural language processing and data mining. The use of deep learning models and fine-grained verification mechanisms is also relevant, but the primary focus is on a specific task rather than general information retrieval or search technologies."
+    },
+    {
+        "title": "Contextual Scalarisation Thompson Sampling for multi-objective decisions in public media",
+        "abstract": "Recommender systems may operate under multiple, competing objectives. For example, audience reach, cultural values, public service mandate, and operational constraints must be balanced in editorial decisions of public service media. Existing approaches relying on fixed combinations of objectives or Pareto-based optimisation do not adapt to changing priorities across situations. In this paper, we propose Contextual Scalarisation Thompson Sampler (CSTS), a multi-objective contextual bandit method that learns to weight objectives as a function of the observed context. We evaluate CSTS on real programming data from Radio Télévision Suisse, the Swiss national broadcaster, showing improved contextual relevance and better alignment with expert curation practices compared to fixed weight and standard contextual bandit approaches.",
+        "url": "http://arxiv.org/abs/2605.31291v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.31291v1",
+        "arxiv_id": "2605.31291v1",
+        "authors": [
+            "Théo Maëtz",
+            "Luc Guillet",
+            "Andrea Cavallaro"
+        ],
+        "submitted": "2026-05-29 13:27:03",
+        "source": "arxiv",
+        "comment": "15 pages, 3 figures, 3 tables. Submitted-manuscript version of a paper accepted at ICPR 2026. The Version of Record will be published in the Springer Lecture Notes in Computer Science series; DOI will be added when available",
+        "score": 4,
+        "keyword_reasons": [
+            "Found 'relevance' (score: +3)",
+            "Found 'recommend' (score: +1)"
+        ],
+        "llm_score": 2,
+        "llm_reason": "This paper focuses on multi-objective decisions in public media, using a contextual bandit method to balance competing objectives. While it involves recommender systems, it does not directly relate to information retrieval, query understanding, or ranking models, which are core areas of your research interests."
+    },
+    {
+        "title": "OrcaRouter: A Production-Oriented LLM Router with Hybrid Offline-Online Learning",
+        "abstract": "The rapid development of large language models, each with distinct capabilities and inference costs, raises a practical deployment question: given an incoming request, which model should handle it? We present OrcaRouter, a production-oriented LLM router that combines a LinUCB-based contextual bandit over lexical and sentence-embedding features with a hybrid offline-online learning protocol. Offline, OrcaRouter obtains full-information feedback by evaluating each candidate model on a curated set of routing prompts, yielding a reward matrix used to fit one ridge regressor per arm. At deployment time, it initializes from these parameters and can optionally continue learning from bandit feedback, updating only the selected model's arm after observing its reward. At the time of our RouterArena submission (May 20, 2026), OrcaRouter-Adaptive ranked second on the public RouterArena leaderboard with an arena score of 72.08, achieving 75.54% accuracy at a cost of USD 1.00 per 1,000 queries.",
+        "url": "http://arxiv.org/abs/2605.30736v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.30736v1",
+        "arxiv_id": "2605.30736v1",
+        "authors": [
+            "Zhenghua Bao",
+            "Fengya Tian",
+            "Chris Zhang",
+            "Zhenjun Chen",
+            "Xile Ma",
+            "Yi Shi"
+        ],
+        "submitted": "2026-05-29 01:59:07",
+        "source": "arxiv",
+        "comment": "6 pages, 1 table. Technical report",
+        "score": 4,
+        "keyword_reasons": [
+            "Found 'queries' (score: +3)",
+            "Found 'rank' (score: +1)"
+        ],
+        "llm_score": 4,
+        "llm_reason": "The paper discusses a production-oriented LLM router, which is somewhat related to information retrieval and search technologies. However, the focus on large language models and contextual bandit learning is more aligned with NLP and recommender systems, but not directly related to query understanding, ranking models, or user behavior modeling. While it touches on real-time relevance optimization, it's not a central match for the user's core research themes."
+    },
+    {
+        "title": "SAGE: A Novelty Gate for Efficient Memory Evolution in Agentic LLMs",
+        "abstract": "Agentic LLMs must continuously decide whether newly extracted facts should be added, merged with existing memories, or ignored, yet prior work has focused more on retrieval and storage than on principled write-side control. We frame memory evolution as a novelty-detection problem and propose SAGE, a Spherical Adaptive Gate for memory Evolution that scores candidate facts with a von Mises-Fisher-based density estimator over memory embeddings and routes them with an adaptive threshold that tracks memory-store geometry. SAGE resolves clearly novel facts as ADD, clearly redundant facts as NOOP, and sends only uncertain cases to an LLM merge step, reducing expensive write-time reasoning. On LoCoMo, SAGE achieves the best average token-F1 against Mem0 on all seven open-weight backbone comparisons, while on GPT-4o-mini it reduces add-phase API cost by 3.4$\\times$ and add-phase latency by 2.5$\\times$ with only a small average judge-score gap. As a drop-in binary gate for A-Mem, SAGE skips roughly 16-18% of LLM calls across five models with minimal quality change on open-weight backbones. These results suggest that novelty-aware write control is a practical lever for improving both memory quality and system efficiency in long-term agentic memory.",
+        "url": "http://arxiv.org/abs/2605.30711v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.30711v1",
+        "arxiv_id": "2605.30711v1",
+        "authors": [
+            "Sijia Wang",
+            "Dhanajit Brahma",
+            "Ricardo Henao"
+        ],
+        "submitted": "2026-05-29 01:03:39",
+        "source": "arxiv",
+        "comment": null,
+        "score": 4,
+        "keyword_reasons": [
+            "Found 'rag' (score: +2)",
+            "Found 'retrieval' (score: +2)"
+        ],
+        "llm_score": 2,
+        "llm_reason": "This paper appears to be primarily focused on memory evolution in Large Language Models (LLMs), which is not directly related to your core research interests in Information Retrieval, Search technologies, and Natural Language Processing. While it touches on novelty detection, it does not seem to involve query understanding, ranking models, or user behavior modeling, making it only loosely relevant to your research."
+    },
+    {
+        "title": "Counterfactual Evaluation Reveals Hidden Capability Profiles in Clinical LLMs and Agents",
+        "abstract": "Two clinical AI systems can score nearly identically on coverage-based rubrics yet behave radically differently when their patient inputs change: one updates its recommendations to match the new clinical signal, while the other produces the same output regardless. We introduce the Causal Sensitivity Score (CSS), a pre-registered interventional metric that mutates oncology tumor-board cases along five clinically meaningful dimensions - biomarker flips, prior-treatment failures, biomarker removals, surgery-status changes, and stage perturbations - and scores whether each model updates its recommendations in the pre-registered correct direction using a {0, 0.5, 1.0} scale. Benchmarked against the Consensus Match Score (CMS), a coverage-based weighted recall metric, six frontier models from three labs evaluated in single-shot inference across 224 cases rank in nearly opposite orders: all six models change rank, the CMS-worst model becomes CSS-best, and one upper-mid CMS model ranks last on CSS. We further surface a universal safety blind spot: every frontier model fails on surgery-status interventions (at most 17.2% CSS on Family D), a finding CMS does not expose. The metric also transfers to tool-using agents: in a ReAct-style experiment, tool use improves CSS for five of six models (+2.5 to +20.3 percentage points), yet the lowest-CSS model retrieves the same chart sections and still fails to update its recommendations - revealing a structural responsiveness deficit visible only under counterfactual evaluation. Cross-judge replication and three-rater medical-professional validation confirm the aggregate findings. Interventional pre-registered metrics like CSS complement coverage-based evaluation for clinical AI agents: they capture responsiveness that coverage metrics miss and offer a candidate dense reward signal for future agentic RL systems.",
+        "url": "http://arxiv.org/abs/2605.30590v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.30590v1",
+        "arxiv_id": "2605.30590v1",
+        "authors": [
+            "Matt Turk"
+        ],
+        "submitted": "2026-05-28 21:37:06",
+        "source": "arxiv",
+        "comment": "Accepted to RLEval @ ACM CAIS 2026 (Workshop on Methods and RL Environments for Evaluating AI Agents) and selected for an invited talk based on reviewer ratings. 4-page short paper + appendix",
+        "score": 4,
+        "keyword_reasons": [
+            "Found 'rag' (score: +2)",
+            "Found 'recommend' (score: +1)",
+            "Found 'rank' (score: +1)"
+        ],
+        "llm_score": 2,
+        "llm_reason": "This paper is not directly related to your research interests in Information Retrieval, Search technologies, or Natural Language Processing. The focus on clinical AI systems, counterfactual evaluation, and causal sensitivity scores is more aligned with AI safety and healthcare applications, which are not central to your research themes."
+    },
+    {
+        "title": "LongTraceRL: Learning Long-Context Reasoning from Search Agent Trajectories with Rubric Rewards",
+        "abstract": "Long-context reasoning remains a central challenge for large language models, which often fail to locate and integrate key information in extensive distracting content. Reinforcement learning with verifiable rewards (RLVR) has shown promise for this task, yet existing methods are limited by low-confusability distractors and sparse, outcome-only reward signals that cannot supervise intermediate reasoning steps. To address these issues, we introduce \\textsc{LongTraceRL}. For data construction, we generate multi-hop questions via knowledge graph random walks and leverage search agent trajectories to build \\emph{tiered distractors}: documents the agent read but did not cite (high confusability) and documents that appeared in search results but were never opened (low confusability), producing training contexts that are far more challenging than those built by random sampling or one-shot search. For reward design, we propose a \\emph{rubric reward} that uses the gold entities along each reasoning chain as fine-grained, entity-level process supervision. This rubric reward is applied only to responses with correct final answers (positive-only strategy), distinguishing the reasoning quality among correct responses and preventing reward hacking. Experiments on three reasoning LLMs (4B--30B) across five long-context benchmarks demonstrate that \\textsc{LongTraceRL} consistently outperforms strong baselines and encourages comprehensive, evidence-grounded reasoning. Codes, datasets and models are available at \\href{https://github.com/THU-KEG/LongTraceRL}{https://github.com/THU-KEG/LongTraceRL}.",
+        "url": "http://arxiv.org/abs/2605.31584v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.31584v1",
+        "arxiv_id": "2605.31584v1",
+        "authors": [
+            "Nianyi Lin",
+            "Jiajie Zhang",
+            "Lei Hou",
+            "Juanzi Li"
+        ],
+        "submitted": "2026-05-29 17:51:40",
+        "source": "arxiv",
+        "comment": null,
+        "score": 3,
+        "keyword_reasons": [
+            "Found 'rag' (score: +2)",
+            "Found 'search' (score: +1)"
+        ],
+        "llm_score": 6,
+        "llm_reason": "This paper introduces LongTraceRL, a method for learning long-context reasoning from search agent trajectories with rubric rewards. While it relates to search technologies and query understanding, its focus on long-context reasoning and large language models is somewhat tangential to the user's primary interests in IR and ranking models. The paper's relevance to the user's research is somewhat related but not a central match."
+    },
+    {
+        "title": "Effects of Vertex Merging & Splitting on Large Coauthorship Networks: A Counterfactual Analysis",
+        "abstract": "Researchers analyze coauthorship networks, but author name ambiguity in their network data remains a significant challenge as it can change the number of vertices, distorting network properties. Although many scholars use straightforward heuristics for author name disambiguation using author's forename initials, these techniques can skew our understanding of network properties by merging or splitting vertices, raising concerns about the reliability and validity of these methods. This study investigates how different levels of vertex merging and splitting errors that are induced by name ambiguity impact network measures, using three large coauthorship networks with highly accurate algorithmic author name disambiguation. As a counterfactual scenario, two initial-based disambiguation methods widely used in coauthorship network research were applied to these datasets. Nine coauthorship network metrics were computed while varying randomly the numbers of merged or split vertices. Results show that initial-based disambiguation generates coauthorship networks with specific network properties underestimated, leading to the discovery of coauthorship networks that are smaller and more closely connected than they genuinely are. In contrast, other network metric values increase, making authors appear more collaborative and embedded within less fragmented research communities than they are. The study emphasizes the importance of careful disambiguation of vertex names in analyzing coauthorship networks for rigorous and valid findings.",
+        "url": "http://arxiv.org/abs/2605.31555v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.31555v1",
+        "arxiv_id": "2605.31555v1",
+        "authors": [
+            "Jinseok Kim"
+        ],
+        "submitted": "2026-05-29 17:19:53",
+        "source": "arxiv",
+        "comment": "12 pages, 3 figures, 2 tables, ComplexNetworks2025",
+        "score": 3,
+        "keyword_reasons": [
+            "Found 'rag' (score: +2)",
+            "Found 'search' (score: +1)"
+        ],
+        "llm_score": 2,
+        "llm_reason": "This paper is not relevant to your research interests in Information Retrieval, Search technologies, or Natural Language Processing. It focuses on coauthorship networks and author name disambiguation, which is a topic in data mining and network analysis, but not directly related to your core research themes."
+    },
+    {
+        "title": "Semantic Triplet Restoration: A Novel Protocol for Hierarchical Table Understanding in Large Language Models",
+        "abstract": "Table question answering requires models to recover semantic relations encoded implicitly by two-dimensional layout, merged cells, and hierarchical headers. Current pipelines typically use HTML or Markdown as intermediate table representations, but these layout-oriented serializations introduce markup overhead and require large language models to infer header-cell alignments from row and column spans. We propose Semantic Triplet Restoration (STR), a protocol that rewrites each cell as an atomic fact <item path, feature path, value>, where the item path specifies the row-wise entity, the feature path specifies the hierarchical attribute, and the value contains the cell content. We also present TripletQL, a lightweight query-aware router that uses STR to select an appropriate rendering or filtered subset of triplets for each question. Across four Chinese and English table-QA benchmarks, STR matches or improves upon HTML-based baselines while reducing input tokens. The relative benefit grows for smaller language models and longer table contexts, suggesting that explicit semantic representations are especially useful under constrained inference budgets. Code and data are available at https://github.com/Phoenix-ni/STR.git .",
+        "url": "http://arxiv.org/abs/2605.31550v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.31550v1",
+        "arxiv_id": "2605.31550v1",
+        "authors": [
+            "Yibin Zhao",
+            "Fangxin Shang",
+            "Dingrui Yang",
+            "Yuqi Wang"
+        ],
+        "submitted": "2026-05-29 17:10:25",
+        "source": "arxiv",
+        "comment": null,
+        "score": 3,
+        "keyword_reasons": [
+            "Found 'query' (score: +3)"
+        ],
+        "llm_score": 4,
+        "llm_reason": "The paper explores a novel protocol for hierarchical table understanding in large language models, which is somewhat related to information retrieval, particularly in areas that require deep semantic understanding. However, the focus is on table question answering and semantic triplet restoration, which, while interesting, does not directly align with the user's primary research interests in query understanding, ranking models, and user behavior modeling."
+    },
+    {
+        "title": "Consolidating Rewarded Perturbations for LLM Post-Training",
+        "abstract": "Post-training of language models is commonly framed as a sample-score-update loop implemented by gradient descent. A recent line of work, exemplified by RandOpt, relocates this loop to weight space, sampling Gaussian perturbations around a pretrained model and ensembling the top-K rewarded specialists at inference. While competitive with PPO and GRPO under matched training compute, this prediction-level ensemble incurs K forward passes per test example and does not extend cleanly to free-form generation. We ask whether the rewarded population can instead be folded into a single deployable model, replacing the inference-time ensemble with one consolidated update. A split-half analysis over 25 model-task pairs reveals reproducible low-rank structure in every case. We turn this geometry into CoRP (Consolidating Rewarded Perturbations), a gradient-free operator that combines reward-weighted aggregation, compatibility-aware reweighting, and a held-out validation gate, with no gradient flowing through the language model. Across five language models from 0.5B to 8B and five tasks covering math, code, and creative writing, CoRP improves the base model by 8.1 points on average. Using one tenth of RandOpt's perturbation budget, CoRP exceeds single-inference RandOpt by 6.5 points and recovers more than half of the gain of the 50-pass majority-vote ensemble, at one forward pass per test example.",
+        "url": "http://arxiv.org/abs/2605.31494v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.31494v1",
+        "arxiv_id": "2605.31494v1",
+        "authors": [
+            "Zheyu Zhang",
+            "Shuo Yang",
+            "Gjergji Kasneci"
+        ],
+        "submitted": "2026-05-29 16:16:13",
+        "source": "arxiv",
+        "comment": null,
+        "score": 3,
+        "keyword_reasons": [
+            "Found 'rag' (score: +2)",
+            "Found 'rank' (score: +1)"
+        ],
+        "llm_score": 2,
+        "llm_reason": "This paper focuses on post-training of language models, specifically on a method called CoRP, which improves the performance of language models on various tasks. While it touches upon aspects of model optimization, it does not directly relate to information retrieval, search technologies, or query understanding, which are core areas of your research interests."
+    },
+    {
+        "title": "FBHM: Functional Benchmarking and Steering of VLMs for Hateful Meme Detection",
+        "abstract": "Hateful meme detection remains a formidable challenge for vision-language models, as existing benchmarks are structurally observational - confounding rhetorical hate mechanisms with target community features and preventing causal evaluation of model vulnerabilities. To address this, we introduce FBHM, a systematically curated benchmark of Functionality Based Hateful Memes constructed along two orthogonal axes: 25 distinct rhetorical functionalities and 10 target communities (5,000 memes total). Benchmarking state-of-the-art VLMs reveals a severe generalization gap: models highly accurate on standard datasets catastrophically drop to near-random performance on FBHM, proving they exploit dataset-specific heuristics rather than robust multimodal reasoning. To efficiently close this gap, we propose LSV (learnable steering vectors), an ultra-low data regime strategy that applies a causal intervention objective on as few as 500 steering samples (50 unique base memes), boosting FBHM performance by ~30 Macro-F1 points while outperforming in-context learning and PEFT without degrading source-domain performance.",
+        "url": "http://arxiv.org/abs/2605.31349v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.31349v1",
+        "arxiv_id": "2605.31349v1",
+        "authors": [
+            "Paramananda Bhaskar",
+            "Naquee Rizwan",
+            "Daksh Jogchand",
+            "Saurabh Kumar Pandey",
+            "Animesh Mukherjee"
+        ],
+        "submitted": "2026-05-29 14:27:17",
+        "source": "arxiv",
+        "comment": null,
+        "score": 3,
+        "keyword_reasons": [
+            "Found 'ltr' (score: +3)"
+        ],
+        "llm_score": 2,
+        "llm_reason": "This paper is not directly related to your research interests in Information Retrieval, Search technologies, or Natural Language Processing. While it involves a benchmarking and steering approach, the focus is on vision-language models for hateful meme detection, which is not a primary area of interest for you."
+    },
+    {
+        "title": "Divergence Decoding: Inference-Time Unlearning via Auxiliary Models",
+        "abstract": "Large Language Models (LLMs) frequently memorize sensitive training data thereby creating significant privacy and copyright risks. Addressing these risks, i.e., removing such knowledge from an existing model checkpoint, has proven challenging as many unlearning methods lead to catastrophic utility loss or are ineffective for complex queries. We introduce Divergence Decoding (DD), a mechanism that uses small auxiliary models to steer the logits of the LLM away from specific data during inference. Training these models is straight forward, i.e., we use standard pre-training and fine-tuning setups. We find the method decisively outperforms state-of-the-art (SOTA) baselines on unlearning benchmarks across a variety of model and training dataset scales consistent with DD being an effective and inexpensive solution to unlearning. We then demonstrate that this steered distribution can be trivially distilled back into the base model. Since the method is generally applicable to any probabilistic model, we explore its efficacy outside of text generation and find evidence of generalization to the domain of images.",
+        "url": "http://arxiv.org/abs/2605.31293v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.31293v1",
+        "arxiv_id": "2605.31293v1",
+        "authors": [
+            "Humzah Merchant",
+            "Bradford Levy"
+        ],
+        "submitted": "2026-05-29 13:29:01",
+        "source": "arxiv",
+        "comment": null,
+        "score": 3,
+        "keyword_reasons": [
+            "Found 'queries' (score: +3)"
+        ],
+        "llm_score": 2,
+        "llm_reason": "This paper focuses on unlearning sensitive data from Large Language Models, which is not directly related to Information Retrieval, Search technologies, or query understanding. While it involves deep learning models, the topic is more aligned with privacy and copyright risks in NLP, rather than real-time relevance optimization or ranking models."
+    },
+    {
+        "title": "Mellum2 Technical Report",
+        "abstract": "We present Mellum 2, an open-weight 12B-parameter Mixture-of-Experts (MoE) language model with 2.5B active parameters per token. Mellum 2 is a general-purpose language model specialized in software engineering, spanning code generation and editing, debugging, multi-step reasoning, tool use and function calling, agentic coding, and conversational programming assistance, and it is the successor to the completion-focused 4B dense Mellum model. The architecture builds on the Mixture-of-Experts (64 experts, 8 active) and combines Grouped-Query Attention with 4 KV heads, Sliding Window Attention on three of every four layers, and a single Multi-Token Prediction head that doubles as both an auxiliary pre-training objective and a built-in draft model for speculative decoding; each choice was validated by ablation with inference efficiency on commodity GPUs as a design constraint. Pre-training spans approximately 10.6 trillion tokens through a three-phase curriculum that progressively shifts the mixture from diverse web data toward curated code and mathematical content, optimized with Muon under FP8 hybrid precision and a Warmup-Hold-Decay schedule with linear decay to zero. The pre-trained base is extended to a 128K context window via a layer-selective YaRN and then post-trained in two stages (supervised fine-tuning followed by RLVR), yielding two released variants: an Instruct model that answers directly and a Thinking model that emits an explicit reasoning trace before its final answer. Across code generation, math and reasoning, tool use, knowledge, and safety benchmarks, Mellum 2 is competitive with open-weight baselines in the 4B-14B range while running at the per-token compute of a 2.5B dense model. We release the base, instruct, and thinking checkpoints, together with this report on the architecture decisions, data pipeline, and training recipe behind them, under the Apache 2.0 license.",
+        "url": "http://arxiv.org/abs/2605.31268v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.31268v1",
+        "arxiv_id": "2605.31268v1",
+        "authors": [
+            "Marko Kojic",
+            "Ivan Bondyrev",
+            "Aral de Moor",
+            "Joseph Shtok",
+            "Petr Borovlev",
+            "Kseniia Lysaniuk",
+            "Madeeswaran Kannan",
+            "Ivan Dolgov",
+            "Nikita Pavlichenko"
+        ],
+        "submitted": "2026-05-29 13:01:11",
+        "source": "arxiv",
+        "comment": null,
+        "score": 3,
+        "keyword_reasons": [
+            "Found 'query' (score: +3)"
+        ],
+        "llm_score": 2,
+        "llm_reason": "The paper appears to be focused on a language model for software engineering tasks, which is not directly related to the user's core research themes in Information Retrieval and Search technologies. While it does involve natural language processing, the specific application domain and architecture do not align with the user's interests."
+    },
+    {
+        "title": "Towards Efficient LLMs Annealing with Principled Sample Selection",
+        "abstract": "The annealing phase is a pivotal convergence stage in LLM pre-training that ultimately determines final model quality. However, effectively selecting training data during this phase remains a key challenge. Current strategies rely on empirical heuristics, such as domain filtering or context extension, which lack a principled grounding in optimization theory. In this work, we characterize the annealing phase through the lens of the loss landscape's spectral geometry. We argue that optimal convergence requires gradient updates to satisfy heterogeneous constraints across different eigen-directions. Building on this insight, we formulate data selection as a problem of satisfying these directional constraints. To this end, we propose DiReCT (Directionally-Restrained Constrained Training), a novel framework that reformulates sample selection in the annealing stage as a constrained optimization problem. By imposing explicit directional constraints on per-sample gradients based on the spectral properties of the Hessian, DiReCT identifies samples that align with the optimal curvature-aware descent path. Extensive experiments across various model scales demonstrate that DiReCT consistently achieves state-of-the-art performance. For future research, code is available at https://github.com/xuyj233/Direct.",
+        "url": "http://arxiv.org/abs/2605.31175v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.31175v1",
+        "arxiv_id": "2605.31175v1",
+        "authors": [
+            "Yuanjian Xu",
+            "Jianing Hao",
+            "Wanbo Zhang",
+            "Zhong Li",
+            "Guang Zhang"
+        ],
+        "submitted": "2026-05-29 11:42:55",
+        "source": "arxiv",
+        "comment": null,
+        "score": 3,
+        "keyword_reasons": [
+            "Found 'ctr' (score: +2)",
+            "Found 'search' (score: +1)"
+        ],
+        "llm_score": 2,
+        "llm_reason": "This paper focuses on Large Language Models (LLMs) and their pre-training process, specifically the annealing phase. While it involves optimization techniques, it doesn't directly relate to the user's core research interests in Information Retrieval, Search technologies, or Natural Language Processing, particularly in areas requiring deep semantic understanding and real-time relevance optimization."
+    },
+    {
+        "title": "EvoDefense: Co-Evolving Black-Box Defense with Large Language Models",
+        "abstract": "Large Language Models (LLMs) remain highly vulnerable to diverse attacks, particularly in black-box settings where the internals of target models are inaccessible. Existing black-box defenses typically rely on pre-defined filtering heuristics, which often fail to generalize to unseen attack types and target model architectures. We introduce EvoDefense, an experience-guided co-evolving black-box defense paradigm. EvoDefense employs a guard LLM to detect malicious queries and an experience memory module to accumulate defense knowledge from previous interactions. At the core of EvoDefense is a continuous attack-defense evolution loop, where an attack generator and the guard model iteratively refine their attack strategies and defense policies through experience-guided optimization. This design enables EvoDefense to generalize across unseen attacks and target models without retraining. Experiments on HarmBench, AdvBench, and AlpacaEval show that EvoDefense achieves consistently strong defense performance across seven popular models and five representative LLM attacks, while preserving competitive general capabilities. On HarmBench, EvoDefense reduces the attack success rate (ASR) of AutoDAN-turbo on Gemini-3-flash and LLaMA-3-8B-Instruct from 29.4% and 43.4% to 8.4% and 6.2%, respectively.",
+        "url": "http://arxiv.org/abs/2605.31140v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.31140v1",
+        "arxiv_id": "2605.31140v1",
+        "authors": [
+            "Yu Li",
+            "Yuenan Hou",
+            "Yingmei Wei",
+            "Yanming Guo",
+            "Chaochao Lu"
+        ],
+        "submitted": "2026-05-29 10:49:44",
+        "source": "arxiv",
+        "comment": null,
+        "score": 3,
+        "keyword_reasons": [
+            "Found 'queries' (score: +3)"
+        ],
+        "llm_score": 2,
+        "llm_reason": "This paper is not directly related to your research interests in Information Retrieval, Search technologies, or Natural Language Processing. While it involves Large Language Models, the focus is on black-box defense against attacks, which is not a central theme in your research."
+    },
+    {
+        "title": "Towards Effective Long-Video Event Prediction via Multi-Level Event Semantics Mining",
+        "abstract": "Accurately predicting future events is fundamental to content understanding and decision-making across various domains. While prior research has primarily focused on text or short-video scenarios, long-video event prediction, characterized by vast multimodal context and more complex narratives, remains underexplored. Meanwhile, although recent Long-Video Language Models (LVLMs), built on Large Language Models (LLMs) and Vision-Language Models (VLMs), have shown promise in long-video question answering and summarization, they struggle to generalize to event prediction, as they can neither precisely extract event-related details nor perform fine-grained analysis of event development. To address this gap, we propose VISTA, a multi-level event semantics mining framework for long-video event prediction. Initially, VISTA applies a character-centric visual prompt to precisely extract event-related visual details, enhancing detail-level semantics; subsequently, it employs a knowledge-enhanced iterative retrieval strategy, guiding the LLM to progressively construct logically coherent event chains, thereby improving event-level narratives; ultimately, VISTA adopts a human-like propose-then-retrieve strategy to generate diverse future-oriented proposals and integrate multi-level clues, producing robust and accurate predictions. Extensive experiments on real-world datasets validate the effectiveness of VISTA for long-video event prediction.",
+        "url": "http://arxiv.org/abs/2605.31069v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.31069v1",
+        "arxiv_id": "2605.31069v1",
+        "authors": [
+            "Bo Peng",
+            "YuanJie Lyu",
+            "PengGang Qin",
+            "Tong Xu"
+        ],
+        "submitted": "2026-05-29 09:38:43",
+        "source": "arxiv",
+        "comment": null,
+        "score": 3,
+        "keyword_reasons": [
+            "Found 'retrieval' (score: +2)",
+            "Found 'search' (score: +1)"
+        ],
+        "llm_score": 4,
+        "llm_reason": "This paper is somewhat related to your research interests in Information Retrieval and Natural Language Processing, as it involves a framework for event prediction in long videos. However, it is not directly focused on query understanding, ranking models, or user behavior modeling, which are your core research themes. The paper's emphasis on multimodal context and event semantics mining is an interesting intersection with your work, but it does not align closely with your primary focus on real-time relevance optimization and deep semantic understanding in IR."
+    },
+    {
+        "title": "TRACE: Discovering Task-Specific Parameter via Adaptation-Aware Probing for Continual Fine-Tuning",
+        "abstract": "In real-world deployment, LLMs are often adapted continually across tasks to keep LLMs up-to-date in production, where new fine-tuning should preserve previously learned skills. However, indiscriminately mixing tasks can dilute task specialization, while sequential fine-tuning (full-parameter or low rank adaptation) often causes catastrophic forgetting due to destructive overwriting. Replay-based continual tuning and maintaining separate task-specific adapters can mitigate forgetting, but introduce additional compute, storage, and management overhead. Recognizing the redundancy of LLM parameters for any single task, we reframe continual task adaptation as task-specific parameter discovery via adaptation-aware probing: a short warm-start probe exposes a task's adaptation trace, enabling us to identify and isolate the small subset of parameters essential for each task to mitigate catastrophic forgetting. Building on this view, we introduce TRACE, a novel approach for discovering Task-specific paRameters via Adaptation-aware probing for Continual finE-tuning. We perform a short warm-start fine-tune to derive task-specific core parameters by comparing the warm-started and pre-trained models. Core parameters are identified via two strategies: importance scoring (L$_2$ norm and Fisher Information) and specificity analysis (cosine similarity of parameter updates). In continual fine-tuning settings, only the active task's core parameters are updated while others remain frozen, preserving prior knowledge. We conduct extensive experiments across multiple standard benchmarks to demonstrate the superior performance of our proposed method. Additionally, we validate the generalization of our method through a cross-model and scale transferability study, demonstrating a \"small-to-large\" paradigm that guides the fine-tuning of large-scale models under resource constraints.",
+        "url": "http://arxiv.org/abs/2605.31025v1",
+        "pdf_url": "https://arxiv.org/pdf/2605.31025v1",
+        "arxiv_id": "2605.31025v1",
+        "authors": [
+            "Xiaosong Han",
+            "Ke Chen",
+            "Xindi Dai",
+            "Di Liang",
+            "Minlong Peng",
+            "Wei Pang",
+            "Fausto Giunchiglia",
+            "Xiaoyue Feng",
+            "Yonghao Liu",
+            "Renchu Guan"
+        ],
+        "submitted": "2026-05-29 08:57:06",
+        "source": "arxiv",
+        "comment": "KDD2026",
+        "score": 3,
+        "keyword_reasons": [
+            "Found 'rag' (score: +2)",
+            "Found 'rank' (score: +1)"
+        ],
+        "llm_score": 2,
+        "llm_reason": "This paper focuses on continual fine-tuning of large language models, which is not directly related to information retrieval, search technologies, or query understanding. While it involves parameter adaptation and optimization, the context is primarily in natural language processing and model fine-tuning, rather than information retrieval or search."
+    }
+]

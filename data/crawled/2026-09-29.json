@@ -1,0 +1,161 @@
+[
+    {
+        "title": "Telescopic Language Models",
+        "abstract": "One deployed language model must often serve many compute budgets, yet serving each budget still means a separate training or compression run per point. We train a Telescopic Language Model (TLM) to be that continuum: a nested-capacity Transformer supervised by stochastic prefix supervision with a full anchor. At every step, one randomly truncated prefix of the capacity axis is trained against the full next-token target, alongside one full-capacity pass, so the trained artifact is a valid language model at every depth. Two forward-backward passes per step, no architectural change, nothing extra at inference. Fixed-exit suites such as Matryoshka Language Model Suites (MLMS) occupy one point in this design space, and the point has a cost: supervising only a few fixed exits leaves the nested model at chance level everywhere else (perplexity 10^2-10^5 in our baselines). On a 200M proxy suite (20B FineWeb-Edu tokens, identical data stream for all methods), a single TLM run is a valid language model at every one of its twenty layer prefixes, in perplexity and on perplexity-sensitive downstream tasks, reducing the area under the quality-budget curve by 43-44% relative to the fixed-exit suites while matching them at full capacity, at ~12% lower GPU cost per run. The prefix sampling density is a dial: concentrating it on a few depths recovers fixed-exit quality there at the price of the continuum, so the operating points become a training-time choice rather than an architectural one. These results indicate that the training objective, not the nesting itself, is what makes a model elastic.",
+        "url": "http://arxiv.org/abs/2609.35769v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.35769v1",
+        "arxiv_id": "2609.35769v1",
+        "authors": [
+            "Zhilin Guo",
+            "Boqiao Zhang",
+            "Hakan Aktas",
+            "Kyle Fogarty",
+            "Nursena Koprucu Aslan",
+            "Wenzhao Li",
+            "Canberk Baykal",
+            "Albert Miao",
+            "Siyu Hong",
+            "Yixiao Liu",
+            "Adam Wu",
+            "Ashish Kumar Singh",
+            "Sakar Khattar",
+            "Chenliang Zhou",
+            "Weihao Xia",
+            "Cristina Nader Vasconcelos",
+            "Cengiz Oztireli"
+        ],
+        "submitted": "2026-09-28 17:59:53",
+        "source": "arxiv",
+        "comment": "12 pages, 4 figures, 2 tables. Code: https://github.com/ZhilinGuo/telescopic-language-models"
+    },
+    {
+        "title": "Retrieving Biblical Intertextual References in Karen Blixen's Seven Gothic Tales",
+        "abstract": "Identifying intertextual references is central to literary scholarship, but computationally difficult when source material is transformed through paraphrase, allusion, historical language, and translation. We investigate this problem through biblical intertextuality in Karen Blixen's Seven Gothic Tales. Drawing on the commentary to a critical edition, we construct a benchmark of 189 annotated references and evaluate retrieval against all 31,170 verses of historically plausible Danish Old and New Testament translations. We compare TF-IDF and BM25 with multilingual and Danish sentence encoders, examine the effect of linguistic normalization, and fine-tune a Danish encoder using hard negatives and five-fold cross-validation. We analyze performance across automatically derived lexical-overlap strata representing quotations, paraphrases, and allusions. Linguistically normalized BM25 provides a strong zero-shot baseline, attaining an overall R@10 of 0.365 and retrieving every quotation within its ten highest-ranked verses. The best zero-shot dense model achieves a comparable overall score of 0.360 while performing better on allusions. Fine-tuning DFM-large raises its overall R@10 from 0.265 to 0.508 and more than doubles its performance on allusions, from 0.138 to 0.339. However, evaluation against editorial annotations alone understates the model's scholarly usefulness: a literary scholar judged seven of 30 selected rank-one predictions counted as false positives to be meaningful additional references. These findings show both the potential and the epistemic limits of computational intertextual retrieval. Rather than treating scholarly annotations as exhaustive or model outputs as discoveries, we propose retrieval models as heuristic co-readers that recover documented references and generate candidates for expert-led close reading.",
+        "url": "http://arxiv.org/abs/2609.35765v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.35765v1",
+        "arxiv_id": "2609.35765v1",
+        "authors": [
+            "András Kovács",
+            "Alexander Conroy",
+            "Daniel Hershcovich",
+            "Jens Bjerring-Hansen"
+        ],
+        "submitted": "2026-09-28 17:59:27",
+        "source": "arxiv",
+        "comment": null
+    },
+    {
+        "title": "Scaling Long-Form Story Generation via Narrative State Tracking",
+        "abstract": "LLMs have demonstrated strong capabilities in creative writing. However, scaling them to full-length novels remains challenging, as maintaining narrative consistency becomes increasingly difficult. Existing story-generation methods typically focus on stories of up to about ten thousand words, leaving their ability to scale to full-length novels underexplored. In this work, we introduce Narrative State Tracking Agent (NstAgent), a training-free agentic framework that allows LLMs to track a structured narrative state including characters, past events and future requirements. We extend an existing benchmark to compare narrative consistency across lengths, and use it together with a writing-quality benchmark to systematically evaluate stories ranging from 10K to 100K words. We show that NstAgent achieves better narrative consistency and writing quality as stories grow longer, and neither of them degrades noticeably as length increases, suggesting that it provides an effective approach to scaling story generation toward full-length novels.",
+        "url": "http://arxiv.org/abs/2609.35759v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.35759v1",
+        "arxiv_id": "2609.35759v1",
+        "authors": [
+            "Zhennan Wan",
+            "Jianfei Chen"
+        ],
+        "submitted": "2026-09-28 17:59:09",
+        "source": "arxiv",
+        "comment": "Under review. Code and data are available at https://github.com/zhennan1/NstAgent"
+    },
+    {
+        "title": "How to Loop MoE: Flatten the Experts, Untie the Attention",
+        "abstract": "Looped Transformers reuse one block of layers several times: by spending extra computation they push a model of fixed size further, and so use its parameters more fully; while sparse mixture-of-experts (MoE) models activate only a few of many experts for each token. Looped MoE bridges these two design philosophies and gives MoE models new potential for better expert usage, but it raises a question: how to loop a MoE? We answer it with Foil. With the expert parameters and the expert compute per token held fixed, Foil (1) flattens the experts, halving the expert layers, doubling the experts per layer and doubling the passes, so that every routing decision chooses from a larger pool, and (2) unties the attention, giving each pass its own attention parameters while the experts and routers stay shared. Experiments show that Foil clearly outperforms the unflattened looped baseline: at 20B tokens every Foil model has lower pretraining loss than the baseline; at 100B tokens the loss improves monotonically with the degree of flattening, the most flattened Foil ending 0.012 nat below the baseline at equal parameters and compute, with downstream accuracy on par or better; untying the attention also yields more balanced and more confident routing at equal shape. Our ablations analyse why Foil works and turn the findings into design guidance for looped MoE: the returns of looping and of widening the expert layers amplify each other, routing confidence tracks healthy expert use better than load balance, and a sparse looped MoE should therefore use more experts per layer and more passes. Code and configurations are available at https://github.com/SR-A-W/how-to-loop-moe.",
+        "url": "http://arxiv.org/abs/2609.35751v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.35751v1",
+        "arxiv_id": "2609.35751v1",
+        "authors": [
+            "Shouren Wang",
+            "Chuang Ma",
+            "Mohsen Hariri",
+            "Debargha Ganguly",
+            "Wang Yang",
+            "Xiaoqing Tong",
+            "Qianying Liu",
+            "Xiaotian Han",
+            "Vipin Chaudhary"
+        ],
+        "submitted": "2026-09-28 17:58:03",
+        "source": "arxiv",
+        "comment": "24 pages, 6 figures, 13 tables"
+    },
+    {
+        "title": "Towards Communication-Efficient Social Intelligence in Language Agents",
+        "abstract": "Socially intelligent language agents must negotiate, coordinate, and resolve conflicting preferences while respecting the time and attention of both participants. Balancing these demands is challenging because agents must convey enough to address a partner's constraints and advance their goals without adding words that do not help the interaction. In this paper, we propose Teacher-Assisted Communication Training (TACT) to improve social goal attainment while reducing communication cost, making interactions with agents more productive and less demanding. We first characterize communication efficiency in terms of action strategy and expression, whose effects extend beyond the current utterance to the partner's response and subsequent exchanges. We design TACT to revise student-generated actions, test the revisions through partner responses, and distill useful feedback into the student. An expression specialist removes unnecessary detail while preserving the intended action, while a strategy specialist proposes alternatives that may better address the partner's constraints. To determine which revision helps, TACT samples a partner response for each candidate and selects a teacher reference by balancing local goal support against action-token cost. That reference guides on-policy distillation on the student's own generation prefixes, allowing the student to act independently at deployment. We evaluate TACT on SOTOPIA and AgentSense. On SOTOPIA, it achieves the highest Goal among the evaluated methods on All and Hard while using substantially fewer target tokens than SFT+SDPO. On AgentSense, it improves goal success over the initial student while reducing target tokens and interaction messages.",
+        "url": "http://arxiv.org/abs/2609.35749v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.35749v1",
+        "arxiv_id": "2609.35749v1",
+        "authors": [
+            "Linxiao Gong",
+            "Yijie Xu",
+            "Tianfu Wang",
+            "Yin Wu",
+            "Yili Wang",
+            "Xingbo Yao",
+            "Huizai Yao",
+            "Xilin Xia",
+            "Haowen Yang",
+            "Hui Xiong"
+        ],
+        "submitted": "2026-09-28 17:57:16",
+        "source": "arxiv",
+        "comment": null
+    },
+    {
+        "title": "Improving Test-Time Scaling with Adaptive Looped Transformers",
+        "abstract": "Looped transformers have demonstrated promising parameter efficiency by reusing layers for latent computation. Prior studies compare looped and non-looped models at matched parameters or per-token FLOPs. However, to the best of our knowledge, whether looping improves test-time scaling as outputs grow longer remains underexplored. Through post-training looped transformers, we study the accuracy-compute slope, measured as the accuracy gain per doubling of test-time decoding FLOPs. We find that existing looped transformers often yield steeper slopes than their non-looped baseline, yet underperform it at matched compute. While fixed-depth looping spends extra iterations on every token, our analysis shows that many tokens do not benefit from extra iterations. We therefore propose TaH2, which enables the model to focus extra iterations on the tokens that benefit from looping. It jointly post-trains the backbone and an iteration decider through lookahead depth supervision, which uses online labels indicating whether further iteration improves the prediction. TaH2 improves both the efficiency and attainable accuracy of test-time scaling. On challenging AIME benchmarks, TaH2 improves the accuracy-compute slope by 53% (2.74 vs. 1.79) over the non-looped baseline, exceeding the baseline's peak accuracy by about 3.4 points at matched test-time compute. As the maximum iteration depth increases, existing looped models largely plateau, while TaH2's gain over the non-looped baseline continues to grow from +2.8 points at depth 2 to +3.9 points at depth 8. Our code is available at https://github.com/thu-nics/TaH.",
+        "url": "http://arxiv.org/abs/2609.35748v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.35748v1",
+        "arxiv_id": "2609.35748v1",
+        "authors": [
+            "Yichen You",
+            "Tianyu Fu",
+            "Aosong Feng",
+            "Xingtai Lv",
+            "Xuefei Ning",
+            "Ning Ding",
+            "Yu Wang"
+        ],
+        "submitted": "2026-09-28 17:56:55",
+        "source": "arxiv",
+        "comment": null
+    },
+    {
+        "title": "Shockingly Simple Self-retrospection Improves Agentic Models Without RL",
+        "abstract": "People learn not only by repeating successful actions, but also by recounting and explaining their experiences, revising their understanding to guide future behavior. Can a language-model agent improve its future actions by training only on explanations of its own experience? We investigate this question by studying Retrospection-Only Fine-Tuning (ROFT), a minimal online procedure designed to isolate the effect of explanation-only training on subsequent behavior. The agent attempts a task, observes available feedback, generates a retrospective explanation, and is fine-tuned with a next-token prediction loss on the explanation tokens alone. The procedure uses neither an external teacher nor a reward-based policy update. In software-engineering experiments with Qwen3.5-4B, ROFT is trained on problems with mixed successful and unsuccessful base-model attempts. On held-out SWE-bench Verified and Pro, it reaches 49.2% and 26.8% solve rates after 20 updates without using a verifier, compared with GRPO's 48.0% and 25.3% after 40 updates in the evaluated runs, and makes faster early progress in training time and sampled attempts. It also learns to solve individual tasks on which all 64 sampled base-model attempts failed, showing that learning can begin without any initially successful trajectories. Behavioral analyses find that ROFT indirectly assigns credit to actions, encouraging good actions and discouraging incorrect ones. Moreover, prompting retrospections to emphasize more direct solutions yields shorter subsequent attempts even without an explicit length penalty. Together, these findings show that learning to explain can also improve learning to do, establishing self-generated retrospections as useful training targets and motivating further study of explanation-to-action transfer.",
+        "url": "http://arxiv.org/abs/2609.35741v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.35741v1",
+        "arxiv_id": "2609.35741v1",
+        "authors": [
+            "Jonathan Light",
+            "Christopher Zhang Cui",
+            "Jeonghye Kim",
+            "Roger Creus Castanyer",
+            "Emiliano Penaloza",
+            "Zhengyan Shi",
+            "Alessandro Sordoni",
+            "Marc-Alexandre Côté",
+            "Xingdi Yuan",
+            "Minseon Kim"
+        ],
+        "submitted": "2026-09-28 17:54:24",
+        "source": "arxiv",
+        "comment": "62 pages, 18 figures, 5 tables, including appendices"
+    },
+    {
+        "title": "Rubric-Calibrated Preferences: Cross-Query Calibration of LLM Judgments via Item Response Theory",
+        "abstract": "Rerankers decide which documents users and LLMs see, yet their standard metric, nDCG, relies on human relevance labels that are costly, sparse, noisy, and discretely graded. As rerankers approach each other in quality, nDCG on these labels therefore increasingly fails to separate them. LLM judges could supply dense labels. Relative judgments within one query tell even close candidates apart, yet their scores share no scale across queries. Absolute grades share one scale but are too coarse to distinguish documents of similar relevance. We propose Rubric-Calibrated Preferences (RCP), which combine both kinds of judgment. A listwise Bradley-Terry tournament orders each query's documents, and a rubric of yes/no criteria of increasing stringency provides an absolute standard. Item Response Theory (IRT), which scores test-takers based on their answers to common questions, then uses the shared criteria to put all queries' tournament scores on one scale. RCP's retrieval metric, RCP-nDCG, replaces nDCG's discrete labels with the resulting calibrated relevance probabilities. Against blind grades from 46 external annotators, calibration raises the correlation between a query's mean score and its mean human grade from 0.538 to 0.795. The probabilities rank a useful document above a non-useful one with probability 0.910 (AUC, chance 0.5), versus 0.651 for the benchmark labels. When the annotators' grades prefer one of two rerankers and exactly one metric agrees, that metric is RCP-nDCG in 72.4% of 185 comparisons (chance about 53%). On TREC-DL, RCP-nDCG sides with NIST assessors' grades on every reranker pair that these grades separate significantly. RCP-nDCG also resolves many of nDCG's ties and separates 1.9 times as many reranker pairs on NanoBEIR. Rubric calibration thus turns relative LLM judgments into dense relevance labels that are comparable across queries and agree with human judgment.",
+        "url": "http://arxiv.org/abs/2609.35739v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.35739v1",
+        "arxiv_id": "2609.35739v1",
+        "authors": [
+            "Fabian David Schmidt",
+            "Donato Crisostomi",
+            "Carlos Lassance",
+            "Nils Reimers"
+        ],
+        "submitted": "2026-09-28 17:54:16",
+        "source": "arxiv",
+        "comment": "51 pages. Code and data: https://github.com/cohere-ai/rcp-ndcg"
+    }
+]
